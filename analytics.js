@@ -19,10 +19,11 @@ function loadScriptAsync(scriptSrc, callback) {
     script.src = scriptSrc;
     document.head.appendChild(script);
 }
-loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-154896299-1', function() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-154896299-1');
+loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-154896299-1', function() {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	
+	gtag('config', 'UA-154896299-1');
 });
