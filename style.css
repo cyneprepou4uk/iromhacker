@@ -11,6 +11,11 @@ body {
 	margin-right: 15%;
 }
 
+body.root {
+	margin-left: 0%;
+	margin-right: 0%;
+}
+
 h1 {
 	text-align: center;
 	color: dodgerblue;
