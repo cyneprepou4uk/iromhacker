@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<meta charset="UTF-8">
+<meta name="description" content="new">
+
+<title>Скачивание ROM'ов</title>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link href="../style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<h1>Скачивание ROM'ов</h1>
+
+
+
+<!--скрипт для спойлеров-->
+<script>
+var acc = document.getElementsByClassName("spoiler");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+
+</html>

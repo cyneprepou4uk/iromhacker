@@ -1,0 +1,307 @@
+/* Шрифты https://www.cssfontstack.com/ */
+/* Цвета https://www.rapidtables.com/web/css/css-color.html */
+/* Символы https://htmlweb.ru/html/symbols.php */
+
+body {
+	background: #202020;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	color: #E0E0E0;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+h1 {
+	text-align: center;
+	color: teal;
+}
+
+h2 {
+	color: limegreen;
+}
+
+h3 {
+	color: orangered;
+}
+
+h4 {
+	color: crimson;
+}
+
+a:link,
+a:visited,
+a:active {
+	background: transparent;
+	color: #2080D0;
+	text-decoration: underline; /*none*/
+}
+
+a:hover {
+	background: transparent;
+	color: #30A0F0;
+	text-decoration: underline;
+}
+
+
+
+/* <text class="???">текст</text> */
+text {
+	font-weight: bold;
+}
+
+.path {
+	color: orangered;
+}
+
+.section {
+	color: chocolate;
+}
+
+.object {
+	color: yellow;
+/*  color: darkslateblue; */
+}
+
+.file {
+	color: blueviolet;
+}
+
+.button {
+	color: magenta;
+/*  color: maroon; */
+}
+
+.underline {
+	border-bottom: solid 1px;
+	font-weight: normal;
+}
+
+.hidden {
+	color: white;
+}
+
+.code_color_path {
+	color: orangered;
+}
+
+.code_color_section {
+	color: darkgreen;
+}
+
+.code_color_object {
+	color: darkslateblue;
+}
+
+.code_color_file {
+	color: mediumvioletred;
+}
+
+li {
+	margin-left: 13px;
+}
+
+table {
+	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+	font-size: 15px;
+    overflow: auto;
+	display: inline-block;
+}
+
+img, iframe, table {
+	max-width: 100%;
+	position: relative;
+    border: 0px #000000 solid transparent;
+    border-radius: 8px;
+}
+
+.title {
+	font-size: 1.5em;
+	border-left: 1px goldenrod solid;
+	border-bottom: 1px goldenrod solid;
+	font-weight: bold;
+	color: goldenrod;
+	padding-left: 5px;
+	margin-top: 30px;
+	margin-left: -5px;
+	letter-spacing: 1.5px;
+}
+
+
+
+/* отдельные подсказки с серым фоном */
+.tip_red, .tip_yellow, .tip_blue {
+	position: relative;
+    border: 4px solid transparent;
+    border-radius: 16px;
+    background: linear-gradient(white, white);
+    background-clip: padding-box;
+	padding: 20px 20px 20px 20px; /* padding: 10px; */
+	font-style: italic;
+	position: relative;
+	border-image-slice: 1;
+}
+
+.tip_red::after, .tip_yellow::after, .tip_blue::after {
+    position: absolute;
+    top: -4px; bottom: -4px;
+    left: -4px; right: -4px;
+    content: '';
+    z-index: -1;
+    border-radius: 16px;
+}
+
+.tip_red::after {
+    background: linear-gradient(to right, red, white);
+}
+
+.tip_yellow::after {
+    background: linear-gradient(to right, yellow, white);
+}
+
+.tip_blue::after {
+    background: linear-gradient(to right, blue, white);
+}
+
+.tip {
+	background-color: #F8F8F8;
+	border: 5px solid #E8E8E8;
+	border-radius: 8px;
+	margin-left: 5%;
+	margin-right: 5%;
+	min-height: initial;
+	padding: 4px 10px 4px 10px;
+	font-style: italic;
+}
+
+title {
+	background: #112233;
+	border-bottom: dashed 1px rgba(0,0,0,0.8);
+	font-style: inherit;
+	cursor: help;
+	position: relative;
+}
+
+
+
+/* всплывающие подсказки при наведении курсора */
+dfn {
+	background: #F0F0F0;
+	border-bottom: dashed 1px rgba(0,0,0,0.8);
+	font-style: inherit;
+	cursor: help;
+	position: relative;
+}
+
+dfn::after {
+	content: attr(data-info);
+	display: inline-block;
+	font-style: normal;
+	position: absolute;
+	top: 22px; left: 0;
+	opacity: 0;
+	line-height: 1.5em;
+	padding: 0.5em 0.8em;
+	background: rgba(0,0,0,0.8);
+	color: #FFFFFF;
+	pointer-events: none; /* This prevents the box from apearing when hovered. */
+	transition: opacity 250ms, top 250ms;
+}
+
+/*
+dfn::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 12px;
+	left: 20px;
+	opacity: 0;
+	width: 0; height: 0;
+	border: solid transparent 5px;
+	border-bottom-color: rgba(0,0,0,0.8);
+	transition: opacity 250ms, top 250ms;
+}
+*/
+
+dfn:hover {z-index: 2;} /* Keeps the info boxes on top of other elements */
+dfn:hover::after,
+dfn:hover::before {opacity: 1;}
+dfn:hover::after {top: 30px;}
+dfn:hover::before {top: 20px;}
+
+
+
+.debugger_code {
+	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+	white-space: pre;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 15px;
+    overflow: auto;
+	max-width: 100%;
+	display: inline-block;
+	color: ;
+	background: #000000;
+    border: 1px #303030 solid;
+	padding: 0px 10px 15px 10px;
+}
+
+.debugger_color_blue {
+	color: mediumslateblue;
+}
+
+.debugger_color_green {
+	color: #40FF40;
+}
+
+.debugger_color_grey {
+/*
+	color: #808080;
+*/
+	color: darkslategray;
+}
+
+
+/* https://www.w3schools.com/howto/howto_js_spoiler.asp */
+/* альтернативный спойлер https://jsfiddle.net/tovic/bY6ty */
+.spoiler {
+	font-family: Verdana,Geneva,sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: firebrick;
+	background-color: #C0C0C0;
+	cursor: pointer;
+	padding: 10px;
+	width: 100%;
+	border: 5px;
+	border-radius: 10px;
+	text-align: left;
+	outline: none;
+	transition: 0.2s; /*скорость изменения цвета при наведении курсора*/
+}
+
+.active, .spoiler:hover {
+	background-color: #E0E0E0;
+}
+
+.spoiler:after {
+	content: "\25BA \A0";
+	color: #707070;
+	font-weight: bold;
+	float: left;
+	margin-left: 5px;
+}
+
+.active:after {
+	content: "\25BC \A0";
+}
+
+.panel {
+	/*padding: 0 18px;*/
+	width: 100%;
+	background-color: #202020;
+	color: orange;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	font-style: italic;
+}
