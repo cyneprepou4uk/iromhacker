@@ -11,7 +11,7 @@
 	});
 
 // google
-include('https://media.geeksforgeeks.org/wp-content/uploads/20190704153043/main.js'); 
+include('https://www.googletagmanager.com/gtag/js?id=UA-154896299-1'); 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
