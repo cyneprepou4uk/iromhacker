@@ -124,6 +124,11 @@ img {
     border-radius: 8px;
 }
 
+p.tip {
+	font-style: italic;
+	color: orange;
+}
+
 .title {
 	font-size: 1.5em;
 	border-left: 1px goldenrod solid;
@@ -134,53 +139,6 @@ img {
 	margin-top: 30px;
 	margin-left: -5px;
 	letter-spacing: 1.5px;
-}
-
-
-
-/* отдельные подсказки с серым фоном */
-.tip_red, .tip_yellow, .tip_blue {
-	position: relative;
-    border: 4px solid transparent;
-    border-radius: 16px;
-    background: linear-gradient(white, white);
-    background-clip: padding-box;
-	padding: 20px 20px 20px 20px; /* padding: 10px; */
-	font-style: italic;
-	position: relative;
-	border-image-slice: 1;
-}
-
-.tip_red::after, .tip_yellow::after, .tip_blue::after {
-    position: absolute;
-    top: -4px; bottom: -4px;
-    left: -4px; right: -4px;
-    content: '';
-    z-index: -1;
-    border-radius: 16px;
-}
-
-.tip_red::after {
-    background: linear-gradient(to right, red, white);
-}
-
-.tip_yellow::after {
-    background: linear-gradient(to right, yellow, white);
-}
-
-.tip_blue::after {
-    background: linear-gradient(to right, blue, white);
-}
-
-.tip {
-	background-color: #F8F8F8;
-	border: 5px solid #E8E8E8;
-	border-radius: 8px;
-	margin-left: 5%;
-	margin-right: 5%;
-	min-height: initial;
-	padding: 4px 10px 4px 10px;
-	font-style: italic;
 }
 
 title {
