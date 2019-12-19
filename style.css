@@ -106,8 +106,14 @@ table.root
     overflow: auto;
 }
 
-img, iframe, table {
+iframe, table {
 	max-width: 100%;
+	position: relative;
+    border: 0px #000000 solid transparent;
+    border-radius: 8px;
+}
+
+img {
 	position: relative;
     border: 0px #000000 solid transparent;
     border-radius: 8px;
