@@ -13,7 +13,6 @@
 // google
 // https://stackoverflow.com/questions/51833090/put-google-analytics-code-in-an-js-file/51833302
 
-/*
 function loadScriptAsync(scriptSrc, callback) {
     var script = document.createElement('script');
     script.onload = callback;
@@ -28,4 +27,3 @@ loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-154896299-1', fu
 	
 	gtag('config', 'UA-154896299-1');
 });
-*/
