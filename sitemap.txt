@@ -1,4 +1,10 @@
 https://iromhacker.ru/
+
 https://iromhacker.ru/nes/ru/index.html
+
 https://iromhacker.ru/nes/ru/fceux/setup/index.html
+https://iromhacker.ru/nes/ru/fceux/setup/files/index.html
+https://iromhacker.ru/nes/ru/fceux/setup/hotkeys/index.html
+https://iromhacker.ru/nes/ru/fceux/setup/input/index.html
+
 https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/index.html
