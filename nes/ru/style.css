@@ -103,7 +103,7 @@ table {
 table.root
 {
 	font-family: inherit;
-    overflow: auto;
+    overflow: visible;
 }
 
 iframe, table {
