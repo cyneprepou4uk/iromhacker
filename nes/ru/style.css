@@ -103,7 +103,6 @@ table {
 table.root
 {
 	font-family: inherit;
-    overflow: visible;
 }
 
 iframe, table {
@@ -113,7 +112,7 @@ iframe, table {
     border-radius: 8px;
 }
 
-img, iframe, table {
+img {
 	position: relative;
     border: 0px #000000 solid transparent;
     border-radius: 8px;
