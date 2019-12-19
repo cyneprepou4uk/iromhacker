@@ -13,7 +13,7 @@ body {
 
 h1 {
 	text-align: center;
-	color: teal;
+	color: dodgerblue;
 }
 
 h2 {
@@ -28,18 +28,11 @@ h4 {
 	color: crimson;
 }
 
-a:link,
-a:visited,
-a:active {
+a:link, a:visited, a:hover, a:active {
 	background: transparent;
-	color: #2080D0;
+	color:#63C0F5;
+	text-shadow:0 0 5px rgba(104,182,255,0.5);
 	text-decoration: underline; /*none*/
-}
-
-a:hover {
-	background: transparent;
-	color: #30A0F0;
-	text-decoration: underline;
 }
 
 
@@ -107,8 +100,20 @@ table {
 	display: inline-block;
 }
 
-img, iframe, table {
+table.root
+{
+	font-family: inherit;
+    overflow: auto;
+}
+
+iframe, table {
 	max-width: 100%;
+	position: relative;
+    border: 0px #000000 solid transparent;
+    border-radius: 8px;
+}
+
+img, iframe, table {
 	position: relative;
     border: 0px #000000 solid transparent;
     border-radius: 8px;
