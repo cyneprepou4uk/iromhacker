@@ -7,20 +7,13 @@ body {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 15px;
 	color: #E0E0E0;
-	margin-left: 15%;
-	margin-right: 15%;
-}
-
-@media screen and (max-device-width: 1280px) {
-	body {
-		margin-left: 3%;
-		margin-right: 3%;
-	}
+	max-width: 720px;
+	margin: 0 auto; /* появление отступов при достижении 720px */
+	padding: 0 15px; /* фиксированный отступ */
 }
 
 body.root {
-	margin-left: 0%;
-	margin-right: 0%;
+	max-width: 9999px;
 }
 
 h1 {
