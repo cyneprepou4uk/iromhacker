@@ -334,7 +334,7 @@ dfn:hover::before {top: 20px;}
 
 .slider-nav {
   position: absolute;
-  bottom: 50px;
+  bottom: 70px; /* позиция кружков под слайдером */
 }
 
 .slider-nav__item {
