@@ -7,9 +7,9 @@ body {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 15px;
 	color: #E0E0E0;
-	max-width: 720px;
-	margin: 0 auto; /* появление отступов при достижении 720px */
-	padding: 0 15px; /* фиксированный отступ */
+	max-width: 1000px;
+	margin: 0 auto; /* появление отступов по краям при достижении max-width */
+	padding: 0 15px; /* фиксированный отступ по краям */
 }
 
 body.root {
