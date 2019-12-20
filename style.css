@@ -343,10 +343,10 @@ dfn:hover::before {top: 20px;}
   clear: none;
   display: block;
   margin: 0 5px;
-  background: #fff;
+  background: #888;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
 .slider-nav__item:hover { background: #bababa; }
-.slider-nav__item--current, .slider-nav__item--current:hover { background: #999; }
+.slider-nav__item--current, .slider-nav__item--current:hover { background: #fff; }
