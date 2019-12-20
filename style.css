@@ -11,6 +11,13 @@ body {
 	margin-right: 15%;
 }
 
+@media handheld {
+	body {
+		margin-left: 3%;
+		margin-right: 3%;
+	}
+}
+
 body.root {
 	margin-left: 0%;
 	margin-right: 0%;
