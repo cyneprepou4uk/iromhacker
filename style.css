@@ -13,7 +13,7 @@ body {
 }
 
 body.root {
-	max-width: 9999px;
+	max-width: 500px;
 }
 
 ul.root, figure{
