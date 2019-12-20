@@ -13,6 +13,8 @@
 <link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
 <link href="https://iromhacker.ru/style.css" rel="stylesheet">
 <script src="https://iromhacker.ru/analytics.js"></script>
+<script src="https://iromhacker.ru/jquery-1.10.2.min.js"></script>
+<script src="https://iromhacker.ru/jquery.glide.min.js"></script>
 
 <meta name="yandex-verification" content="6f11f4ac013398bc" />
 <meta name="google-site-verification" content="6dgNOme3auHaB_bCg_i341ISDxVv6iclFdyTSk9ZGYE" />
@@ -39,16 +41,36 @@
 </p>
 <br>
 
-<p>
-<center><table class="root" border=0 cellspacing=1 cellpadding=10>
-<tr><td colspan="2"><img src="nes.png" title="Nintendo Entertainment System"></td><td colspan="2"><img src="sega.png" title="Sega Mega Drive"></td><td colspan="2"><img src="snes.png" title="Super Nintendo Entertainment System"></td></tr>
-<tr><td align="right"><a href="nes/ru/index.html">Русская<br>версия</a></td><td align="left">English<br>version</td><td align="right">Русская<br>версия</td><td align="left">English<br>version</td><td align="right">Русская<br>версия</td><td align="left">English<br>version</td></tr>
-</table></center>
-</p>
-
-<br>
-<br>
-<br>
+   <div id="w">
+    <div class="slider">
+      <ul class="slides root">
+        <li class="slide root">
+          <figure>
+            <table class="root" border=0 cellspacing=1 cellpadding=10>
+<tr><td colspan="2"><img src="nes.png" title="Nintendo Entertainment System"></td></tr>
+<tr><td align="right"><a href="nes/ru/index.html">Русская<br>версия</a></td><td align="left">English<br>version</td></tr>
+</table>
+          </figure>
+        </li>
+        <li class="slide root">
+          <figure>
+                        <table class="root" border=0 cellspacing=1 cellpadding=10>
+<tr><td colspan="2"><img src="sega.png" title="Sega Mega Drive"></td></tr>
+<tr><td align="right">Русская<br>версия</td><td align="left">English<br>version</td></tr>
+</table>
+          </figure>
+        </li>
+        <li class="slide root">
+          <figure>
+                        <table class="root" border=0 cellspacing=1 cellpadding=10>
+<tr><td colspan="2"><img src="snes.png" title="Super Nintendo Entertainment System"></td></tr>
+<tr><td align="right">Русская<br>версия</td><td align="left">English<br>version</td></tr>
+</table>
+          </figure>
+        </li>
+      </ul>
+    </div><!-- @end .slider -->
+  </div><!-- @end #w -->
 
 <p>
 <center>
@@ -57,6 +79,17 @@
 </p>
 
 <script src="https://iromhacker.ru/spoiler.js"></script>
+
+<script type="text/javascript">
+$(function(){
+  $('.slider').glide({
+    autoplay: 2000,
+    hoverpause: true, // set to false for nonstop rotate
+    arrowRightText: '&rarr;',
+    arrowLeftText: '&larr;'
+  });
+});
+</script>
 
 </body>
 

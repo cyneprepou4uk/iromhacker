@@ -16,6 +16,25 @@ body.root {
 	max-width: 9999px;
 }
 
+ul.root, figure{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul.root { list-style: none; }
+
+li.root {
+	margin-left: 0px;
+}
+
+#w {
+  display: block;
+  max-width: 1000px;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
 h1 {
 	text-align: center;
 	color: dodgerblue;
@@ -273,3 +292,62 @@ dfn:hover::before {top: 20px;}
 	transition: max-height 0.2s ease-out;
 	font-style: italic;
 }
+
+
+
+/** Glidejs styles **/
+.slider {
+	position: relative;
+	width: 50%;
+	margin-left: 25%;
+	height: 350px;
+	overflow: hidden;
+}
+	
+.slides {
+  height: 100%;
+  overflow: hidden;
+  /**	
+   * Prevent blinking issue
+   * Not tested. Experimental.
+   */
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+
+   -webkit-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+   -moz-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+   -ms-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+   -o-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+   transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+}
+	
+.slide {
+  height: 100%;
+  float: left;
+  clear: none;
+}
+.slide figure {
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 50px;
+}
+
+.slider-nav__item {
+  width: 12px;
+  height: 12px;
+  float: left;
+  clear: none;
+  display: block;
+  margin: 0 5px;
+  background: #fff;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.slider-nav__item:hover { background: #bababa; }
+.slider-nav__item--current, .slider-nav__item--current:hover { background: #999; }
