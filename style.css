@@ -11,7 +11,7 @@ body {
 	margin-right: 15%;
 }
 
-@media handheld {
+@media screen and (max-device-width: 1280px) {
 	body {
 		margin-left: 3%;
 		margin-right: 3%;
