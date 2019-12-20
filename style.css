@@ -297,8 +297,7 @@ dfn:hover::before {top: 20px;}
 /** Glidejs styles **/
 .slider {
 	position: relative;
-	width: 50%;
-	margin-left: 25%;
+	width: 100%;
 	height: 350px;
 	overflow: hidden;
 }
