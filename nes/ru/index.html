@@ -1,117 +1,110 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="NES 6502. ROM hacking for beginners. Ромхакинг для начинающих на русском">
-
-<title>ЯРомхакер NES</title>
-
-<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
-<link href="https://iromhacker.ru/style.css" rel="stylesheet">
-<script src="https://iromhacker.ru/analytics.js"></script>
-
-</head>
-
-<body>
-
-<h1>ЯРомхакер NES</h1>
-
-<p>
-<center>
-<a href="https://vk.com/cyneprepou4uk" target="_blank"><img src="vk.png" title="VK" height="32" hspace="5"></a>
-<a href="http://t.me/cyneprepou4uk" target="_blank"><img src="telegram.png" title="Telegram" height="32" hspace="5"></a>
-<a href="https://discord.gg/bsHBfsG" target="_blank"><img src="discord.png" title="Discord" height="32" hspace="5"></a>
-<a href="https://www.emu-land.net/forum/index.php?action=profile;u=77131" target="_blank"><img src="emuland.png" title="Emu-Land" height="32" hspace="5"></a>
-<a href="https://www.romhacking.net/forum/index.php?action=profile;u=75353" target="_blank"><img src="rhdn.png" title="RHDN" height="32" hspace="5"></a>
-<a href="mailto:cyneprepou4uk@gmail.com?subject=iRomhacker" target="_blank"><img src="gmail.png" title="Gmail" height="32" hspace="5"></a>
-<a href="https://github.com/cyneprepou4uk" target="_blank"><img src="github.png" title="GitHub" height="32" hspace="5"></a>
-<a href="https://fuzznec.bandcamp.com/" target="_blank"><img src="bandcamp.png" title="Bandcamp" height="32" hspace="5"></a>
-<a href="https://www.donationalerts.com/r/cyneprepou4uk" target="_blank"><img src="donationalerts.png" title="DonationAlerts" height="32" hspace="5"></a>
-</center>
-</p>
-<br>
-
-<br>
-<p class="title">Программа обучения</p>
-<ul>
-<li>Альтернативные источники информации</li>
-<li>Общие сведения про NES</li>
-<li>Начало работы с эмулятором</li>
-<li>Изучение команд процессора</li>
-<li>Поиск адресов и свободного места</li>
-<li>Основы составления кода</li>
-<li>Типичные ошибки новичка</li>
-<li>Редактирование графики</li>
-<li>Перевод игр</li>
-<li>Смена маппера</li>
-<li>Редактирование музыки</li>
-</ul>
-
-<br>
-<p class="title">Разное</p>
-<ul>
-<li>Примеры кодов</li>
-<li>Графические приемы</li>
-<li>Ромхакерские приемы</li>
-<li>Модифицированный ромхакинг</li>
-<li>Прочие статьи</li>
-</ul>
-
-<br>
-<p class="title">Эмулятор FCEUX</p>
-<ul>
-<li><a href="fceux/setup/index.html">Настройка эмулятора</a></li>
-<li>Cheats</li>
-<li>Code/Data Logger</li>
-<li>Debugger</li>
-<li>Game Genie Encoder/Decoder</li>
-<li><a href="fceux/debug/hex_editor/index.html">Hex Editor</a></li>
-<li>iNES Header Editor</li>
-<li>Memory Watch</li>
-<li>Name Table Viewer</li>
-<li>PPU Viewer</li>
-<li>RAM Search</li>
-<li>RAM Watch</li>
-<li>TAS Editor</li>
-<li>Text Hooker</li>
-<li>Trace Logger</li>
-</ul>
-
-<br>
-<p class="title">Программы</p>
-<ul>
-<li>010 Editor</li>
-<li>Clickermann</li>
-<li>HashTab</li>
-<li>Lunar IPS</li>
-<li>Notepad++</li>
-<li>YY-CHR</li>
-</ul>
-
-<br>
-<p class="title">Техническая информация</p>
-<ul>
-<li>Команды процессора 6502</li>
-<li>Джойстики</li>
-<li>Видеопроцессор PPU</li>
-<li>Аудио процессор APU</li>
-<li>Мапперы</li>
-<li>Проче</li>
-</ul>
-
-<br>
-<br>
-<br>
-
-<p>
-<center>© Copyright 2019 <a href="https://iromhacker.ru">iRomhacker</a> - No Rights Reserved</center>
-</p>
-
-<script src="https://iromhacker.ru/spoiler.js"></script>
-
-</body>
-
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="NES 6502. ROM hacking for beginners. Ромхакинг для начинающих на русском">
+		<title>ЯРомхакер NES</title>
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>ЯРомхакер NES</h1>
+		<p>
+			<center>
+				<a href="https://vk.com/cyneprepou4uk" target="_blank"><img src="vk.png" title="VK" height="32" hspace="5"></a>
+				<a href="http://t.me/cyneprepou4uk" target="_blank"><img src="telegram.png" title="Telegram" height="32" hspace="5"></a>
+				<a href="https://discord.gg/bsHBfsG" target="_blank"><img src="discord.png" title="Discord" height="32" hspace="5"></a>
+				<a href="https://www.emu-land.net/forum/index.php?action=profile;u=77131" target="_blank"><img src="emuland.png" title="Emu-Land" height="32" hspace="5"></a>
+				<a href="https://www.romhacking.net/forum/index.php?action=profile;u=75353" target="_blank"><img src="rhdn.png" title="RHDN" height="32" hspace="5"></a>
+				<a href="mailto:cyneprepou4uk@gmail.com?subject=iRomhacker" target="_blank"><img src="gmail.png" title="Gmail" height="32" hspace="5"></a>
+				<a href="https://github.com/cyneprepou4uk" target="_blank"><img src="github.png" title="GitHub" height="32" hspace="5"></a>
+				<a href="https://fuzznec.bandcamp.com/" target="_blank"><img src="bandcamp.png" title="Bandcamp" height="32" hspace="5"></a>
+				<a href="https://www.donationalerts.com/r/cyneprepou4uk" target="_blank"><img src="donationalerts.png" title="DonationAlerts" height="32" hspace="5"></a>
+			</center>
+		</p>
+		<br>
+		<br>
+		<p class="title">
+			Программа обучения
+		</p>
+		<ul>
+			<li>Альтернативные источники информации</li>
+			<li>Общие сведения про NES</li>
+			<li>Начало работы с эмулятором</li>
+			<li>Изучение команд процессора</li>
+			<li>Поиск адресов и свободного места</li>
+			<li>Основы составления кода</li>
+			<li>Типичные ошибки новичка</li>
+			<li>Редактирование графики</li>
+			<li>Перевод игр</li>
+			<li>Смена маппера</li>
+			<li>Редактирование музыки</li>
+		</ul>
+		<br>
+		<p class="title">
+			Разное
+		</p>
+		<ul>
+			<li>Примеры кодов</li>
+			<li>Графические приемы</li>
+			<li>Ромхакерские приемы</li>
+			<li>Модифицированный ромхакинг</li>
+			<li>Прочие статьи</li>
+		</ul>
+		<br>
+		<p class="title">
+			Эмулятор FCEUX
+		</p>
+		<ul>
+			<li><a href="fceux/setup/index.html">Настройка эмулятора</a></li>
+			<li>Cheats</li>
+			<li>Code/Data Logger</li>
+			<li>Debugger</li>
+			<li>Game Genie Encoder/Decoder</li>
+			<li><a href="fceux/debug/hex_editor/index.html">Hex Editor</a></li>
+			<li>iNES Header Editor</li>
+			<li>Memory Watch</li>
+			<li>Name Table Viewer</li>
+			<li>PPU Viewer</li>
+			<li>RAM Search</li>
+			<li>RAM Watch</li>
+			<li>TAS Editor</li>
+			<li>Text Hooker</li>
+			<li>Trace Logger</li>
+		</ul>
+		<br>
+		<p class="title">
+			Программы
+		</p>
+		<ul>
+			<li>010 Editor</li>
+			<li>Clickermann</li>
+			<li>HashTab</li>
+			<li>Lunar IPS</li>
+			<li>Notepad++</li>
+			<li>YY-CHR</li>
+		</ul>
+		<br>
+		<p class="title">
+			Техническая информация
+		</p>
+		<ul>
+			<li>Команды процессора 6502</li>
+			<li>Джойстики</li>
+			<li>Видеопроцессор PPU</li>
+			<li>Аудио процессор APU</li>
+			<li>Мапперы</li>
+			<li>Проче</li>
+		</ul>
+		<br>
+		<br>
+		<br>
+		<p>
+			<center>© Copyright 2019 <a href="https://iromhacker.ru">iRomhacker</a> - No Rights Reserved</center>
+		</p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
 </html>

@@ -1,139 +1,105 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="Настройка эмулятора FCEUX. Скачивание ROM'ов игр и открытие файлов">
-
-<title>Настройка эмулятора FCEUX</title>
-
-<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
-<link href="https://iromhacker.ru/style.css" rel="stylesheet">
-<script src="https://iromhacker.ru/analytics.js"></script>
-</head>
-
-<body>
-
-<h1>Настройка эмулятора FCEUX</h1>
-<p>
-<center>
-<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
-</center>
-</p>
-
-<br>
-<p class="title">Содержание</p>
-<ul>
-<li><a href="../index.html">Скачивание эмулятора</a></li>
-<li>Открытие файлов</li>
-<li><a href="../input/index.html">Настройка управления</a></li>
-<li><a href="../hotkeys/index.html">Горячие клавиши</a></li>
-</ul>
-
-<br>
-<h2>Поддерживаемые файлы</h2>
-
-<p>
-Основной формат файла для игр - файлы с расширением .nes (Nintendo Entertainment System). Скачать ROM'ы свежей сборки GoodNES можно <a href="https://mega.nz/#F!lZgwXIzT!TWMxaFGkit4X70olPeeY7w" target="_blank">здесь</a>. Для распаковки архивов используй <a href="https://rarlab.com" target="_blank">WinRar</a> или <a href="https://www.7-zip.org" target="_blank">7-Zip</a>.
-</p>
-
-<p>
-<img src="000.png">
-</p>
-
-<p class="tip">
-GoodNES - сборка всех существующих ROM'ов игр NES, а также относительно старые хаки этих игр. У некоторых игр могут быть несколько официальных названий, зависящих от страны, для которой они разрабатывались. Иногда быстрее загуглить нужный ROM по имени, чем пытаться найти его в этой сборке, хотя в последнее время скачать отдельные ROM'ы из интернета стало сложнее.
-</p>
-
-<p>
-Эмулятор также умеет открывать файлы .fds (Famicom Disk System), .nsf (NES Sound Format) и .unif (Universal NES Image Format).
-</p>
-
-<p class="tip">
-Не все существующие игры поддерживаются эмулятором, но большинство. В основном это зависит от поддержки маппера в самом эмуляторе.
-</p>
-
-<p class="tip">
-Эмулятор может отказаться открыть файл, если в пути к нему или в названии файла есть недопустимые символы.
-</p>
-
-<br>
-<h2>Открытие игр</h2>
-
-<p>
-Есть несколько способов открыть игру.
-</p>
-
-<h3>Открытие через эмулятор</h3>
-
-<p>
-Чтобы открыть игру, в эмуляторе выбери File -> Open и найди нужный файл в окне Open File.
-</p>
-
-<p class="tip">
-Эмулятор может открывать игры, запакованные в .zip архив.
-</p>
-
-<p class="tip">
-Список последних открытых файлов будет находиться в File -> Recent, можно открывать игры через этот список. Список обновляется после закрытия эмулятора.
-</p>
-
-<p>
-Окно Open File можно запустить горячей клавишей, которая настраивается в Cоnfig -> Map Hotheys -> Filter -> Tools -> Open ROM.
-</p>
-
-<p>
-<img src="004.png">
-</p>
-
-<p>
-Можно сделать так, чтобы окно Open File вызывалось автоматически после запуска эмулятора. Для этого выбери Config -> GUI и поставь самую первую галочку.
-</p>
-
-<p>
-<img src="003.png">
-</p>
-
-<p class="tip">
-Окно GUI Configuration можно открыть, кликнув правой кнопкой посредине окна эмулятора и выбрав опцию Use Config.
-</p>
-
-<h3>Перетаскивание ROM'а</h3>
-
-<p>
-Перетащи ROM на файл fceux.exe.
-</p>
-
-<p>
-<img src="001.png">
-</p>
-
-<h3>Запуск через файл</h3>
-
-<p>
-В свойствах любого файла .nes выбери fceux.exe как программу для открытия по умолчанию.
-</p>
-
-<p>
-<img src="002.png">
-</p>
-
-<p>
-После сохранения настроек запусти файл .nes, и эмулятор откроется вместе с этой игрой.
-</p>
-
-<p class="tip">
-Если изменить местоположение файла fceux.exe, вероятно потребуется заново зайти в свойства файла .nes и выбрать fceux.exe из той папки, куда ты переместил эмулятор.
-</p>
-
-<br>
-<br>
-<br>
-
-<script src="https://iromhacker.ru/spoiler.js"></script>
-
-</body>
-
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="Настройка эмулятора FCEUX. Скачивание ROM'ов игр и открытие файлов">
+		<title>Настройка эмулятора FCEUX</title>
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Настройка эмулятора FCEUX</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../index.html">Скачивание эмулятора</a></li>
+			<li>Открытие файлов</li>
+			<li><a href="../input/index.html">Настройка управления</a></li>
+			<li><a href="../hotkeys/index.html">Горячие клавиши</a></li>
+		</ul>
+		<br>
+		<h2>Поддерживаемые файлы</h2>
+		<p>
+			Основной формат файла для игр - файлы с расширением .nes (Nintendo Entertainment System). Скачать ROM'ы свежей сборки GoodNES можно <a href="https://mega.nz/#F!lZgwXIzT!TWMxaFGkit4X70olPeeY7w" target="_blank">здесь</a>. Для распаковки архивов используй <a href="https://rarlab.com" target="_blank">WinRar</a> или <a href="https://www.7-zip.org" target="_blank">7-Zip</a>.
+		</p>
+		<p>
+		<img src="000.png">
+		</p>
+		<p class="tip">
+			GoodNES - сборка всех существующих ROM'ов игр NES, а также относительно старые хаки этих игр. У некоторых игр могут быть несколько официальных названий, зависящих от страны, для которой они разрабатывались. Иногда быстрее загуглить нужный ROM по имени, чем пытаться найти его в этой сборке, хотя в последнее время скачать отдельные ROM'ы из интернета стало сложнее.
+		</p>
+		<p>
+			Эмулятор также умеет открывать файлы .fds (Famicom Disk System), .nsf (NES Sound Format) и .unif (Universal NES Image Format).
+		</p>
+		<p class="tip">
+			Не все существующие игры поддерживаются эмулятором, но большинство. В основном это зависит от поддержки маппера в самом эмуляторе.
+		</p>
+		<p class="tip">
+			Эмулятор может отказаться открыть файл, если в пути к нему или в названии файла есть недопустимые символы.
+		</p>
+		<br>
+		<h2>Открытие игр</h2>
+		<p>
+			Есть несколько способов открыть игру.
+		</p>
+		<h3>Открытие через эмулятор</h3>
+		<p>
+			Чтобы открыть игру, в эмуляторе выбери File -> Open и найди нужный файл в окне Open File.
+		</p>
+		<p class="tip">
+			Эмулятор может открывать игры, запакованные в .zip архив.
+		</p>
+		<p class="tip">
+			Список последних открытых файлов будет находиться в File -> Recent, можно открывать игры через этот список. Список обновляется после закрытия эмулятора.
+		</p>
+		<p>
+			Окно Open File можно запустить горячей клавишей, которая настраивается в Cоnfig -> Map Hotheys -> Filter -> Tools -> Open ROM.
+		</p>
+		<p>
+			<img src="004.png">
+		</p>
+		<p>
+			Можно сделать так, чтобы окно Open File вызывалось автоматически после запуска эмулятора. Для этого выбери Config -> GUI и поставь самую первую галочку.
+		</p>
+		<p>
+			<img src="003.png">
+		</p>
+		<p class="tip">
+			Окно GUI Configuration можно открыть, кликнув правой кнопкой посредине окна эмулятора и выбрав опцию Use Config.
+		</p>
+		<h3>Перетаскивание ROM'а</h3>
+		<p>
+			Перетащи ROM на файл fceux.exe.
+		</p>
+		<p>
+			<img src="001.png">
+		</p>
+		<h3>Запуск через файл</h3>
+		<p>
+			В свойствах любого файла .nes выбери fceux.exe как программу для открытия по умолчанию.
+		</p>
+		<p>
+			<img src="002.png">
+		</p>
+		<p>
+			После сохранения настроек запусти файл .nes, и эмулятор откроется вместе с этой игрой.
+		</p>
+		<p class="tip">
+			Если изменить местоположение файла fceux.exe, вероятно потребуется заново зайти в свойства файла .nes и выбрать fceux.exe из той папки, куда ты переместил эмулятор.
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
 </html>
