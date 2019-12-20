@@ -22,13 +22,19 @@ ul.root, figure{
   border: 0;
 }
 
-ul.root { list-style: none; }
+li {
+	margin-left: 13px;
+}
 
 li.root {
 	margin-left: 0px;
 }
 
-#w {
+ul.root { 
+	list-style: none;
+}
+
+#w { /* для слайдера */
   display: block;
   max-width: 1000px;
   min-width: 300px;
@@ -110,10 +116,6 @@ text {
 
 .code_color_file {
 	color: mediumvioletred;
-}
-
-li {
-	margin-left: 13px;
 }
 
 table {
