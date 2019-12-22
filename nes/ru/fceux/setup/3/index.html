@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Яромхакеръ. Настройка эмулятора FCEUX</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Настройка управления</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Скачивание и обновление эмулятора</a></li>
+			<li><a href="../2/index.html">Инструкция по открытию игр</a></li>
+				<ul>
+					<li><a href="../2-1/index.html">Список поддерживаемых файлов</a></li>
+					<li><a href="../2-2/index.html">Скачивание игр</a></li>
+					<li><a href="../2-3/index.html">Инструкция по FDS играм</a></li>
+				</ul>
+			<li>Настройка управления</li>
+			<ul>
+				<li><a href="../3-1/index.html">Подключение адаптера на 4-х игроков</a></li>
+			</ul>
+			<li><a href="../4/index.html">Настройка горячих клавиш</a></li>
+			<ul>
+				<li><a href="../4-1/index.html">Filter: Speed</a></li>
+				<li><a href="../4-2/index.html">Filter: State</a></li>
+				<li><a href="../4-3/index.html">Filter: Misc</a></li>
+			</ul>
+			<li><a href="../5/index.html">Другие полезные настройки</a></li>
+			<li><a href="../6/index.html">Неописанные настройки</a></li>
+		</ul>
+		<br>
+		<h2>Настройка управления</h2>
+		<p class="tip">
+			Беспроводной или USB геймпад нужно подключать до запуска эмулятора, иначе эмулятор его не увидит.
+		</p>
+		<p>
+			В эмуляторе выбери Config -> Input. Откроется окно Input Configuration.
+		</p>
+		<p>
+			<img src="1.png">
+		</p>
+		<p class="tip">
+			Некоторые клавиши управления могут конфликтовать с горячими клавишами эмулятора. После настройки управления, в эмуляторе выбери Config -> Map Hotkeys -> Filter -> Assigned, там отображается список всех назначенных горячих клавиш. Просмотри список, и при необходимости переназначь/удали горячие клавиши, которые пересекаются с твоим управлением игроков. Или же настрой управление на другие клавиши.
+		</p>
+		<h3>Настройка 1-го игрока</h3>
+		<p>
+			В окне Input Configuration, в разделе Port 1 убедись, что включена опция Gamepad.
+		</p>
+		<p>
+			<img src="2.png">
+		</p>
+		<p class="tip">
+			Некоторые игры могут автоматически переключать эту опцию. Например, игра Arkanoid может включить Arkanoid Paddle, после чего управление перейдет на мышку.
+		</p>
+		<p>
+			Далее нажми кнопку Configure, откроется окно Gamepad. Управление 1-му игроку настраивается в разделе Virtual Gamepad 1
+		</p>
+		<p>
+			<img src="3.png">
+		</p>
+		<p>
+			Кликни на одну из 8-ми кнопок, например кнопку Up (вверх), окроется дополнительное окно Up.
+		</p>
+		<p>
+			<img src="4.png">
+		</p>
+		<p class="tip">
+			Кнопка Clear сбрасывает настройки кнопки, кнопка Close закрывает окно и сохраняет настройки.
+		</p>
+		<p>
+			Здесь дважды нажми на клавиатуре/геймпаде ту клавишу, которая будет отвечать за кнопку Up в игре. После двойного нажатия клавиши кнопка будет настроена, и окно Up автоматически закроется.
+		</p>
+		<p>
+			Аналогичным образом настрой управление на оставшиеся кнопки. После завершения настройки закрой окно Gamepad.
+		</p>
+		<p class="tip">
+			При желании можно назначить до 4-х различных клавиш. Для этого нужно по одному разу нажимать на те клавиши клавиатуры/геймпада, которые тебе нужны. Можно настроить управление одновременно и на клавиатуре, и на геймпаде.
+		</p>
+		<p class="tip">
+			Для завершения настройки дважды нажми на последнюю используемую клавишу, или кликни на кнопку Close. Настройка автоматически закроется, если были настроены все 4 клавиши.
+		</p>
+		<h3>Настройка 2-го игрока</h3>
+		<p>
+			В окне Input Configuration, в разделе Port 2 выбери опцию Gamepad, затем нажми кнопку Configure.
+		<p>
+		<p>
+			<img src="5.png">
+		</p>
+		<p>
+			Затем в окне Gamepad настрой управление 2-му игроку в разделе Virtual Gamepad 2.
+		</p>
+		<p>
+			<img src="6.png">
+		</p>
+		<h3>Настройка 3-го игрока</h3>
+		<p>
+			В окне Input Configuration нажми кнопку Configure в разделе Port 1, затем в окне Gamepad настрой управление 3-му игроку в разделе Virtual Gamepad 3.
+		</p>
+		<h3>Настройка 4-го игрока</h3>
+		<p>
+			В окне Input Configuration нажми кнопку Configure в разделе Port 2, затем в окне Gamepad настрой управление 4-му игроку в разделе Virtual Gamepad 4.
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>
