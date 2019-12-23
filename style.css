@@ -55,7 +55,7 @@ h3 {
 }
 
 h4 {
-	color: crimson;
+	color: mediumslateblue;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -71,26 +71,20 @@ text {
 	font-weight: bold;
 }
 
-.path {
+.object {
 	color: orangered;
 }
 
-.section {
-	color: chocolate;
+.opcode {
+	color: cornflowerblue;
 }
 
-.object {
-	color: yellow;
-/*  color: darkslateblue; */
+.address {
+	color: limegreen;
 }
 
-.file {
-	color: blueviolet;
-}
-
-.button {
-	color: magenta;
-/*  color: maroon; */
+.comment {
+	color: slategray;
 }
 
 .underline {
@@ -98,25 +92,8 @@ text {
 	font-weight: normal;
 }
 
-.hidden {
-	color: white;
-}
 
-.code_color_path {
-	color: orangered;
-}
 
-.code_color_section {
-	color: darkgreen;
-}
-
-.code_color_object {
-	color: darkslateblue;
-}
-
-.code_color_file {
-	color: mediumvioletred;
-}
 
 table {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
@@ -227,20 +204,6 @@ dfn:hover::before {top: 20px;}
 	padding: 0px 10px 15px 10px;
 }
 
-.debugger_color_blue {
-	color: mediumslateblue;
-}
-
-.debugger_color_green {
-	color: #40FF40;
-}
-
-.debugger_color_grey {
-/*
-	color: #808080;
-*/
-	color: darkslategray;
-}
 
 
 /* https://www.w3schools.com/howto/howto_js_spoiler.asp */
