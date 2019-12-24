@@ -191,7 +191,8 @@ dfn:hover::before {top: 20px;}
 
 .debugger_code {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-	white-space: pre;
+	color: #808080;
+	white-space: pre-line;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 15px;
@@ -201,7 +202,7 @@ dfn:hover::before {top: 20px;}
 	color: ;
 	background: #000000;
     border: 1px #303030 solid;
-	padding: 0px 10px 15px 10px;
+	padding: 0px 10px 10px 15px;
 }
 
 
