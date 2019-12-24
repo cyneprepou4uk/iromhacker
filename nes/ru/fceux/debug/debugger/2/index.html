@@ -8,7 +8,7 @@
 		<meta name="description" content="Подмена состояния регистров и флагов">
 		<meta name="keywords" content="">
 		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
-		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
 		<script src="https://iromhacker.ru/analytics.js"></script>
 	</head>
 	<body>
@@ -52,11 +52,9 @@
 			<p>
 				В адресе $0123 находится байт #$01. Имеется следующий код:
 			</p>
-			<p>
-				<span class="debugger_code">
-					<text class="opcode">LDA</text> <text class="address">$0123</text> = #$01 ; загрузка байта из адреса $0123 в регистр A 
-					<text class="opcode">STA</text> <text class="address">$0456</text> = #$00 ; запись байта из регистра A байта в адрес $0123
-				</span>
+			<p class="debugger">
+				<text class="opcode">LDA</text> <text class="address">$0123</text> = #$01 ; загрузка байта из адреса $0123 в регистр A 
+				<text class="opcode">STA</text> <text class="address">$0456</text> = #$00 ; запись байта из регистра A байта в адрес $0123
 			</p>
 			<p>
 				После выполнения команды LDA в регистр A запишется байт #$01. Если не изменять байт в регистре A, то при выполнении команды STA в адрес $0456 будет записан байт #$01.
@@ -84,13 +82,11 @@
 		</p>
 		<button class="spoiler">Пример подмены состояния флага</button>
 		<div class="panel">
-			<p>
-				<span class="debugger_code">
-					8100: <text class="opcode">LDA</text> <text class="address">$0123</text> = #$00
-					8103: <text class="opcode">BEQ</text> <text class="address">$8108</text> ; перейти на адрес $8108 при выполнении условия "Z = 1"
-					8105: <text class="opcode">STA</text> <text class="address">$0456</text> = #$00
-					8108: <text class="opcode">STA</text> <text class="address">$0567</text> = #$00
-				</span>
+			<p class="debugger">
+				8100: <text class="opcode">LDA</text> <text class="address">$0123</text> = #$00
+				8103: <text class="opcode">BEQ</text> <text class="address">$8108</text> ; перейти на адрес $8108 при выполнении условия "Z = 1"
+				8105: <text class="opcode">STA</text> <text class="address">$0456</text> = #$00
+				8108: <text class="opcode">STA</text> <text class="address">$0567</text> = #$00
 			</p>
 			<p>
 				После выполнения команды LDA $0123 флаг Z будет = 1. Без подмены флага Z команда BEQ перейдет на адрес $8108, и байт из регистра A будет записан только в адрес $0567.

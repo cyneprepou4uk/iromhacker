@@ -12,33 +12,25 @@ body {
 	padding: 0 15px; /* фиксированный отступ по краям */
 }
 
-body.root {
-	max-width: 500px;
+body.root {max-width: 500px;}
+
+ul.root, figure {
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
 
-ul.root, figure{
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
+li {margin-left: 13px;}
 
-li {
-	margin-left: 13px;
-}
+li.root {margin-left: 0px;}
 
-li.root {
-	margin-left: 0px;
-}
-
-ul.root { 
-	list-style: none;
-}
+ul.root {list-style: none;}
 
 #w { /* для слайдера */
-  display: block;
-  max-width: 1000px;
-  min-width: 300px;
-  margin: 0 auto;
+	display: block;
+	max-width: 1000px;
+	min-width: 300px;
+	margin: 0 auto;
 }
 
 h1 {
@@ -46,17 +38,11 @@ h1 {
 	color: dodgerblue;
 }
 
-h2 {
-	color: limegreen;
-}
+h2 {color: limegreen;}
 
-h3 {
-	color: orangered;
-}
+h3 {color: orangered;}
 
-h4 {
-	color: mediumslateblue;
-}
+h4 {color: mediumslateblue;}
 
 a:link, a:visited, a:hover, a:active {
 	color:#63C0F5;
@@ -66,32 +52,39 @@ a:link, a:visited, a:hover, a:active {
 
 
 
-/* <text class="???">текст</text> */
-text {
-	font-weight: bold;
-}
+/* <text class="object">текст</text> */
+text {font-weight: bold;}
 
-.object {
-	color: orangered;
-}
+text.object {color: orangered;}
 
-.opcode {
-	color: cornflowerblue;
-}
+text.opcode {color: cornflowerblue;}
 
-.address {
-	color: limegreen;
-}
+text.address {color: limegreen;}
 
-.comment {
-	color: slategray;
-}
-
-.underline {
+text.underline {
 	border-bottom: solid 1px;
 	font-weight: normal;
 }
 
+p.tip {
+	font-style: italic;
+	color: orange;
+}
+
+p.debugger {
+	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+	color: #808080;
+	white-space: pre-line;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 15px;
+	max-width: 100%;
+	overflow: auto;
+	display: block;
+	background: #000000;
+    border: 5px #404040 solid;
+	padding: 0px 10px 15px 15px;
+}
 
 
 
@@ -113,11 +106,6 @@ iframe, table, img {
 	position: relative;
     border: 0px #000000 solid transparent;
     border-radius: 8px;
-}
-
-p.tip {
-	font-style: italic;
-	color: orange;
 }
 
 .title {
@@ -186,24 +174,6 @@ dfn:hover::after,
 dfn:hover::before {opacity: 1;}
 dfn:hover::after {top: 30px;}
 dfn:hover::before {top: 20px;}
-
-
-
-.debugger_code {
-	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-	color: #808080;
-	white-space: pre-line;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 15px;
-    overflow: auto;
-	max-width: 100%;
-	display: inline-block;
-	color: ;
-	background: #000000;
-    border: 1px #303030 solid;
-	padding: 0px 10px 10px 15px;
-}
 
 
 
