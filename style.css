@@ -82,7 +82,7 @@ p.debugger {
 	overflow: auto;
 	display: block;
 	background: #000000;
-    border: 5px #404040 solid;
+	border: 5px #404040 solid;
 	padding: 0px 10px 15px 15px;
 }
 
@@ -91,14 +91,14 @@ p.debugger {
 table {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 	font-size: 15px;
-    overflow: auto;
+	overflow: auto;
 	display: inline-block;
 }
 
 table.root
 {
 	font-family: inherit;
-    overflow: auto;
+	overflow: auto;
 }
 
 iframe, table, img {
