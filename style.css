@@ -47,9 +47,14 @@ h2 {
 h3 {
 	color: orangered;
 	margin-top: 30px;
+	margin-bottom: -5px;
 }
 
-h4 {color: mediumslateblue;}
+h4 {
+	color: mediumslateblue;
+	margin-top: 20px;
+	margin-bottom: -5px;
+}
 
 a:link, a:visited, a:hover, a:active {
 	color:#63C0F5;
