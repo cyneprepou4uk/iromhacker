@@ -33,6 +33,8 @@ ul.root {list-style: none;}
 	margin: 0 auto;
 }
 
+h2, h3 {margin-top: 50px}
+
 h1 {
 	text-align: center;
 	color: dodgerblue;
