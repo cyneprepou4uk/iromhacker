@@ -4,8 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>ЯРомхакеръ. Окно Debugger эмулятора FCEUX</title>
-		<meta name="description" content="Подмена состояния регистров и флагов">
+		<title>ЯРомхакеръ. Debugger. Регистры и флаги</title>
+		<meta name="description" content="При работе с дебаггером эмулятора FCEUX ты можешь вручную изменять переменные в регистрах и состояния флагов">
 		<meta name="keywords" content="">
 		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
 		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
@@ -25,11 +25,13 @@
 		<ul>
 			<li><a href="../1/index.html">Описание окна</a></li>
 			<li>Регистры и флаги</li>
-			<li>Брейкпоинты</li>
+			<li><a href="../3/index.html">Брейкпоинты</a></li>
 			<ul>
-				<li>Основные виды брейкпоинтов</li>
+				<li><a href="../3-1/index.html">Создание брейкпоинтов</a></li>
+				<li><a href="../3-2/index.html">Хранение списка брейкпоинтов</a></li>
+				<li>Основные типы брейкпоинтов</li>
 				<li>Дополнительные условия</li>
-				<li>Прочие виды брейкпоинтов</li>
+				<li>Прочие типы брейкпоинтов</li>
 			</ul>
 			<li>Кнопки</li>
 			<li>Комментарии</li>
@@ -54,7 +56,7 @@
 			</p>
 			<p class="debugger">
 				<text class="opcode">LDA</text> <text class="address">$0123</text> = #$01 ; загрузка байта из адреса $0123 в регистр A 
-				<text class="opcode">STA</text> <text class="address">$0456</text> = #$00 ; запись байта из регистра A байта в адрес $0123
+				<text class="opcode">STA</text> <text class="address">$0456</text> = #$00 ; запись байта из регистра A байта в адрес $0456
 			</p>
 			<p>
 				После выполнения команды LDA в регистр A запишется байт #$01. Если не изменять байт в регистре A, то при выполнении команды STA в адрес $0456 будет записан байт #$01.
@@ -98,7 +100,7 @@
 		<br>
 		<h2>Регистр SP</h2>
 		<p>
-			SP (Stack Pointer) - указатель стека. Стек располагается в NES Memory $0100-$01FF. Информация по стеку отображена здесь.
+			Stack Pointer - указатель стека. Стек располагается в NES Memory $0100-$01FF. Информация по стеку отображена здесь.
 		</p>
 		<p>
 			<img src="3.png">

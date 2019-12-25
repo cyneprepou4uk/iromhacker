@@ -19,5 +19,8 @@ https://iromhacker.ru/nes/ru/fceux/setup/6/index.html
 
 https://iromhacker.ru/nes/ru/fceux/debug/debugger/1/index.html
 https://iromhacker.ru/nes/ru/fceux/debug/debugger/2/index.html
+https://iromhacker.ru/nes/ru/fceux/debug/debugger/3/index.html
+https://iromhacker.ru/nes/ru/fceux/debug/debugger/3-1/index.html
+https://iromhacker.ru/nes/ru/fceux/debug/debugger/3-2/index.html
 
 https://iromhacker.ru/nes/ru/programs/calculator/index.html
