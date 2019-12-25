@@ -1,2 +1,3 @@
 # iromhacker
- ROM hacking for beginners
+ ROM hacking tutorials for beginners
+ Ромхакинг для начинающих на русском языке
