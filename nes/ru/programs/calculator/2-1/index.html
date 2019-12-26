@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ЯРомхакеръ. Калькулятор. Битовые операции и сдвиги</title>
+		<meta name="description" content="Использование стандартного калькулятора Windows в режиме Программист для эмуляции некоторых команд процессора NES 6502">
+		<meta name="keywords" content="Windows 7, калькулятор, режим программист, десятичные, шестнадцатеричные, двоичные, числа, биты, байты, hex, dec, bin, hexadecimal, decimal, binary">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Эмуляция команд процессора NES</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Открытие калькулятора</a></li>
+			<li><a href="../2/index.html">Режим программиста</a></li>
+			<ul>
+				<li>Эмуляция команд процессора NES</li>
+			</ul>
+		</ul>
+		<h2>Эмуляция команд процессора NES</h2>
+		<p class="tip">
+			Требуется знание битовых команд процессора для ознакомления со статьей.
+		</p>
+		<p>
+			Некоторые кнопки в левой части калькулятора работают схожим образом с битовыми командами процессора 6502.
+		</p>
+		<p>
+			<img src="1.png">
+		</p>
+		<p class="tip">
+			Нужно предварительно включить опцию Hex (изредка Bin). Операции над Dec числами вряд ли будут тебе интересны.
+		</p>
+		<p>
+			Выставь режим "1 байт" или "2 байта" для более точной эмуляции 8-битного процессора.
+		</p>
+		<p>
+			<img src="2.png">
+		</p>
+		<h2>Битовые сдвиги</h2>
+			Читай подробности в <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3" target="_blank">статье</a> из Википедии.
+		</p>
+		<p>
+			После нажатия кнопки Lsh или Rsh введи количество сдвигов, например 1. Далее нужно нажимать кнопку "=" или клавишу Enter для получения результата.
+		</p>
+		<h3>Кнопка Lsh</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3#%D0%90%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3" target="_blank">Арифметический сдвиг</a> битов влево. Эмулирует работу команды <text class="opcode">ASL</text>.
+		</p>
+		<p>
+			Результат в режимах "1 байт" и "2 байта" отличается лишь наличием старшего байта.
+		</p>
+		<button class="spoiler">Пример работы кнопки Lsh</button>
+		<div class="panel">
+			<p class="debugger">
+				<text class="opcode">LDA #</text><text class="address">$25</text>
+				<text class="opcode">ASL</text> ; #$4A
+				<text class="opcode">ASL</text> ; #$94
+				<text class="opcode">ASL</text> ; #$28
+				<text class="opcode">ASL</text> ; #$50
+				<text class="opcode">ASL</text> ; #$A0
+				<text class="opcode">ASL</text> ; #$40
+				<text class="opcode">ASL</text> ; #$80
+				<text class="opcode">ASL</text> ; #$00
+			</p>
+		</div>
+		<h3>Кнопка Rsh</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3#%D0%90%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3" target="_blank">Арифметический сдвиг</a> битов вправо. Эмулирует работу команды <text class="opcode">LSR</text>.
+		</p>
+		<p>
+			Результат в режимах "1 байт" и "2 байта" не отличается.
+		</p>
+		<button class="spoiler">Пример работы кнопки Rsh</button>
+		<div class="panel">
+			<p class="debugger">
+				<text class="opcode">LDA #</text><text class="address">$25</text>
+				<text class="opcode">LSR</text> ; #$12
+				<text class="opcode">LSR</text> ; #$09
+				<text class="opcode">LSR</text> ; #$04
+				<text class="opcode">LSR</text> ; #$02
+				<text class="opcode">LSR</text> ; #$01
+				<text class="opcode">LSR</text> ; #$00
+			</p>
+		</div>
+		<h3>Кнопка Rol</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3#%D0%9B%D0%BE%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3" target="_blank">Логический сдвиг</a> битов влево. Эмулирует работу команды <text class="opcode">ROL</text> лишь частично (из-за отсутствия в калькуляторе флага C).
+		</p>
+		<p>
+			Результат отличается в режимах "1 байт" и "2 байта".
+		</p>
+		<button class="spoiler">Пример работы кнопки Rol</button>
+		<div class="panel">
+			<p>
+				В режиме "1 байт".
+			</p>
+			<p class="debugger">
+				<text class="opcode">CLC</text> ; C = 0
+				<text class="opcode">LDA #</text><text class="address">$25 </text>; в калькуляторе #$25
+				<text class="opcode">ROL</text> ; #$4A, C = 0. В калькуляторе #$4A
+				<text class="opcode">ROL</text> ; #$94, C = 0. В калькуляторе #$94
+				<text class="opcode">ROL</text> ; #$28, C = 1. В калькуляторе #$29, вручную ставим бит0 = 0 для #$28
+				<text class="opcode">ROL</text> ; #$51, C = 0. В калькуляторе #$50, вручную ставим бит0 = 1 для #$51
+				<text class="opcode">ROL</text> ; #$A2, C = 0. В калькуляторе #$A2
+				<text class="opcode">ROL</text> ; #$44, C = 1. В калькуляторе #$45, вручную ставим бит0 = 0 для #$44
+				<text class="opcode">ROL</text> ; #$89, C = 0. В калькуляторе #$88, вручную ставим бит0 = 1 для #$89
+			</p>
+			<p>
+				В режиме "2 байта".
+			</p>
+			<p class="debugger">
+				<text class="opcode">CLC</text> ; C = 0
+				<text class="opcode">LDA #</text><text class="address">$25</text> ; в калькуляторе #$25
+				<text class="opcode">ROL</text> ; #$4A, C = 0. В калькуляторе #$4A
+				<text class="opcode">ROL</text> ; #$94, C = 0. В калькуляторе #$94
+				<text class="opcode">ROL</text> ; #$28, C = 1. В калькуляторе #$0128
+				<text class="opcode">ROL</text> ; #$51, C = 0. В калькуляторе #$0250, вручную ставим бит0 = 1 для #$0251
+				<text class="opcode">ROL</text> ; #$A2, C = 0. В калькуляторе #$04A2
+				<text class="opcode">ROL</text> ; #$44, C = 1. В калькуляторе #$0944
+				<text class="opcode">ROL</text> ; #$89, C = 0. В калькуляторе #$1288, вручную ставим бит0 = 1 для #$1289
+			</p>
+		</div>
+		<h3>Кнопка Ror</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3#%D0%9B%D0%BE%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3" target="_blank">Логический сдвиг</a> битов влево. Эмулирует работу команды <text class="opcode">ROR</text> лишь частично (из-за отсутствия в калькуляторе флага C).
+		</p>
+		<p>
+			Результат отличается в режимах "1 байт" и "2 байта".
+		</p>
+		<button class="spoiler">Пример работы кнопки Ror</button>
+		<div class="panel">
+			<p>
+				В режиме "1 байт".
+			</p>
+			<p class="debugger">
+				<text class="opcode">CLC</text> ; C = 0
+				<text class="opcode">LDA #</text><text class="address">$25</text> ; в калькуляторе #$25
+				<text class="opcode">ROR</text> ; #$12, C = 1. В калькуляторе #$92, вручную ставим бит7 = 0 для #$12
+				<text class="opcode">ROR</text> ; #$89, C = 0. В калькуляторе #$09, вручную ставим бит7 = 1 для #$89
+				<text class="opcode">ROR</text> ; #$44, C = 1. В калькуляторе #$C4, вручную ставим бит7 = 0 для #$44
+				<text class="opcode">ROR</text> ; #$A2, C = 0. В калькуляторе #$22, вручную ставим бит7 = 1 для #$A2
+				<text class="opcode">ROR</text> ; #$51, C = 0. В калькуляторе #$51
+				<text class="opcode">ROR</text> ; #$28, C = 1. В калькуляторе #$A8, вручную ставим бит7 = 0 для #$28
+				<text class="opcode">ROR</text> ; #$94, C = 0. В калькуляторе #$14, вручную ставим бит7 = 1 для #$94
+			</p>
+			<p>
+				В режиме "2 байта".
+			</p>
+			<p class="debugger">
+				<text class="opcode">CLC</text> ; C = 0
+				<text class="opcode">LDA #</text><text class="address">$25</text> ; в калькуляторе #$25
+				<text class="opcode">ROR</text> ; #$12, C = 1. В калькуляторе #$8012
+				<text class="opcode">ROR</text> ; #$89, C = 0. В калькуляторе #$4009, вручную ставим бит7 = 1 для #$4089
+				<text class="opcode">ROR</text> ; #$44, C = 1. В калькуляторе #$A044
+				<text class="opcode">ROR</text> ; #$A2, C = 0. В калькуляторе #$5022, вручную ставим бит7 = 1 для #50A2
+				<text class="opcode">ROR</text> ; #$51, C = 0. В калькуляторе #$2851
+				<text class="opcode">ROR</text> ; #$28, C = 1. В калькуляторе #$9428
+				<text class="opcode">ROR</text> ; #$94, C = 0. В калькуляторе #$4A14, вручную ставим бит7 = 1 для #4A94
+			</p>
+		</div>
+		<h2>Битовые операции</h2>
+		<p>
+			Читай подробности в <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8" target="_blank">статье</a> из Википедии.
+		</p>
+		<p>
+			После нажатия кнопки введи дополнительный байт, затем нажми кнопку "=" или клавишу Enter для получения результата.
+		</p>
+		<h3>Кнопка And</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8#%D0%9F%D0%BE%D0%B1%D0%B8%D1%82%D0%BE%D0%B2%D0%BE%D0%B5_%C2%AB%D0%98%C2%BB_(AND)" target="_blank">Побитовое "И"</a>. Эмулирует работу команды <text class="opcode">AND</text>. 
+		</p>
+		<p>
+			Результат в режимах "1 байт" и "2 байта" не отличается.
+		</p>
+		<button class="spoiler">Пример работы кнопки And</button>
+		<div class="panel">
+			<p class="debugger">
+				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
+				<text class="opcode">AND #</text><text class="address">$5D</text> ; #%01011101
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%00000101 = #$05
+			</p>
+		</div>
+		<h3>Кнопка Or</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8#%D0%9F%D0%BE%D0%B1%D0%B8%D1%82%D0%BE%D0%B2%D0%BE%D0%B5_%C2%AB%D0%98%D0%9B%D0%98%C2%BB_(OR)" target="_blank">Побитовое "ИЛИ"</a>. Эмулирует работу команды <text class="opcode">ORA</text>.
+		</p>
+		<p>
+			Результат в режимах "1 байт" и "2 байта" не отличается.
+		</p>
+		<button class="spoiler">Пример работы кнопки Or</button>
+		<div class="panel">
+			<p class="debugger">
+				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
+				<text class="opcode">ORA #</text><text class="address">$5D</text> ; #%01011101
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%01111101 = #$7D
+			</p>
+		</div>
+		<h3>Кнопка Xor</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8#%D0%98%D1%81%D0%BA%D0%BB%D1%8E%D1%87%D0%B0%D1%8E%D1%89%D0%B5%D0%B5_%C2%AB%D0%98%D0%9B%D0%98%C2%BB_(XOR)" target="_blank">Исключающее "ИЛИ"</a>. Эмулирует работу команды <text class="opcode">EOR</text>. Помогает вычислить нужный байт для команды <text class="opcode">EOR</text> в своем коде.
+		</p>
+		<p>
+			Результат в режимах "1 байт" и "2 байта" отличается лишь наличием старшего байта.
+		</p>
+		<button class="spoiler">Пример работы кнопки Xor</button>
+		<div class="panel">
+			<p class="debugger">
+				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
+				<text class="opcode">EOR #</text><text class="address">$5D</text> ; #%01011101
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%01111000 = #$78
+			</p>
+			<p>
+				Чтобы вычислить байт для EOR при начальном байте #$25 и желаемом результате #$78, нужно в калькуляторе ввести #$25, нажать кнопку Xor и ввести #$78. Результатом будет #$5D.
+			</p>
+		</div>
+		<h3>Кнопка Not</h3>
+		<p>
+			<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8#%D0%9F%D0%BE%D0%B1%D0%B8%D1%82%D0%BE%D0%B2%D0%BE%D0%B5_%D0%BE%D1%82%D1%80%D0%B8%D1%86%D0%B0%D0%BD%D0%B8%D0%B5_(NOT)" target="_blank">Побитовое отрицание</a>. Эмулирует работу команды <text class="opcode">EOR #</text><text class="address">$FF</text>. Не требует дополнительного ввода еще одного байта.
+		</p>
+		<p>
+			Результат в режимах "1 байт" и "2 байта" отличается лишь наличием старшего байта.
+		</p>
+		<button class="spoiler">Пример работы кнопки Not</button>
+		<div class="panel">
+			<p class="debugger">
+				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
+				<text class="opcode">EOR #</text><text class="address">$FF</text> ; #%11111111
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%11011010 = #$DA
+			</p>
+		</div>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>
