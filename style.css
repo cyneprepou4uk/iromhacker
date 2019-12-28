@@ -192,11 +192,11 @@ dfn:hover::before {top: 20px;}
 /* https://www.w3schools.com/howto/howto_js_spoiler.asp */
 /* альтернативный спойлер https://jsfiddle.net/tovic/bY6ty */
 .spoiler {
-	font-family: Verdana,Geneva,sans-serif;
-	font-size: 15px;
+	font-family: inherit;
+	font-size: inherit;
 	font-weight: bold;
-	color: firebrick;
-	background-color: #C0C0C0;
+	color: khaki; /* цвет текста в названии спойлера */
+	background-color: #383838; /* цвет фона закрытого спойлера */
 	cursor: pointer;
 	padding: 10px;
 	width: 100%;
@@ -208,12 +208,12 @@ dfn:hover::before {top: 20px;}
 }
 
 .active, .spoiler:hover {
-	background-color: #E0E0E0;
+	background-color: #505050; /* цвет фона открытого спойлера и при наведении курсора */
 }
 
 .spoiler:after {
 	content: "\25BA \A0";
-	color: #707070;
+	color: gold; /* цвет стрелочки закрытого спойлера */
 	font-weight: bold;
 	float: left;
 	margin-left: 5px;
@@ -221,6 +221,7 @@ dfn:hover::before {top: 20px;}
 
 .active:after {
 	content: "\25BC \A0";
+	color: limegreen; /* цвет стрелочки открытого спойлера */
 }
 
 .panel {
