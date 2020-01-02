@@ -286,10 +286,14 @@ dfn:hover::before {top: 20px;}
   clear: none;
   display: block;
   margin: 0 5px;
-  background: #555; /* цвет неактивного индикатора */
+  background: lightsalmon; /* цвет неактивного индикатора */
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
-.slider-nav__item:hover { background: #aaa; } /* цвет индикатора при наведении курсора */
-.slider-nav__item--current, .slider-nav__item--current:hover { background: #fff; } /* цвет активного индикатора */
+
+/* цвет индикатора при наведении курсора */
+.slider-nav__item:hover { background: khaki; } 
+
+/* цвет активного индикатора */
+.slider-nav__item--current, .slider-nav__item--current:hover { background: palegreen; } 
