@@ -34,6 +34,8 @@ https://iromhacker.ru/
 					https://iromhacker.ru/nes/ru/fceux/debug/debugger/3-4-3/index.html
 					https://iromhacker.ru/nes/ru/fceux/debug/debugger/3-5/index.html
 					https://iromhacker.ru/nes/ru/fceux/debug/debugger/4/index.html
+					https://iromhacker.ru/nes/ru/fceux/debug/debugger/5/index.html
+					https://iromhacker.ru/nes/ru/fceux/debug/debugger/5-1/index.html
 			<!--programs-->
 				<!--calculator-->
 					https://iromhacker.ru/nes/ru/programs/calculator/1/index.html
