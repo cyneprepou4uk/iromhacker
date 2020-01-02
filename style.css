@@ -286,7 +286,7 @@ dfn:hover::before {top: 20px;}
   clear: none;
   display: block;
   margin: 0 5px;
-  background: lightsalmon; /* цвет неактивного индикатора */
+  background: salmon; /* цвет неактивного индикатора */
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
