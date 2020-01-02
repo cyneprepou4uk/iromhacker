@@ -237,7 +237,8 @@ dfn:hover::before {top: 20px;}
 
 
 
-/** Glidejs styles **/
+/* Слайдер Glide.js */
+/* https://www.templatemonster.com/blog/tutorial-implement-dynamic-animated-slider-using-glide-js/ */
 .slider {
 	position: relative;
 	width: 100%;
@@ -275,20 +276,20 @@ dfn:hover::before {top: 20px;}
 
 .slider-nav {
   position: absolute;
-  bottom: 70px; /* позиция кружков под слайдером */
+  bottom: 70px; /* позиция индикаторов под слайдером */
 }
 
-.slider-nav__item {
-  width: 12px;
-  height: 12px;
+.slider-nav__item { /* индикатор перемотки */
+  width: 50px; /* ширина индикатора */
+  height: 12px; /* высота индикатора */
   float: left;
   clear: none;
   display: block;
   margin: 0 5px;
-  background: #888;
+  background: #555; /* цвет неактивного индикатора */
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
-.slider-nav__item:hover { background: #bababa; }
-.slider-nav__item--current, .slider-nav__item--current:hover { background: #fff; }
+.slider-nav__item:hover { background: #aaa; } /* цвет индикатора при наведении курсора */
+.slider-nav__item--current, .slider-nav__item--current:hover { background: #fff; } /* цвет активного индикатора */
