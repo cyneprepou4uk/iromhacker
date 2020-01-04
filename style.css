@@ -80,12 +80,11 @@ text.underline {
 
 p.tip {
 	font-style: italic;
-	color: orange;
+	color: darkgray;
 }
 
-p.debugger {
+p.debugger, p.infobox {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-	color: #808080;
 	white-space: pre-line;
 	font-style: normal;
 	font-weight: bold;
@@ -93,9 +92,17 @@ p.debugger {
 	max-width: 100%;
 	overflow: auto;
 	display: block;
+	padding: 0px 10px 15px 15px;
+}
+
+p.debugger {
+	color: #808080;
 	background: #000000;
 	border: 5px #404040 solid;
-	padding: 0px 10px 15px 15px;
+}
+
+p.infobox {
+	border: 1px darkolivegreen solid;
 }
 
 
