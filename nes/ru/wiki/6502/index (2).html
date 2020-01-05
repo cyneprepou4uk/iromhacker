@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ЯРомхакеръ. Ромхакинг NES. Введение в ромхакинг NES. Процессор</title>
+		<meta name="description" content="Описание трех систем счисления, используемых в ромхакинге - DEC, HEX и BIN">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Процессор</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Nintendo Entertainment System</a></li>
+			<li><a href="../2/index.html">Системы счисления</a></li>
+			<li>Процессор</li>
+			<li><a href="../4/index.html">Графика</a></li>
+			<li><a href="../5/index.html">Музыка</a></li>
+		</ul>
+		<h2>Процессор</h2>
+		<p>
+			Центральным процессором (CPU) является 8-битный микропроцессор на основе MOS 6502RP2A03 для региона NTSC и RP2A07 для региона PAL. 
+		</p>
+		<h3>Память процессора</h3>
+		<p>
+			Размер памяти процессора = 64 килобайта. Каждая ячейка памяти называется "адрес", в каждом адресе хранится 1 байт. 64 килобайта это диапазон адресов $0000-$FFFF.
+		</p>
+		<p>
+			Память разбита на несколько участков.
+		</p>
+		<h4>RAM</h4>
+		<h3>Шина данных</h3>
+		<p>
+			Размер шины данных = 8 бит. Это означает, что за 1 раз процессор может обработать информацию размером 1 байт. Отсюда и "8-bit" в названии приставки.
+		</p>
+		<h3>Шина адреса</h3>
+		<p>
+			Размер адресной шины = 16 бит. Это позволяет процессору обращаться к любому адресу из диапазона $0000-$FFFF.
+		</p>
+		<h3>Регистры</h3>
+		<p>
+			У процессора есть пять 8-битных и один 16-битный регистр.
+		</p>
+		<h4>Аккумулятор</h4>
+		<p>
+			8-битный регистр A. Является наиболее часто используемым 
+		</p>
+		<h4>Индексные регистры</h4>
+		<p>
+			8-битные регистры X и Y. В основном используются для получения доступа к диапазону адресов посредством индексной адресации.
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>
