@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ЯРомхакеръ. Ромхакинг NES. Debugger. ROM Data Editor</title>
+		<meta name="description" content="Описание способа отредактировать код и данные в окне ROM Data Editor">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>ROM Data Editor</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p>
+			<center>
+				<a href="https://translate.google.com/translate?sl=ru&tl=en&u=https://iromhacker.ru/nes/ru/fceux/debug/debugger/6-2/index.html" target="_blank">Translate this page into English</a>
+			</center>
+		</p>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Описание окна</a></li>
+			<li><a href="../2/index.html">Регистры и флаги</a></li>
+			<li><a href="../3/index.html">Брейкпоинты</a></li>
+			<ul>
+				<li><a href="../3-1/index.html">Хранение списка брейкпоинтов</a></li>
+				<li><a href="../3-2/index.html">Создание брейкпоинтов</a></li>
+				<li><a href="../3-3/index.html">Основные типы брейкпоинтов</a></li>
+				<li><a href="../3-4/index.html">Дополнительные условия брейкпоинтов</a></li>
+				<ul>
+					<li><a href="../3-4-1/index.html">Операторы сравнения</a></li>
+					<li><a href="../3-4-2/index.html">Арифметические операторы</a></li>
+					<li><a href="../3-4-3/index.html">Логические операторы</a></li>
+				</ul>
+				<li><a href="../3-5/index.html">Прочие типы брейкпоинтов</a></li>
+			</ul>
+			<li><a href="../4/index.html">Кнопки для отладки кода</a></li>
+			<li><a href="../5/index.html">Комментирование кода и адресов</a></li>
+			<ul>
+				<li><a href="../5-1/index.html">Хранение списка комментариев</a></li>
+				<li><a href="../5-2/index.html">Редактирование .nl файлов</a></li>
+			</ul>
+			<li><a href="../6/index.html">Редактирование кода</a></li>
+			<ul>
+				<li><a href="../6-1/index.html">Inline Assembler</a></li>
+				<li>ROM Data Editor</li>
+			</ul>
+			<li>Прочая информация в окне и его возможности</li>
+		</ul>
+		<h2>ROM Data Editor</h2>
+		<p>
+			Этот способ редактирования кода и данных является запасным, и в лучшем случае подходит для редактирования лишь одного-двух байтов. Гораздо удобнее пользоваться Hex Editor'ом и Inline Assembler'ом.
+		</p>
+		<p>
+			Окно ROM Data Editor открывается в Debugger'е кнопкой ROM Patcher. Предварительно желательно скопировать в буфер обмена адрес, по которому нужно отредактировать байты.
+		</p>
+		<p>
+			<img src="1.png">
+		</p>
+		<p>
+			В окне ROM Data Editor вводишь адрес NES Memory в поле ввода вверху и жмешь кнопку Edit This Offset
+		</p>
+		<p>
+			<img src="2.png">
+		</p>
+		<p class="tip">
+			Если это адрес из ROM File, предварительно нужно поставить галочку .Nes File Address.
+		</p>
+		<p>
+			В поле Current Data отображены 8 байт, которые находятся начиная с введенного адреса. Если требуется изменить лишь какой-то из этих байтов, можно скопировать всю строчку целиком, вставить в нижнее поле ввода, а затем подменить необходимый байт, например заменив #$FF на #$AA.
+		</p>
+		<p>
+			<img src="3.png">
+		</p>
+		<p class="tip">
+			Всю строчку копировать не обязательно, достаточно было скопировать байты #$C9 и #$FF. Байты не обязательно записывать заглавными буквами.
+		</p>
+		<p class="tip">
+			В поле ввода помещается не более 30 символов, то есть максимум можно записать 15 байтов без пробелов.
+		</p>
+		<p class="tip">
+			В поле Current Data указан адрес $B000, а не $F000, потому что маппер NROM дублирует адреса $8000-$BFFF и $C000-$FFFF.
+		</p>
+		<p>
+			Чтобы применить свои изменения, нажми кнопку Apply. Если все получилось, то в поле Current Data ты увидишь свои изменения. А чтобы сохранить изменения в файле без необходимости сохранять их через Hex Editor, нажми кнопку Save Rom File.
+		</p>
+		<p class="tip">
+			После использования ROM Data Editor изменения в ROM File не выделяются красным цветом, и эти изменения нельзя отменить через Ctrl + Z. 
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>

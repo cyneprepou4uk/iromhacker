@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ЯРомхакеръ. Ромхакинг NES. Debugger. Inline Assembler</title>
+		<meta name="description" content="Описание способа отредактировать код в окне Inline Assembler">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Inline Assembler</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p>
+			<center>
+				<a href="https://translate.google.com/translate?sl=ru&tl=en&u=https://iromhacker.ru/nes/ru/fceux/debug/debugger/6-1/index.html" target="_blank">Translate this page into English</a>
+			</center>
+		</p>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Описание окна</a></li>
+			<li><a href="../2/index.html">Регистры и флаги</a></li>
+			<li><a href="../3/index.html">Брейкпоинты</a></li>
+			<ul>
+				<li><a href="../3-1/index.html">Хранение списка брейкпоинтов</a></li>
+				<li><a href="../3-2/index.html">Создание брейкпоинтов</a></li>
+				<li><a href="../3-3/index.html">Основные типы брейкпоинтов</a></li>
+				<li><a href="../3-4/index.html">Дополнительные условия брейкпоинтов</a></li>
+				<ul>
+					<li><a href="../3-4-1/index.html">Операторы сравнения</a></li>
+					<li><a href="../3-4-2/index.html">Арифметические операторы</a></li>
+					<li><a href="../3-4-3/index.html">Логические операторы</a></li>
+				</ul>
+				<li><a href="../3-5/index.html">Прочие типы брейкпоинтов</a></li>
+			</ul>
+			<li><a href="../4/index.html">Кнопки для отладки кода</a></li>
+			<li><a href="../5/index.html">Комментирование кода и адресов</a></li>
+			<ul>
+				<li><a href="../5-1/index.html">Хранение списка комментариев</a></li>
+				<li><a href="../5-2/index.html">Редактирование .nl файлов</a></li>
+			</ul>
+			<li><a href="../6/index.html">Редактирование кода</a></li>
+			<ul>
+				<li>Inline Assembler</li>
+				<li><a href="../6-2/index.html">ROM Data Editor</a></li>
+			</ul>
+			<li>Прочая информация в окне и его возможности</li>
+		</ul>
+		<h2>Inline Assembler</h2>
+		<p>
+			Этот способ редактирования кода подходит для тех, кто не заучивает опкоды команд и хочет записывать команды текстом, а не байтами. Гораздо более удобный способ редактирования кода текстом - использовать другие ассемблеры, например ca65.
+		</p>
+		<p class="tip">
+			Окно будет полезно для редактирования адреса в командах условного перехода при переходе в обратную сторону.
+		</p>
+		<p>
+			Окно Inline Assembler вызывается левым кликом по серой полоске слева от адреса команды на адресах $8000-$FFFF во время паузы эмулятора.
+		</p>
+		<p>
+			<img src="1.png">
+		</p>
+		<p>
+			Вверху окна показан начальный адрес вместе с командой и ее байтами (этот текст можно выделять и копировать). По этому адресу будет начинаться перезапись команд. Синтаксис у вводимых команд точно такой же, как они выглядят в Debugger'е, за тем исключением, что не обязательно вводить команды и байты заглавными буквами, а также лишние нули слева у байтов и адресов можно опустить.
+		</p>
+		<p class="tip">
+			При ошибке синтаксиса, а также если будет неправильно введен адрес для команды условного перехода из-за превышения лимита адреса, ты услышишь системный звуковой сигнал, а в названии окна будет сказано *Syntax Error*.
+		</p>
+		<p>
+			За 1 раз можно ввести 1 команду, затем нажми клавишу Enter для подтверждения ввода. Введенная команда отобразится в списке, а вверху окна будет показан следующий доступный адрес, байты и сама команда.
+		</p>
+		<p>
+			<img src="https://i.imgur.com/H7maX4j.gif"><!--0013-->
+		</p>
+		<p>
+			Когда закончишь вводить команды, нажми кнопку Apply, а затем закрой окно и сверься с Debugger'ом.
+		</p>
+		<p>
+			Кнопка Undo отменяет ввод команды по очереди, начиная с последней из списка. По-другому отредактировать список не получится.
+		</p>
+		<p class="tip">
+			После использования Inline Assembler изменения в ROM File не выделяются красным цветом, и эти изменения нельзя отменить через Ctrl + Z. Сохранить изменения нужно в Hex Editor'е во вкладке Save.
+		</p>
+		<p class="tip">
+			Кнопка Save в окне Inline Assembler предположительно должна сохранять изменения в файле без необходимости сохранять через Hex Editor, но, по-видимому, она не работает.
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>

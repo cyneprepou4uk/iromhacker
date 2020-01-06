@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ЯРомхакеръ. Ромхакинг NES. Debugger. Редактирование кода</title>
+		<meta name="description" content="Описание нескольких способов отредактировать код и данные">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Редактирование кода</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p>
+			<center>
+				<a href="https://translate.google.com/translate?sl=ru&tl=en&u=https://iromhacker.ru/nes/ru/fceux/debug/debugger/6/index.html" target="_blank">Translate this page into English</a>
+			</center>
+		</p>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Описание окна</a></li>
+			<li><a href="../2/index.html">Регистры и флаги</a></li>
+			<li><a href="../3/index.html">Брейкпоинты</a></li>
+			<ul>
+				<li><a href="../3-1/index.html">Хранение списка брейкпоинтов</a></li>
+				<li><a href="../3-2/index.html">Создание брейкпоинтов</a></li>
+				<li><a href="../3-3/index.html">Основные типы брейкпоинтов</a></li>
+				<li><a href="../3-4/index.html">Дополнительные условия брейкпоинтов</a></li>
+				<ul>
+					<li><a href="../3-4-1/index.html">Операторы сравнения</a></li>
+					<li><a href="../3-4-2/index.html">Арифметические операторы</a></li>
+					<li><a href="../3-4-3/index.html">Логические операторы</a></li>
+				</ul>
+				<li><a href="../3-5/index.html">Прочие типы брейкпоинтов</a></li>
+			</ul>
+			<li><a href="../4/index.html">Кнопки для отладки кода</a></li>
+			<li><a href="../5/index.html">Комментирование кода и адресов</a></li>
+			<ul>
+				<li><a href="../5-1/index.html">Хранение списка комментариев</a></li>
+				<li><a href="../5-2/index.html">Редактирование .nl файлов</a></li>
+			</ul>
+			<li>Редактирование кода</li>
+			<ul>
+				<li><a href="../6-1/index.html">Inline Assembler</a></li>
+				<li><a href="../6-2/index.html">ROM Data Editor</a></li>
+			</ul>
+			<li>Прочая информация в окне и его возможности</li>
+		</ul>
+		<h2>Редактирование кода</h2>
+		<p>
+			Чтобы отредактировать код (и данные тоже), нужно знать местоположение команды из NES Memory в ROM File. Адрес команды в ROM File всегда отличается от адреса в NES Memory.
+		</p>
+		<p>
+			Чтобы не вычислять самому адрес в ROM File и сразу перейти к адресу, где находится интересующая команда, нужно во время паузы эмулятора кликнуть правой кнопкой по серой полоске в окне Debugger'а слева от адреса команды. Автоматически откроется окно Hex Editor, и тебя перекинет на местоположение этой команды в ROM File.
+		</p>
+		<p>
+			<img src="https://i.imgur.com/fdHUJtV.gif"><!--0012-->
+		</p>
+		<p>
+			После перехода в ROM File ты увидишь байты #$C9 и #$FF, из которых состоит команда <text class="opcode">CMP #</text><text class="address">$FF</text>, а также прочие байты, из которых состоят нижестоящие команды. Теперь ты можешь отредактировать код через Hex Editor по своему усмотрению, а затем кликнуть на Debugger и проверить свои изменения.
+		</p>
+		<p class="tip">
+			Если эмулятор не находится на паузе, правый клик ни к чему не приведет.
+		</p>
+		<p class="tip">
+			Если окно Hex Editor было свернуто перед кликом, оно не развернется. После ручного разворачивания окна выяснится, что оно все же практически правильно перешло на нужный адрес в ROM File, нужно лишь прокрутить окно вверх на 1 строчку.
+		</p>
+		<p class="tip">
+			Если после клика ничего не произошло, проверь стоит ли эмулятор на паузе и развернуто ли окно Hex Editor.
+		</p>
+		<p class="tip">
+			Если кликнуть на адресах $0000-$7FFF, Hex Editor откроется в NES Memory, а не ROM File.
+		</p>
+		<p>
+			Чтобы отредактировать считываемые кодом данные, например данные таблицы из команды <text class="opcode">LDA</text> <text class="address">$89AB</text>,X, кликни по адресу $89AB, перейди по нему через кнопку Seek To, затем кликни правой кнопкой слева от адреса $89AB и поменяй в Hex Editor'е байты на свои.
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>
