@@ -249,7 +249,7 @@ dfn:hover::before {top: 20px;}
 .slider {
 	position: relative;
 	width: 100%;
-	height: 325px;
+	height: 330px;
 	overflow: hidden;
 }
 	
@@ -283,7 +283,7 @@ dfn:hover::before {top: 20px;}
 
 .slider-nav {
   position: absolute;
-  bottom: 45px; /* позиция индикаторов под слайдером */
+  bottom: 50px; /* позиция индикаторов под слайдером */
 }
 
 .slider-nav__item { /* индикатор перемотки */
