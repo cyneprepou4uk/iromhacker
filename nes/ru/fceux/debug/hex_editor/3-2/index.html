@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ЯРомхакеръ. Ромхакинг NES. Hex Editor. Прочие возможности окна. Поиск</title>
+		<meta name="description" content="Окно Find и описание работы поиска байтов и текста в эмуляторе FCEUX">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Поиск</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p>
+			<center>
+				<a href="https://translate.google.com/translate?sl=ru&tl=en&u=https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/3/index.html" target="_blank">Translate this page into English</a>
+			</center>
+		</p>
+		<br>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Описание окна Hex Editor</a></li>
+			<li><a href="../2/index.html">Вкладка View</a></li>
+			<ul>
+				<li><a href="../2-1/index.html">NES Memory</a></li>
+				<ul>
+					<li><a href="../2-1-1/index.html">Заморозка адресов</a></li>
+				</ul>
+				<li><a href="../2-2/index.html">PPU Memory</a></li>
+				<li><a href="../2-3/index.html">OAM Memory</a></li>
+				<li><a href="../2-4/index.html">ROM File</a></li>
+			</ul>
+			<li><a href="../3/index.html">Прочие возможности окна</a></li>
+			<ul>
+				<li><a href="../3-1/index.html">Закладки</a></li>
+				<li>Поиск</li>
+				<li><a href="../3-3/index.html">Файл .tbl</a></li>
+			</ul>
+		</ul>
+		<h2>Окно Find</h2>
+		<p>
+			Окно вызывается через Edit -> Find или комбинацией Ctrl + F.
+		</p>
+		<p>
+			<img src="1.png">
+		</p>
+		<p>
+			В разделе Type ты выбираешь тип данных - байты (опция Hex) или текст/символы (опция Text). В разделе Direction выбираешь направление поиска - вверх (опция Up) или вниз (опция Down).
+		</p>
+		<p class="tip">
+			Попытавшись искать байты с опцией Text, или текст с опцией Hex, окно Find выдаст ошибку Invalid String (неверный ввод).
+		</p>
+		<p>
+			Поиск будет осуществляться по выбранной области во вкладке View. В поиск можно вводить сразу несколько байтов/символов. Найденные результаты поиска подсвечиваются как при выделении мышкой этих адресов.
+		</p>
+		<p class="tip">
+			Максимум будет выделено не более 30 символов, но это не повлияет на результат поиска.
+		</p>
+		<p>
+			При выборе опции Hex, поиск будет искать байты в адресах. Байты не обязательно записывать заглавными буквами.
+		</p>
+		<p>
+			<img src="2.png">
+		</p>
+		<p>
+			Если выбрана опция Text, поиск будет работать с кодировкой байтов в правой части окна. Поиск текста чувствителен к регистру (строчные и заглавные буквы).
+		</p>
+		<p>
+			<img src="3.png">
+		</p>
+		<p class="tip">
+			Поиск текста технически является поиском соответствующих байтов. Если у одного и того же символа существует несколько вариантов байтов, поиск текста будет искать лишь самый младший из них, из-за чего он может и не найти желаемого результата.
+		</p>
+		<p class="tip">
+			Если подключить свою кодировку через файл .tbl, текс будет искаться с учетом новой кодировки.
+		</p>
+		<p>
+			Если существует 2 и более результатов поиска, то нажимая на кнопку Find Next, Hex Editor будет переключаться между этими результатами в ту сторону, которая была выбрана в разделе Direction.
+		</p>
+		<p>
+			Если вообще никаких результатов не было найдено, будет сообщение String Not Found (результатов не найдено).
+		</p>
+		<p class="tip">
+			Если существует всего 1 результат поиска, начальный адрес которого уже выделен в Hex Editor'е (или выделен как первый адрес диапазона), то при повторном нажатии кнопки Find Next окно Find сообщит, что String Not Found.
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>

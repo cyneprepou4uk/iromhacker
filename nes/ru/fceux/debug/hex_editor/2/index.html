@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ЯРомхакеръ. Ромхакинг NES. Hex Editor. Вкладка View</title>
+		<meta name="description" content="Краткое описание режимов отображения памяти во вкладке View эмулятора FCEUX">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Вкладка View</h1>
+		<p>
+			<center>
+				<a href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p>
+			<center>
+				<a href="https://translate.google.com/translate?sl=ru&tl=en&u=https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/2/index.html" target="_blank">Translate this page into English</a>
+			</center>
+		</p>
+		<br>
+		<br>
+		<p class="title">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Описание окна Hex Editor</a></li>
+			<li>Вкладка View</li>
+			<ul>
+				<li><a href="../2-1/index.html">NES Memory</a></li>
+				<ul>
+					<li><a href="../2-1-1/index.html">Заморозка адресов</a></li>
+				</ul>
+				<li><a href="../2-2/index.html">PPU Memory</a></li>
+				<li><a href="../2-3/index.html">OAM Memory</a></li>
+				<li><a href="../2-4/index.html">ROM File</a></li>
+			</ul>
+			<li><a href="../3/index.html">Прочие возможности окна</a></li>
+			<ul>
+				<li><a href="../3-1/index.html">Закладки</a></li>
+				<li><a href="../3-2/index.html">Поиск</a></li>
+				<li><a href="../3-3/index.html">Файл .tbl</a></li>
+			</ul>
+		</ul>
+		<h2>Вкладка View</h2>
+		<p>
+			Можно переключиться на 4 разных режима отображения памяти.
+		</p>
+		<p>
+			<img src="1.png">
+		</p>
+		<p class="tip">
+			В соответствующих статьях будет подробно рассказано об этих вкладках и их возможностях.
+		</p>
+		<h3>NES Memory</h3>
+		<p>
+			Отображение памяти центрального процессора. Включает в себя RAM, регистры, батарейку (при ее наличии) и память ROM'а, подгруженную из ROM File. Размер окна $0000-$FFFF.
+		</p>
+		<h3>PPU Memory</h3>
+		<p>
+			Отображение памяти видеопроцессора. Включает в себя графику фона и спрайтов, атрибуты фона и палитру. Размер окна $0000-$3FFF.
+		</p>
+		<h3>OAM Memory</h3>
+		<p>
+			Отображение памяти спрайтов. Размер окна минимум $0000-$00FF.
+		</p>
+		<h3>ROM File</h3>
+		<p>
+			Отображение содержимого файла ROM'а. Аналогично открытию файла в другом Hex-редакторе. Размер окна зависит от размера файла.
+		</p>
+		<br>
+		<br>
+		<br>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+	</body>
+</html>
