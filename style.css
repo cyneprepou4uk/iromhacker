@@ -14,6 +14,7 @@ body {
 }
 
 body.root {max-width: 500px;}
+body.platform {max-width: 500px;}
 
 ul.root, figure {
 	margin: 0;
