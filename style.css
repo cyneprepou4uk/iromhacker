@@ -67,6 +67,13 @@ a:link, a:visited, a:hover, a:active {
 }
 
 
+a.google_translate_link:link, a.google_translate_link:visited, a.google_translate_link:hover, a.google_translate_link:active {
+	color:#32CD32;
+	text-shadow:0 0 5px rgba(0,255,0,0.5);
+	text-decoration: underline; /*none*/
+}
+
+
 
 /* <text class="object">текст</text> */
 text {font-weight: bold;}
