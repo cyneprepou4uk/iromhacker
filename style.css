@@ -10,7 +10,7 @@ body {
 	color: #E0E0E0;
 	max-width: 1000px;
 	margin: 0 auto; /* появление отступов по краям при достижении max-width */
-	padding: 0 15px 100px 15px; /* фиксированный отступ по краям */
+	padding: 0 15px 100px 15px; /* фиксированный сверху/справа/снизу/слева */
 }
 
 body.root {max-width: 500px;}
