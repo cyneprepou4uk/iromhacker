@@ -14,7 +14,7 @@ body {
 }
 
 body.root {max-width: 500px;}
-body.platform {max-width: 500px; padding: 0 15px 25px 15px;}
+body.platform {max-width: 500px;}
 
 ul {margin-left: -15px;}
 
