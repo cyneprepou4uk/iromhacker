@@ -67,7 +67,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 
-a.google_translate_link:link, a.google_translate_link:visited, a.google_translate_link:hover, a.google_translate_link:active {
+a.google_translate:link, a.google_translate:visited, a.google_translate:hover, a.google_translate:active {
 	color:#32CD32;
 	text-shadow:0 0 5px rgba(0,255,0,0.5);
 	text-decoration: underline; /*none*/
