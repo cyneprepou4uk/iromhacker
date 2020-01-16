@@ -53,7 +53,7 @@ var module = new webPacker.module('crm.site.button');
 заменить рядом 50px на 25px (первые 12 совпадений)
 */
 
-/* отключить пульсацию иконки
+/* отключить пульсацию иконки (или изменить таймер 1500 на другой)
 
 заменить
 this.pulsar,"b24-widget-button-pulse-animate",e
