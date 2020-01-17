@@ -13,7 +13,7 @@ body {
 	padding: 0 15px 100px 15px; /* фиксированный сверху/справа/снизу/слева */
 }
 
-body.root {max-width: 500px;}
+body.root {max-width: 400px;}
 body.platform {max-width: 500px;}
 
 ul {margin-left: -15px;}
@@ -39,7 +39,7 @@ ul.root {list-style: none;}
 
 h1 {
 	text-align: center;
-	color: dodgerblue;
+	color: sandybrown;
 }
 
 h2 {
@@ -260,7 +260,7 @@ dfn:hover::before {top: 20px;}
 .slider {
 	position: relative;
 	width: 100%;
-	height: 350px;
+	height: 280px;
 	overflow: hidden;
 }
 	
@@ -294,7 +294,7 @@ dfn:hover::before {top: 20px;}
 
 .slider-nav {
   position: absolute;
-  bottom: 70px; /* позиция индикаторов под слайдером */
+  bottom: 0px; /* позиция индикаторов под слайдером */
 }
 
 .slider-nav__item { /* индикатор перемотки */
