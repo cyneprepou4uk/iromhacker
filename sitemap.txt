@@ -8,6 +8,8 @@ https://iromhacker.ru/404.html
 		https://iromhacker.ru/nes/ru/tutorials/2/3/index.html
 		https://iromhacker.ru/nes/ru/tutorials/2/4/index.html
 		https://iromhacker.ru/nes/ru/tutorials/2/5/index.html
+	
+	https://iromhacker.ru/nes/ru/wiki/opcodes/1/index.html
 
 		https://iromhacker.ru/nes/ru/fceux/setup/1/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/2/index.html
