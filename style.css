@@ -144,7 +144,7 @@ iframe, table, img {
 
 img.language {cursor: pointer; opacity: .5;}
 
-img.language:hover, img.language_active {opacity: 1;}
+img.language:hover, img_language_active {opacity: 1;}
 
 .title {
 	font-size: 1.5em;
