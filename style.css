@@ -11,8 +11,8 @@ body {
 	max-width: 1000px;
 	margin: 0 auto; /* появление отступов по краям при достижении max-width */
 	padding: 0 15px 100px 15px; /* фиксированный сверху/справа/снизу/слева */
-    top: 0 !important; /* фиксиция позиции body, которую меняет панель google*/
-    position: static !important; /* фиксиция позиции body, которую меняет панель google*/
+	top: 0 !important; /* фиксиция позиции body, которую меняет панель google*/
+	position: static !important; /* фиксиция позиции body, которую меняет панель google*/
 }
 
 body.root {max-width: 360px;}
@@ -138,8 +138,8 @@ table.root
 iframe, table, img {
 	max-width: 100%;
 	position: relative;
-    border: 0px #000000 solid transparent;
-    border-radius: 8px;
+	border: 0px #000000 solid transparent;
+	border-radius: 8px;
 }
 
 img.language {cursor: pointer;}
