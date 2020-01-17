@@ -11,10 +11,14 @@ body {
 	max-width: 1000px;
 	margin: 0 auto; /* появление отступов по краям при достижении max-width */
 	padding: 0 15px 100px 15px; /* фиксированный сверху/справа/снизу/слева */
+    top: 0 !important; /* фиксиция позиции body, которую меняет панель google*/
+    position: static !important; /* фиксиция позиции body, которую меняет панель google*/
 }
 
 body.root {max-width: 360px;}
 body.platform {max-width: 500px;}
+
+.skiptranslate {display: none !important;} /* спрятать панель google */
 
 ul {margin-left: -15px;}
 
