@@ -18,7 +18,7 @@ function TranslateInit() {
     let code = TranslateGetCode();
     // Находим флаг с выбранным языком для перевода и добавляем к нему активный класс
     if (document.querySelector('[data-google-lang="' + code + '"]') !== null) {
-        document.querySelector('[data-google-lang="' + code + '"]').classList.add('img_language_active');
+        document.querySelector('[data-google-lang="' + code + '"]').classList.add('language_imgage_active');
     }
 
 
