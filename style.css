@@ -142,6 +142,8 @@ iframe, table, img {
     border-radius: 8px;
 }
 
+img.language {cursor: pointer;}
+
 .title {
 	font-size: 1.5em;
 	border-left: 1px goldenrod solid;
