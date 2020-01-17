@@ -142,7 +142,9 @@ iframe, table, img {
 	border-radius: 8px;
 }
 
-img.language {cursor: pointer;}
+img.language {cursor: pointer; opacity: .5;}
+
+img.language:hover, img.language_active {opacity: 1;}
 
 .title {
 	font-size: 1.5em;
