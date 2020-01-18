@@ -8,7 +8,7 @@
 		<meta name="description" content="Использование стандартного калькулятора Windows в режиме Программист для эмуляции некоторых команд процессора NES 6502">
 		<meta name="keywords" content="Windows 7, калькулятор, режим программист, десятичные, шестнадцатеричные, двоичные, числа, биты, байты, hex, dec, bin, hexadecimal, decimal, binary">
 		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
-		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<link href="https://style.css" rel="stylesheet">
 		<script src="https://iromhacker.ru/analytics.js"></script>
 		<script src="https://iromhacker.ru/bitrix24.js" async></script>
 	</head>
@@ -65,15 +65,15 @@
 		<button class="spoiler">Пример работы кнопки Lsh</button>
 		<div class="panel">
 			<p class="debugger">
-				<text class="opcode">LDA #</text><text class="address">$25</text>
-				<text class="opcode">ASL</text> ; #$4A
-				<text class="opcode">ASL</text> ; #$94
-				<text class="opcode">ASL</text> ; #$28
-				<text class="opcode">ASL</text> ; #$50
-				<text class="opcode">ASL</text> ; #$A0
-				<text class="opcode">ASL</text> ; #$40
-				<text class="opcode">ASL</text> ; #$80
-				<text class="opcode">ASL</text> ; #$00
+<text class="opcode">LDA #</text><text class="address">$25</text>
+<text class="opcode">ASL</text>	  ; #$4A
+<text class="opcode">ASL</text>	  ; #$94
+<text class="opcode">ASL</text>	  ; #$28
+<text class="opcode">ASL</text>	  ; #$50
+<text class="opcode">ASL</text>	  ; #$A0
+<text class="opcode">ASL</text>	  ; #$40
+<text class="opcode">ASL</text>	  ; #$80
+<text class="opcode">ASL</text>	  ; #$00
 			</p>
 		</div>
 		<h3>Кнопка Rsh</h3>
@@ -86,13 +86,13 @@
 		<button class="spoiler">Пример работы кнопки Rsh</button>
 		<div class="panel">
 			<p class="debugger">
-				<text class="opcode">LDA #</text><text class="address">$25</text>
-				<text class="opcode">LSR</text> ; #$12
-				<text class="opcode">LSR</text> ; #$09
-				<text class="opcode">LSR</text> ; #$04
-				<text class="opcode">LSR</text> ; #$02
-				<text class="opcode">LSR</text> ; #$01
-				<text class="opcode">LSR</text> ; #$00
+<text class="opcode">LDA #</text><text class="address">$25</text>
+<text class="opcode">LSR</text>	  ; #$12
+<text class="opcode">LSR</text>	  ; #$09
+<text class="opcode">LSR</text>	  ; #$04
+<text class="opcode">LSR</text>	  ; #$02
+<text class="opcode">LSR</text>	  ; #$01
+<text class="opcode">LSR</text>	  ; #$00
 			</p>
 		</div>
 		<h3>Кнопка Rol</h3>
@@ -108,29 +108,29 @@
 				В режиме "1 байт".
 			</p>
 			<p class="debugger">
-				<text class="opcode">CLC</text> ; C = 0
-				<text class="opcode">LDA #</text><text class="address">$25 </text>; в калькуляторе #$25
-				<text class="opcode">ROL</text> ; #$4A, C = 0. В калькуляторе #$4A
-				<text class="opcode">ROL</text> ; #$94, C = 0. В калькуляторе #$94
-				<text class="opcode">ROL</text> ; #$28, C = 1. В калькуляторе #$29, вручную ставим бит0 = 0 для #$28
-				<text class="opcode">ROL</text> ; #$51, C = 0. В калькуляторе #$50, вручную ставим бит0 = 1 для #$51
-				<text class="opcode">ROL</text> ; #$A2, C = 0. В калькуляторе #$A2
-				<text class="opcode">ROL</text> ; #$44, C = 1. В калькуляторе #$45, вручную ставим бит0 = 0 для #$44
-				<text class="opcode">ROL</text> ; #$89, C = 0. В калькуляторе #$88, вручную ставим бит0 = 1 для #$89
+<text class="opcode">CLC</text>	  ; C = 0
+<text class="opcode">LDA #</text><text class="address">$25 </text> ; в калькуляторе #$25
+<text class="opcode">ROL</text>	  ; #$4A, C = 0. В калькуляторе #$4A
+<text class="opcode">ROL</text>	  ; #$94, C = 0. В калькуляторе #$94
+<text class="opcode">ROL</text>	  ; #$28, C = 1. В калькуляторе #$29, вручную ставим бит0 = 0 для #$28
+<text class="opcode">ROL</text>	  ; #$51, C = 0. В калькуляторе #$50, вручную ставим бит0 = 1 для #$51
+<text class="opcode">ROL</text>	  ; #$A2, C = 0. В калькуляторе #$A2
+<text class="opcode">ROL</text>	  ; #$44, C = 1. В калькуляторе #$45, вручную ставим бит0 = 0 для #$44
+<text class="opcode">ROL</text>	  ; #$89, C = 0. В калькуляторе #$88, вручную ставим бит0 = 1 для #$89
 			</p>
 			<p>
 				В режиме "2 байта".
 			</p>
 			<p class="debugger">
-				<text class="opcode">CLC</text> ; C = 0
-				<text class="opcode">LDA #</text><text class="address">$25</text> ; в калькуляторе #$25
-				<text class="opcode">ROL</text> ; #$4A, C = 0. В калькуляторе #$4A
-				<text class="opcode">ROL</text> ; #$94, C = 0. В калькуляторе #$94
-				<text class="opcode">ROL</text> ; #$28, C = 1. В калькуляторе #$0128
-				<text class="opcode">ROL</text> ; #$51, C = 0. В калькуляторе #$0250, вручную ставим бит0 = 1 для #$0251
-				<text class="opcode">ROL</text> ; #$A2, C = 0. В калькуляторе #$04A2
-				<text class="opcode">ROL</text> ; #$44, C = 1. В калькуляторе #$0944
-				<text class="opcode">ROL</text> ; #$89, C = 0. В калькуляторе #$1288, вручную ставим бит0 = 1 для #$1289
+<text class="opcode">CLC</text>	  ; C = 0
+<text class="opcode">LDA #</text><text class="address">$25</text>  ; в калькуляторе #$25
+<text class="opcode">ROL</text>	  ; #$4A, C = 0. В калькуляторе #$4A
+<text class="opcode">ROL</text>	  ; #$94, C = 0. В калькуляторе #$94
+<text class="opcode">ROL</text>	  ; #$28, C = 1. В калькуляторе #$0128
+<text class="opcode">ROL</text>	  ; #$51, C = 0. В калькуляторе #$0250, вручную ставим бит0 = 1 для #$0251
+<text class="opcode">ROL</text>	  ; #$A2, C = 0. В калькуляторе #$04A2
+<text class="opcode">ROL</text>	  ; #$44, C = 1. В калькуляторе #$0944
+<text class="opcode">ROL</text>	  ; #$89, C = 0. В калькуляторе #$1288, вручную ставим бит0 = 1 для #$1289
 			</p>
 		</div>
 		<h3>Кнопка Ror</h3>
@@ -146,29 +146,29 @@
 				В режиме "1 байт".
 			</p>
 			<p class="debugger">
-				<text class="opcode">CLC</text> ; C = 0
-				<text class="opcode">LDA #</text><text class="address">$25</text> ; в калькуляторе #$25
-				<text class="opcode">ROR</text> ; #$12, C = 1. В калькуляторе #$92, вручную ставим бит7 = 0 для #$12
-				<text class="opcode">ROR</text> ; #$89, C = 0. В калькуляторе #$09, вручную ставим бит7 = 1 для #$89
-				<text class="opcode">ROR</text> ; #$44, C = 1. В калькуляторе #$C4, вручную ставим бит7 = 0 для #$44
-				<text class="opcode">ROR</text> ; #$A2, C = 0. В калькуляторе #$22, вручную ставим бит7 = 1 для #$A2
-				<text class="opcode">ROR</text> ; #$51, C = 0. В калькуляторе #$51
-				<text class="opcode">ROR</text> ; #$28, C = 1. В калькуляторе #$A8, вручную ставим бит7 = 0 для #$28
-				<text class="opcode">ROR</text> ; #$94, C = 0. В калькуляторе #$14, вручную ставим бит7 = 1 для #$94
+<text class="opcode">CLC</text>	  ; C = 0
+<text class="opcode">LDA #</text><text class="address">$25</text>  ; в калькуляторе #$25
+<text class="opcode">ROR</text>	  ; #$12, C = 1. В калькуляторе #$92, вручную ставим бит7 = 0 для #$12
+<text class="opcode">ROR</text>	  ; #$89, C = 0. В калькуляторе #$09, вручную ставим бит7 = 1 для #$89
+<text class="opcode">ROR</text>	  ; #$44, C = 1. В калькуляторе #$C4, вручную ставим бит7 = 0 для #$44
+<text class="opcode">ROR</text>	  ; #$A2, C = 0. В калькуляторе #$22, вручную ставим бит7 = 1 для #$A2
+<text class="opcode">ROR</text>	  ; #$51, C = 0. В калькуляторе #$51
+<text class="opcode">ROR</text>	  ; #$28, C = 1. В калькуляторе #$A8, вручную ставим бит7 = 0 для #$28
+<text class="opcode">ROR</text>	  ; #$94, C = 0. В калькуляторе #$14, вручную ставим бит7 = 1 для #$94
 			</p>
 			<p>
 				В режиме "2 байта".
 			</p>
 			<p class="debugger">
-				<text class="opcode">CLC</text> ; C = 0
-				<text class="opcode">LDA #</text><text class="address">$25</text> ; в калькуляторе #$25
-				<text class="opcode">ROR</text> ; #$12, C = 1. В калькуляторе #$8012
-				<text class="opcode">ROR</text> ; #$89, C = 0. В калькуляторе #$4009, вручную ставим бит7 = 1 для #$4089
-				<text class="opcode">ROR</text> ; #$44, C = 1. В калькуляторе #$A044
-				<text class="opcode">ROR</text> ; #$A2, C = 0. В калькуляторе #$5022, вручную ставим бит7 = 1 для #$50A2
-				<text class="opcode">ROR</text> ; #$51, C = 0. В калькуляторе #$2851
-				<text class="opcode">ROR</text> ; #$28, C = 1. В калькуляторе #$9428
-				<text class="opcode">ROR</text> ; #$94, C = 0. В калькуляторе #$4A14, вручную ставим бит7 = 1 для #$4A94
+<text class="opcode">CLC</text>	  ; C = 0
+<text class="opcode">LDA #</text><text class="address">$25</text>  ; в калькуляторе #$25
+<text class="opcode">ROR</text>	  ; #$12, C = 1. В калькуляторе #$8012
+<text class="opcode">ROR</text>	  ; #$89, C = 0. В калькуляторе #$4009, вручную ставим бит7 = 1 для #$4089
+<text class="opcode">ROR</text>	  ; #$44, C = 1. В калькуляторе #$A044
+<text class="opcode">ROR</text>	  ; #$A2, C = 0. В калькуляторе #$5022, вручную ставим бит7 = 1 для #$50A2
+<text class="opcode">ROR</text>	  ; #$51, C = 0. В калькуляторе #$2851
+<text class="opcode">ROR</text>	  ; #$28, C = 1. В калькуляторе #$9428
+<text class="opcode">ROR</text>	  ; #$94, C = 0. В калькуляторе #$4A14, вручную ставим бит7 = 1 для #$4A94
 			</p>
 		</div>
 		<h2>Битовые операции</h2>
@@ -188,9 +188,9 @@
 		<button class="spoiler">Пример работы кнопки And</button>
 		<div class="panel">
 			<p class="debugger">
-				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
-				<text class="opcode">AND #</text><text class="address">$5D</text> ; #%01011101
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%00000101 = #$05
+<text class="opcode">LDA #</text><text class="address">$25</text>  ; #%00100101
+<text class="opcode">AND #</text><text class="address">$5D</text>  ; #%01011101
+	  ; #%00000101 = #$05
 			</p>
 		</div>
 		<h3>Кнопка Or</h3>
@@ -200,9 +200,9 @@
 		<button class="spoiler">Пример работы кнопки Or</button>
 		<div class="panel">
 			<p class="debugger">
-				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
-				<text class="opcode">ORA #</text><text class="address">$5D</text> ; #%01011101
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%01111101 = #$7D
+<text class="opcode">LDA #</text><text class="address">$25</text>  ; #%00100101
+<text class="opcode">ORA #</text><text class="address">$5D</text>  ; #%01011101
+	  ; #%01111101 = #$7D
 			</p>
 		</div>
 		<h3>Кнопка Xor</h3>
@@ -212,9 +212,9 @@
 		<button class="spoiler">Пример работы кнопки Xor</button>
 		<div class="panel">
 			<p class="debugger">
-				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
-				<text class="opcode">EOR #</text><text class="address">$5D</text> ; #%01011101
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%01111000 = #$78
+<text class="opcode">LDA #</text><text class="address">$25</text>  ; #%00100101
+<text class="opcode">EOR #</text><text class="address">$5D</text>  ; #%01011101
+	  ; #%01111000 = #$78
 			</p>
 			<p>
 				Чтобы вычислить байт для EOR при начальном байте #$25 и желаемом результате #$78, нужно в калькуляторе ввести #$25, нажать кнопку Xor и ввести #$78. Результатом будет #$5D.
@@ -227,9 +227,9 @@
 		<button class="spoiler">Пример работы кнопки Not</button>
 		<div class="panel">
 			<p class="debugger">
-				<text class="opcode">LDA #</text><text class="address">$25</text> ; #%00100101
-				<text class="opcode">EOR #</text><text class="address">$FF</text> ; #%11111111
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; #%11011010 = #$DA
+<text class="opcode">LDA #</text><text class="address">$25</text>  ; #%00100101
+<text class="opcode">EOR #</text><text class="address">$FF</text>  ; #%11111111
+	  ; #%11011010 = #$DA
 			</p>
 		</div>
 		<script src="https://iromhacker.ru/spoiler.js"></script>

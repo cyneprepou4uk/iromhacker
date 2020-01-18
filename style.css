@@ -100,14 +100,14 @@ p.tip {
 
 p.debugger, p.infobox {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-	white-space: pre-line;
+	white-space: pre;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 15px;
 	max-width: 100%;
 	overflow: auto;
 	display: block;
-	padding: 0px 10px 15px 15px;
+	padding: 0px 10px 0px 15px;
 }
 
 p.debugger {
