@@ -143,7 +143,6 @@ iframe, table, img {
 }
 
 .language_image {cursor: pointer; opacity: .5;}
-
 .language_image:hover, .language_image_active {opacity: 1;}
 
 .title {
