@@ -87,9 +87,11 @@ p.tip {
 	color: cadetblue;
 }
 
-p.debugger, p.infobox {
+br.debugger1 {margin: 20px 15px 100px 15px;}
+
+p.debugger {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-	white-space: normal;
+	white-space: pre;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 15px;
@@ -97,15 +99,21 @@ p.debugger, p.infobox {
 	overflow: auto;
 	display: block;
 	padding: 0px 10px 0px 15px;
-}
-
-p.debugger {
 	color: #808080;
 	background: #000000;
 	border: 5px #404040 solid;
 }
 
 p.infobox {
+	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+	white-space: pre-line;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 15px;
+	max-width: 100%;
+	overflow: auto;
+	display: block;
+	padding: 0px 10px 15px 15px;
 	border: 1px darkolivegreen solid;
 }
 

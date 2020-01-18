@@ -53,6 +53,11 @@
  00:8102: E0 33     <text class="opcode">CMX #</text><text class="address">$33</text>	; сравнить регистр X с байтом #$33<br>
  00:8104: 69 1C     <text class="opcode">ADC #</text><text class="address">$1C</text>	; сложить регистр A с байтом #$1C<br>
 		</p>
+		<p class="debugger">
+ 00:8100: A0 0F     <text class="opcode">LDY #</text><text class="address">$0F</text>	; загрузить байт #$0F в регистр Y<br class="debugger1">
+ 00:8102: E0 33     <text class="opcode">CMX #</text><text class="address">$33</text>	; сравнить регистр X с байтом #$33<br class="debugger1">
+ 00:8104: 69 1C     <text class="opcode">ADC #</text><text class="address">$1C</text>	; сложить регистр A с байтом #$1C<br class="debugger1">
+		</p>
 		<p class="tip">
 			Чтобы команда LDY использовала режим адресации Immediate, она записывается с помощью опкода A0. А чтобы загрузить в регистр Y байт #$0F, после опкода ставится операнд 0F.
 		</p>
