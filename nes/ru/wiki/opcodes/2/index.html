@@ -45,9 +45,9 @@
 			Операнд размером 1 байт. В качестве операнда указывается фиксированный байт (константа), с которым будет работать процессор.
 		</p>
 		<p class="debugger">
-LDA #$
-222
-3
+ 00:8100: A9 0F     <text class="opcode">LDA #</text>$0F  ; загрузить байт #$0F в регистр A
+ 00:8102: C9 33     <text class="opcode">CMP #</text>$33  ; сравнить регистр A с байтом #$33
+ 00:8104: 69 1C     <text class="opcode">ADC #</text>$1C  ; сложить регистр A с байтом #$1C
 		</p>
 		<script src="https://iromhacker.ru/spoiler.js"></script>
 	</body>
