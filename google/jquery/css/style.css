@@ -10,6 +10,11 @@ body {
 
 /* Фиксируем позицию body, которую меняет панель гугла*/
 
+.page_fix {
+    top: 0 !important;
+    position: static !important;
+}
+
 /* Прячем панель гугла */
 
 .skiptranslate {
