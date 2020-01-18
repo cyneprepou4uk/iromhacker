@@ -89,7 +89,7 @@ p.tip {
 
 p.debugger {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-	white-space: pre !important;
+	white-space: pre;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 15px;
