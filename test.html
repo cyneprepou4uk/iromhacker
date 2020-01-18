@@ -8,7 +8,7 @@
 		<meta name="description" content="Подробное описание режимов адресации Immediate, Zero Page и Absolute">
 		<meta name="keywords" content="">
 		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
-		<link href="https://iromhacker.ru/style_test.css" rel="stylesheet">
+		<link href="style_test.css" rel="stylesheet">
 		<script src="https://iromhacker.ru/analytics.js"></script>
 		<script src="https://iromhacker.ru/bitrix24.js" async></script>
 	</head>
@@ -49,9 +49,9 @@
 			Операнд команды размером 1 байт, им указывается константа, с которым будет работать эта команда.
 		</p>
 		<p class="debugger">
- 00:8100: A0 0F     <text class="opcode">LDY #</text><text class="address">$0F</text>	; загрузить байт #$0F в регистр Y
- 00:8102: E0 33     <text class="opcode">CMX #</text><text class="address">$33</text>	; сравнить регистр X с байтом #$33
- 00:8104: 69 1C     <text class="opcode">ADC #</text><text class="address">$1C</text>	; сложить регистр A с байтом #$1C
+ 00:8100: A0 0F     <text class="opcode">LDY #</text><text class="address">$0F</text>	; загрузить байт #$0F в регистр Y<br>
+ 00:8102: E0 33     <text class="opcode">CMX #</text><text class="address">$33</text>	; сравнить регистр X с байтом #$33<br>
+ 00:8104: 69 1C     <text class="opcode">ADC #</text><text class="address">$1C</text>	; сложить регистр A с байтом #$1C<br>
 		</p>
 		<p class="tip">
 			Чтобы команда LDY использовала режим адресации Immediate, она записывается с помощью опкода A0. А чтобы загрузить в регистр Y байт #$0F, после опкода ставится операнд 0F.
