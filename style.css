@@ -143,6 +143,14 @@ iframe, table, img {
 	letter-spacing: 1.5px;
 }
 
+title {
+	background: #112233;
+	border-bottom: dashed 1px rgba(0,0,0,0.8);
+	font-style: inherit;
+	cursor: help;
+	position: relative;
+}
+
 
 
 /* всплывающие подсказки при наведении курсора */
