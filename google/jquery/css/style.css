@@ -12,6 +12,10 @@ body {
 
 /* Прячем панель гугла */
 
+.skiptranslate {
+    display: none !important;
+}
+
 /* language */
 
 .language {
