@@ -48,6 +48,14 @@
 		<p>
 			Операнд команды размером 1 байт, им указывается константа, с которым будет работать эта команда.
 		</p>
+		<debugger>
+<div class="debugger"> 00:8100: A0 0F     <text class="opcode">LDY #</text><text class="address">$0F</text>	; загрузить байт #$0F в регистр Y</div>
+<div class="debugger"> 00:8102: E0 33     <text class="opcode">CMX #</text><text class="address">$33</text>	; сравнить регистр X с байтом #$33</div>
+<div class="debugger"> 00:8104: 69 1C     <text class="opcode">ADC #</text><text class="address">$1C</text>	; сложить регистр A с байтом #$1C</div>
+		</debugger>
+		
+		1111
+		
 		<p>
 			<table class="debugger" border=0 cellspacing=0 cellpadding=0>
 				<tr>

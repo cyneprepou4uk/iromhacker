@@ -89,6 +89,24 @@ p.tip {
 
 br.debugger1 {margin: 20px 15px 100px 15px;}
 
+
+debugger {
+	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 15px;
+	max-width: 100%;
+	overflow: auto;
+	display: block;
+	padding: 15px;
+	color: #808080;
+	background: #000000;
+	border: 5px #404040 solid;
+}
+
+div.debugger {white-space: pre;}
+
+/* 
 p.debugger {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 	white-space: pre;
@@ -103,6 +121,7 @@ p.debugger {
 	background: #000000;
 	border: 5px #404040 solid;
 }
+ */
 
 table.debugger {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
@@ -114,7 +133,7 @@ table.debugger {
 	overflow: auto;
 	display: block;
 	top: 20px;
-	padding: 0px 10px 0px 15px; /* фиксированный сверху/справа/снизу/слева */
+	padding: 200px 10px 0px 15px; /* фиксированный сверху/справа/снизу/слева */
 	color: #808080;
 	background: #000000;
 	border: 5px #404040 solid;
