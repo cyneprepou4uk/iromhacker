@@ -11,14 +11,10 @@ body {
 	max-width: 1000px;
 	margin: 0 auto; /* появление отступов по краям при достижении max-width */
 	padding: 0 15px 100px 15px; /* фиксированный сверху/справа/снизу/слева */
-	top: 0 !important; /* фиксиция позиции body, которую меняет панель google*/
-	position: static !important; /* фиксиция позиции body, которую меняет панель google*/
 }
 
 body.root {max-width: 360px;}
 body.platform {max-width: 500px;}
-
-.skiptranslate {display: none !important;} /* спрятать панель google */
 
 ul {margin-left: -15px;}
 
@@ -43,7 +39,7 @@ ul.root {list-style: none;}
 
 h1 {
 	text-align: center;
-	color: sandybrown;
+	color: rosybrown;
 }
 
 h2 {
@@ -67,13 +63,6 @@ h4 {
 a:link, a:visited, a:hover, a:active {
 	color:#63C0F5;
 	text-shadow:0 0 5px rgba(104,182,255,0.5);
-	text-decoration: underline; /*none*/
-}
-
-
-a.google_translate:link, a.google_translate:visited, a.google_translate:hover, a.google_translate:active {
-	color:#32CD32;
-	text-shadow:0 0 5px rgba(0,255,0,0.5);
 	text-decoration: underline; /*none*/
 }
 
@@ -142,9 +131,6 @@ iframe, table, img {
 	border-radius: 8px;
 }
 
-.language_image {cursor: pointer; opacity: .5;}
-.language_image:hover, .language_image_active {opacity: 1;}
-
 .title {
 	font-size: 1.5em;
 	border-left: 1px goldenrod solid;
@@ -155,14 +141,6 @@ iframe, table, img {
 	margin-top: 30px;
 	margin-left: -5px;
 	letter-spacing: 1.5px;
-}
-
-title {
-	background: #112233;
-	border-bottom: dashed 1px rgba(0,0,0,0.8);
-	font-style: inherit;
-	cursor: help;
-	position: relative;
 }
 
 
