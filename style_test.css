@@ -104,6 +104,22 @@ p.debugger {
 	border: 5px #404040 solid;
 }
 
+table.debugger {
+	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+	white-space: pre;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 15px;
+	max-width: 100%;
+	overflow: auto;
+	display: block;
+	top: 20px;
+	padding: 0px 10px 0px 15px; /* фиксированный сверху/справа/снизу/слева */
+	color: #808080;
+	background: #000000;
+	border: 5px #404040 solid;
+}
+
 p.infobox {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 	white-space: pre-line;
