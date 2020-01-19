@@ -72,7 +72,7 @@
 		<div class="debugger_code">
 			<div class="debugger_string">00:8100: 85 4D     <text class="opcode">STA</text> <text class="address">$4D</text>    ; записать байт из регистра A в адрес $004D</div>
 			<div class="debugger_string">00:8102: C6 03     <text class="opcode">DEC</text> <text class="address">$03</text>    ; уменьшить на #$01 байт в адресе $0003</div>
-			<div class="debugger_string">00:8104: 45 A1     <text class="opcode">EOR</text> <text class="address">$A1</text>    ; логическое ИЛИ байта из регистра A и байта из адреса $00A1</div>
+			<div class="debugger_string">00:8104: 45 A1     <text class="opcode">EOR</text> <text class="address">$A1</text>    ; исключающее ИЛИ байта из регистра A и байта из адреса $00A1</div>
 		</div>
 		<p class="tip">
 			Чтобы команда STA использовала режим адресации Zero Page, она записывается с помощью опкода 85. А чтобы записать байт из регистра A в адрес $004D, после опкода ставится операнд 4D.
