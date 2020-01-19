@@ -211,7 +211,7 @@ dfn:hover::before {top: 20px;}
 	transition: 0.2s; /*скорость изменения цвета при наведении курсора*/
 }
 
-.active, .spoiler:hover {
+.spoiler_active, .spoiler:hover {
 	background-color: #505050; /* цвет фона открытого спойлера и при наведении курсора */
 }
 
