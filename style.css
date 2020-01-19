@@ -77,32 +77,27 @@ text.opcode {color: cornflowerblue;}
 
 text.address {color: limegreen;}
 
-text.underline {
-	border-bottom: solid 1px;
-	font-weight: normal;
-}
+text.underline {border-bottom: solid 1px; font-weight: normal;}
 
-p.tip {
-	font-style: italic;
-	color: cadetblue;
-}
+p.tip {font-style: italic; color: cadetblue;}
 
-p.debugger {
+div.debugger_code {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
-	white-space: pre;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 15px;
 	max-width: 100%;
 	overflow: auto;
 	display: block;
-	padding: 0px 10px 0px 15px;
+	padding: 10px;
 	color: #808080;
 	background: #000000;
 	border: 5px #404040 solid;
 }
 
-p.infobox {
+div.debugger_string {white-space: pre;}
+
+div.infobox {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 	white-space: pre-line;
 	font-style: normal;
