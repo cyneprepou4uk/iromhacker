@@ -251,53 +251,74 @@ dfn:hover::before {top: 20px;}
 }
 	
 .slides {
-  height: 100%;
-  overflow: hidden;
-  /**	
-   * Prevent blinking issue
-   * Not tested. Experimental.
-   */
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-
-   -webkit-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
-   -moz-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
-   -ms-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
-   -o-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
-   transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+	height: 100%;
+	overflow: hidden;
+	/**	
+	* Prevent blinking issue
+	* Not tested. Experimental.
+	*/
+	webkit-backface-visibility: hidden;
+	webkit-transform-style: preserve-3d;
+	
+	-webkit-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	-moz-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	-ms-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	-o-transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+	transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
 }
 	
 .slide {
-  height: 100%;
-  float: left;
-  clear: none;
+	height: 100%;
+	float: left;
+	clear: none;
 }
 .slide figure {
-  display: block;
-  position: relative;
-  text-align: center;
+	display: block;
+	position: relative;
+	text-align: center;
 }
 
 .slider-nav {
-  position: absolute;
-  bottom: 0px; /* позиция индикаторов под слайдером */
+	position: absolute;
+	bottom: 0px; /* позиция индикаторов под слайдером */
 }
 
 .slider-nav__item { /* индикатор перемотки */
-  width: 50px; /* ширина индикатора */
-  height: 12px; /* высота индикатора */
-  float: left;
-  clear: none;
-  display: block;
-  margin: 0 5px;
-  background: salmon; /* цвет неактивного индикатора */
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
+	width: 50px; /* ширина индикатора */
+	height: 12px; /* высота индикатора */
+	float: left;
+	clear: none;
+	display: block;
+	margin: 0 5px;
+	background: salmon; /* цвет неактивного индикатора */
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
 }
 
 /* цвет индикатора при наведении курсора */
-.slider-nav__item:hover { background: khaki; } 
+.slider-nav__item:hover {background: khaki;} 
 
 /* цвет активного индикатора */
-.slider-nav__item--current, .slider-nav__item--current:hover { background: palegreen; } 
+.slider-nav__item--current, .slider-nav__item--current:hover {background: palegreen;}
+
+
+
+/* Открывающиеся вкладки https://html5css.ru/howto/howto_js_tabs.php */
+.tabLink {
+	color:#63C0F5;
+}
+
+.tabLink:hover {cursor: pointer; color: khaki;}
+.tab_active {color: palegreen;}
+
+.tabcontent {
+	display: none;
+	border-top: none;
+	animation: fadeEffect 0.5s;
+}
+
+@keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
