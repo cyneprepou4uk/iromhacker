@@ -48,11 +48,13 @@
 		<p>
 			Операнд команды размером 1 байт, им указывается константа, с которым будет работать эта команда.
 		</p>
-		<div class="debugger_code">
-			<div class="debugger_string">00:8100: A0 0F     <text class="opcode">LDY #</text><text class="address">$0F</text>	; загрузить байт #$0F в регистр Y</div>
-			<div class="debugger_string">00:8102: E0 33     <text class="opcode">CPX #</text><text class="address">$33</text>	; сравнить регистр X с байтом #$33</div>
-			<div class="debugger_string">00:8104: 69 1C     <text class="opcode">ADC #</text><text class="address">$1C</text>	; сложить регистр A с байтом #$1C</div>
-		</div>
+		<p>
+			<div class="debugger_code">
+				<div class="debugger_string">00:8100: A0 0F     <text class="opcode">LDY #</text><text class="address">$0F</text>	; загрузить байт #$0F в регистр Y</div>
+				<div class="debugger_string">00:8102: E0 33     <text class="opcode">CPX #</text><text class="address">$33</text>	; сравнить регистр X с байтом #$33</div>
+				<div class="debugger_string">00:8104: 69 1C     <text class="opcode">ADC #</text><text class="address">$1C</text>	; сложить регистр A с байтом #$1C</div>
+			</div>
+		</p>
 		<p class="tip">
 			Чтобы команда LDY использовала режим адресации Immediate, она записывается с помощью опкода A0. А чтобы загрузить в регистр Y байт #$0F, после опкода ставится операнд 0F.
 		</p>
@@ -69,11 +71,13 @@
 		<p>
 			Операнд команды размером 1 байт, им указывается младший байт адреса. А старший байт адреса всегда будет = #$00.
 		</p>
-		<div class="debugger_code">
-			<div class="debugger_string">00:8100: 85 4D     <text class="opcode">STA</text> <text class="address">$4D</text>    ; записать байт из регистра A в адрес $004D</div>
-			<div class="debugger_string">00:8102: C6 03     <text class="opcode">DEC</text> <text class="address">$03</text>    ; уменьшить на #$01 байт в адресе $0003</div>
-			<div class="debugger_string">00:8104: 45 A1     <text class="opcode">EOR</text> <text class="address">$A1</text>    ; исключающее ИЛИ байта из регистра A и байта из адреса $00A1</div>
-		</div>
+		<p>
+			<div class="debugger_code">
+				<div class="debugger_string">00:8100: 85 4D     <text class="opcode">STA</text> <text class="address">$4D</text>    ; записать байт из регистра A в адрес $004D</div>
+				<div class="debugger_string">00:8102: C6 03     <text class="opcode">DEC</text> <text class="address">$03</text>    ; уменьшить на #$01 байт в адресе $0003</div>
+				<div class="debugger_string">00:8104: 45 A1     <text class="opcode">EOR</text> <text class="address">$A1</text>    ; исключающее ИЛИ байта из регистра A и байта из адреса $00A1</div>
+			</div>
+		</p>
 		<p class="tip">
 			Чтобы команда STA использовала режим адресации Zero Page, она записывается с помощью опкода 85. А чтобы записать байт из регистра A в адрес $004D, после опкода ставится операнд 4D.
 		</p>
@@ -84,11 +88,13 @@
 		<p>
 			Операнд команды размером 2 байта, им указывается 16-битный адрес. Из-за особенностей архитектуры процессора, в операнде старший и младший байты адреса <text class="underline">всегда</text> записываются в обратном порядке, такой формат называется <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2#%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%BE%D1%82_%D0%BC%D0%BB%D0%B0%D0%B4%D1%88%D0%B5%D0%B3%D0%BE_%D0%BA_%D1%81%D1%82%D0%B0%D1%80%D1%88%D0%B5%D0%BC%D1%83" target="_blank">little-endian</a>.
 		</p>
-		<div class="debugger_code">
-			<div class="debugger_string">00:8100: AE 23 01  <text class="opcode">LDX</text> <text class="address">$0123</text>    ; загрузить в регистр X байт из адреса $0123</div>
-			<div class="debugger_string">00:8103: 0E 45 03  <text class="opcode">ASL</text> <text class="address">$0345</text>    ; арифметический сдвиг битов влево у байта в адресе $0345</div>
-			<div class="debugger_string">00:8106: ED 09 00  <text class="opcode">SBC</text> <text class="address">$0009</text>    ; вычесть из регистра A байт из адреса $0009</div>
-		</div>
+		<p>
+			<div class="debugger_code">
+				<div class="debugger_string">00:8100: AE 23 01  <text class="opcode">LDX</text> <text class="address">$0123</text>    ; загрузить в регистр X байт из адреса $0123</div>
+				<div class="debugger_string">00:8103: 0E 45 03  <text class="opcode">ASL</text> <text class="address">$0345</text>    ; арифметический сдвиг битов влево у байта в адресе $0345</div>
+				<div class="debugger_string">00:8106: ED 09 00  <text class="opcode">SBC</text> <text class="address">$0009</text>    ; вычесть из регистра A байт из адреса $0009</div>
+			</div>
+		</p>
 		<p class="tip">
 			Чтобы команда LDX использовала режим адресации Absolute, она записывается с помощью опкода AE. А чтобы загрузить в регистр X байт из адреса $0123, после опкода ставится операнд 23 01.
 		</p>
