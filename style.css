@@ -306,7 +306,7 @@ dfn:hover::before {top: 20px;}
 
 /* Открывающиеся вкладки https://html5css.ru/howto/howto_js_tabs.php */
 .tabLink {
-	color:#63C0F5;
+	color: salmon;
 }
 
 .tabLink:hover {cursor: pointer; color: khaki;}
@@ -314,7 +314,6 @@ dfn:hover::before {top: 20px;}
 
 .tabcontent {
 	display: none;
-	border-top: none;
 	animation: fadeEffect 0.5s;
 }
 
