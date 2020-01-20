@@ -73,9 +73,15 @@ text {font-weight: bold;}
 
 text.object {color: orangered;}
 
-text.opcode {color: cornflowerblue;}
+text.opcode {
+	color: cornflowerblue;
+	font-weight: inherit;
+}
 
-text.address {color: limegreen;}
+text.address {
+	color: limegreen;
+	font-weight: inherit;
+}
 
 text.underline {border-bottom: solid 1px; font-weight: normal;}
 
