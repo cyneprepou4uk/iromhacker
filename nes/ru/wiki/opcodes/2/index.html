@@ -57,6 +57,7 @@
 		<p class="tip">
 			Раздел еще в разработке, ссылки будут добавлены постепенно.
 		</p>
+		<p>
 		<div id="Immediate" class="tabcontent">
 			<h2>Immediate</h2>
 			<p>
@@ -76,148 +77,161 @@
 				Чтобы инструкция <text class="opcode">LDY</text> использовала режим адресации Immediate, она записывается с помощью опкода A0. После опкода ставится операнд 0F для загрузки в регистр Y байта <text class="opcode">#</text><text class="address">$0F</text>.
 			</p>
 		</div>
-		<div id="Zero Page" class="tabcontent">
-			<h2>Zero Page</h2>
-			<p>
-				Адресация нулевой страницы. Нулевой страницей являются адреса RAM в диапазоне $0000-$00FF. Старший байт адресов этого диапазона = #$00, поэтому страница называется "нулевая".
-			</p>
-			<p>
-				8-битная адресация Zero Page служит для экономии ресурсов процессора, поскольку затрачивает меньше тактов на выполнение инструкции по сравнению с режимом адресации Absolute.
-			</p>
-			<p class="tip">
-				По этой причине данные, которые будут использованы кодом игры чаще, чем другие, обычно находятся именно в нулевой странице для снижения нагрузки на процессор при регулярной работе с этими данными. За счет сэкономленных тактов можно успеть выполнить больше кода за кадр.
-			</p>
-			<p>
-				Операнд инструкции размером 1 байт, которым указывается младший байт адреса. А старший байт адреса всегда будет = #$00.
-			</p>
-			<p>
-				<div class="debugger_code">
-					<div class="debugger_string">00:8100: 85 4D     <text class="opcode">STA</text> <text class="address">$4D</text>    ; записать байт из регистра A в адрес $004D</div>
-					<div class="debugger_string">00:8102: C6 03     <text class="opcode">DEC</text> <text class="address">$03</text>    ; уменьшить на #$01 байт в адресе $0003</div>
-					<div class="debugger_string">00:8104: 45 A1     <text class="opcode">EOR</text> <text class="address">$A1</text>    ; исключающее ИЛИ байта из регистра A и байта из адреса $00A1</div>
-				</div>
-			</p>
-			<p>
-				Чтобы инструкция <text class="opcode">STA</text> использовала режим адресации Zero Page, она записывается с помощью опкода 85. После опкода ставится операнд 4D для указания адреса <text class="address">$4D</text>, в который будет записан байт из регистра A.
-			</p>
-		</div>
-		<div id="Absolute" class="tabcontent">
-			<h2>Absolute</h2>
-			<p>
-				Абсолютная адресация. Полноценная 16-битная адресация, позволяет инструкциям работать с любым адресом памяти процессора (NES Memory) в диапазоне $0000-$FFFF.
-			</p>
-			<p>
-				Операнд инструкции размером 2 байта, ими указывается 16-битный адрес. Из-за особенностей архитектуры процессора, в операнде старший и младший байты адреса <text class="underline">всегда</text> записываются в обратном порядке, такой формат называется <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2#%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%BE%D1%82_%D0%BC%D0%BB%D0%B0%D0%B4%D1%88%D0%B5%D0%B3%D0%BE_%D0%BA_%D1%81%D1%82%D0%B0%D1%80%D1%88%D0%B5%D0%BC%D1%83" target="_blank">little-endian</a>.
-			</p>
-			<p>
-				<div class="debugger_code">
-					<div class="debugger_string">00:8100: AE 23 01  <text class="opcode">LDX</text> <text class="address">$0123</text>    ; загрузить в регистр X байт из адреса $0123</div>
-					<div class="debugger_string">00:8103: 0E 45 03  <text class="opcode">ASL</text> <text class="address">$0345</text>    ; арифметический сдвиг битов влево у байта в адресе $0345</div>
-					<div class="debugger_string">00:8106: ED AB 89  <text class="opcode">SBC</text> <text class="address">$89AB</text>    ; вычесть из регистра A байт из адреса $89AB</div>
-				</div>
-			</p>
-			<p>
-				Чтобы инструкция <text class="opcode">LDX</text> использовала режим адресации Absolute, она записывается с помощью опкода AE. После опкода ставится операнд 23 01 для указания адреса <text class="address">$0123</text>, из которого будет загружен байт в регистр X.
-			</p>
-			<h3>Сравнение с Zero Page</h3>
-			<p>
-				Поскольку адресация Absolute затрагивает весь возможный диапазон $0000-$FFFF, ей можно указывать и адреса из нулевой страницы. Однако так делать нежелательно, ведь выполнение таких инструкций затрачивает больше тактов, чем с адресацией Zero Page, а результат выполнения инструкции будет точно такой же.
-			</p>
-			<p>
-				<div class="debugger_code">
-					<div class="debugger_string">00:8100: AD 11 00  <text class="opcode">LDA</text> <text class="address">$0011</text>    ; требует 4 такта на выполнение инструкции</div>
-					<div class="debugger_string">00:8103: A5 11     <text class="opcode">LDA</text> <text class="address">$11</text>      ; требует 3 такта на выполнение инструкции</div>
-				</div>
-			</p>
-			<p class="tip">
-				Необходимость прибегнуть к режиму адресации Absolute для указания адресов нулевой страницы есть только в том случае, когда у выбранной инструкции не существует варианта с адресацией Zero Page Indexed, а есть только Absolute Indexed. Например, у инструкции LDA,Y.
-			</p>
-		</div>
-		<div id="Indexed" class="tabcontent">
-			<h2>Indexed</h2>
-			<p>
-				Индексная адресация. При вычислении адреса учитывается значение индексного регистра X или Y. К адресу, указанному в операнде инструкции, добавляется текущее значение индексного регистра во время выполнения инструкции. После сложения операнда и индексного регистра получается итоговый адрес, с которым будет работать инструкция.
-			</p>
-			<p class="tip">
-				Инструкция, работающая с индексным регистром, не может использовать этот же регистр с режимом адресации Indexed. То есть не существует инструкций вроде LDX,X или LDY,Y.
-			</p>
-			<p>
-				Поскольку значение индексного регистра может быть в диапазоне от #$00 до #$FF, при помощи одной-единственной инструкции можно обратиться к целому диапазону размером 256 адресов, изменяя значение индексного регистра перед выполнением этой инструкции.
-			</p>
-			<p class="tip">
-				Этот подход очень часто применяется при создании циклов и подпрограмм. А также адресация Indexed - одна из наиболее важных причин, почему однотипные адреса у различных игровых объектов, например их координаты, очень часто находятся в RAM по соседству. Ведь достаточно загрузить порядковый номер объекта в нужный индексный регистр, и можно работать с адресом именно этого объекта через ту же самую инструкуцию.
-			</p>
-			<p>
-				Адресация Indexed может быть использована как с режимом адресации Zero Page, так и Absolute. У некоторых инструкций есть ограничение по выбору этих разновидностей адресации Indexed, в основном ограничения по использованию регистра Y.
-			</p>
-			<p class="tip">
-				Также адресация Indexed может использоваться с адресацией Indirect, которая описана отдельно.
-			</p>
-			<h3>Zero Page Indexed</h3>
-			<p>
-				Используется вместе с адресацией Zero Page (диапазон $0000-$00FF). Поскольку указывается адрес нулевой страницы, операнд инструкции должен быть размером 1 байт.
-			</p>
-			<div class="debugger_code">
-				<div class="debugger_string">00:8100: A9 10     <text class="opcode">LDA #</text><text class="address">$10 </text>    ; загрузить байт #$10 в регистр A</div>
-				<div class="debugger_string">00:8102: A2 00     <text class="opcode">LDX #</text><text class="address">$00 </text>    ; загрузить байт #$00 в регистр X</div>
-				<div class="debugger_string">00:8104: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $0099</div>
-				<div class="debugger_string">00:8106: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01</div>
-				<div class="debugger_string">00:8107: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $009A</div>
-				<div class="debugger_string">00:8109: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01</div>
-				<div class="debugger_string">00:810A: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text>   ; записать байт из регистра A в адрес $009B</div>
+		</p>
+		<p>
+			<div id="Zero Page" class="tabcontent">
+				<h2>Zero Page</h2>
+				<p>
+					Адресация нулевой страницы. Нулевой страницей являются адреса RAM в диапазоне $0000-$00FF. Старший байт адресов этого диапазона = #$00, поэтому страница называется "нулевая".
+				</p>
+				<p>
+					8-битная адресация Zero Page служит для экономии ресурсов процессора, поскольку затрачивает меньше тактов на выполнение инструкции по сравнению с режимом адресации Absolute.
+				</p>
+				<p class="tip">
+					По этой причине данные, которые будут использованы кодом игры чаще, чем другие, обычно находятся именно в нулевой странице для снижения нагрузки на процессор при регулярной работе с этими данными. За счет сэкономленных тактов можно успеть выполнить больше кода за кадр.
+				</p>
+				<p>
+					Операнд инструкции размером 1 байт, которым указывается младший байт адреса. А старший байт адреса всегда будет = #$00.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: 85 4D     <text class="opcode">STA</text> <text class="address">$4D</text>    ; записать байт из регистра A в адрес $004D</div>
+						<div class="debugger_string">00:8102: C6 03     <text class="opcode">DEC</text> <text class="address">$03</text>    ; уменьшить на #$01 байт в адресе $0003</div>
+						<div class="debugger_string">00:8104: 45 A1     <text class="opcode">EOR</text> <text class="address">$A1</text>    ; исключающее ИЛИ байта из регистра A и байта из адреса $00A1</div>
+					</div>
+				</p>
+				<p>
+					Чтобы инструкция <text class="opcode">STA</text> использовала режим адресации Zero Page, она записывается с помощью опкода 85. После опкода ставится операнд 4D для указания адреса <text class="address">$4D</text>, в который будет записан байт из регистра A.
+				</p>
 			</div>
-			<p>
-				Чтобы инструкция <text class="opcode">STA</text> использовала режим адресации Zero Page,X, она записывается с помощью опкода 95. После опкода ставится операнд 99 для указания адреса <text class="address">$99</text><text class="opcode">,X</text>, в который будет записан байт из регистра A. Изменяя байт в регистре X, при выполнении инструкций <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text> меняется итоговый адрес, в который произойдет запись байта из регистра A.
-			</p>
-			<p class="tip">
-				Нельзя выйти за пределы нулевой страницы, используя адресацию Zero Page Indexed. Например, выполняя инструкцию STA $FF,X с текущим значением X = #$01, байт из регистра A будет записан в адрес $0000, а не $0100.
-			</p>
-			<h3>Absolute Indexed</h3>
-			<p>
-				Используется вместе с адресацией Absolute (диапазон $0000-$FFFF). Операнд будет размером 2 байта, старший и младший байты адреса записываются в обратном порядке.
-			</p>
-			<p>
-				В примере показан цикл, с помощью которого происходит поочередное копирование байтов из адресов $E000-$E005 в адреса $0120-$0125.
-			</p>
-			<p>
+		</p>
+		<p>
+			<div id="Absolute" class="tabcontent">
+				<h2>Absolute</h2>
+				<p>
+					Абсолютная адресация. Полноценная 16-битная адресация, позволяет инструкциям работать с любым адресом памяти процессора (NES Memory) в диапазоне $0000-$FFFF.
+				</p>
+				<p>
+					Операнд инструкции размером 2 байта, ими указывается 16-битный адрес. Из-за особенностей архитектуры процессора, в операнде старший и младший байты адреса <text class="underline">всегда</text> записываются в обратном порядке, такой формат называется <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2#%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%BE%D1%82_%D0%BC%D0%BB%D0%B0%D0%B4%D1%88%D0%B5%D0%B3%D0%BE_%D0%BA_%D1%81%D1%82%D0%B0%D1%80%D1%88%D0%B5%D0%BC%D1%83" target="_blank">little-endian</a>.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: AE 23 01  <text class="opcode">LDX</text> <text class="address">$0123</text>    ; загрузить в регистр X байт из адреса $0123</div>
+						<div class="debugger_string">00:8103: 0E 45 03  <text class="opcode">ASL</text> <text class="address">$0345</text>    ; арифметический сдвиг битов влево у байта в адресе $0345</div>
+						<div class="debugger_string">00:8106: ED AB 89  <text class="opcode">SBC</text> <text class="address">$89AB</text>    ; вычесть из регистра A байт из адреса $89AB</div>
+					</div>
+				</p>
+				<p>
+					Чтобы инструкция <text class="opcode">LDX</text> использовала режим адресации Absolute, она записывается с помощью опкода AE. После опкода ставится операнд 23 01 для указания адреса <text class="address">$0123</text>, из которого будет загружен байт в регистр X.
+				</p>
+				<h3>Сравнение с Zero Page</h3>
+				<p>
+					Поскольку адресация Absolute затрагивает весь возможный диапазон $0000-$FFFF, ей можно указывать и адреса из нулевой страницы. Однако так делать нежелательно, ведь выполнение таких инструкций затрачивает больше тактов, чем с адресацией Zero Page, а результат выполнения инструкции будет точно такой же.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: AD 11 00  <text class="opcode">LDA</text> <text class="address">$0011</text>    ; требует 4 такта на выполнение инструкции</div>
+						<div class="debugger_string">00:8103: A5 11     <text class="opcode">LDA</text> <text class="address">$11</text>      ; требует 3 такта на выполнение инструкции</div>
+					</div>
+				</p>
+				<p class="tip">
+					Необходимость прибегнуть к режиму адресации Absolute для указания адресов нулевой страницы есть только в том случае, когда у выбранной инструкции не существует варианта с адресацией Zero Page Indexed, а есть только Absolute Indexed. Например, у инструкции LDA,Y.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="Indexed" class="tabcontent">
+				<h2>Indexed</h2>
+				<p>
+					Индексная адресация. При вычислении адреса учитывается значение индексного регистра X или Y. К адресу, указанному в операнде инструкции, добавляется текущее значение индексного регистра во время выполнения инструкции. После сложения операнда и индексного регистра получается итоговый адрес, с которым будет работать инструкция.
+				</p>
+				<p class="tip">
+					Инструкция, работающая с индексным регистром, не может использовать этот же регистр с режимом адресации Indexed. То есть не существует инструкций вроде LDX,X или LDY,Y.
+				</p>
+				<p>
+					Поскольку значение индексного регистра может быть в диапазоне от #$00 до #$FF, при помощи одной-единственной инструкции можно обратиться к целому диапазону размером 256 адресов, изменяя значение индексного регистра перед выполнением этой инструкции.
+				</p>
+				<p class="tip">
+					Этот подход очень часто применяется при создании циклов и подпрограмм. А также адресация Indexed - одна из наиболее важных причин, почему однотипные адреса у различных игровых объектов, например их координаты, очень часто находятся в RAM по соседству. Ведь достаточно загрузить порядковый номер объекта в нужный индексный регистр, и можно работать с адресом именно этого объекта через ту же самую инструкуцию.
+				</p>
+				<p>
+					Адресация Indexed может быть использована как с режимом адресации Zero Page, так и Absolute. У некоторых инструкций есть ограничение по выбору этих разновидностей адресации Indexed, в основном ограничения по использованию регистра Y.
+				</p>
+				<p class="tip">
+					Также адресация Indexed может использоваться с адресацией Indirect, которая описана отдельно.
+				</p>
+				<h3>Zero Page Indexed</h3>
+				<p>
+					Используется вместе с адресацией Zero Page (диапазон $0000-$00FF). Поскольку указывается адрес нулевой страницы, операнд инструкции должен быть размером 1 байт.
+				</p>
 				<div class="debugger_code">
-					<div class="debugger_string">00:8100: A0 00     <text class="opcode">LDY #</text><text class="address">$00</text>       ; загрузить байт #$00 в регистр Y</div>
-					<div class="debugger_string">00:8102: B9 00 E0  <text class="opcode">LDA</text> <text class="address">$E000</text><text class="opcode">,Y </text>   ; загрузить байт из адреса $E000,Y в регистр A</div>
-					<div class="debugger_string">00:8105: 99 20 01  <text class="opcode">STA</text> <text class="address">$0120</text><text class="opcode">,Y </text>   ; записать байт из регистра A в адрес $0120,Y</div>
-					<div class="debugger_string">00:8108: C8        <text class="opcode">INY</text>            ; увеличить байт в Y на #$01</div>
-					<div class="debugger_string">00:8109: C0 06     <text class="opcode">CPY #</text><text class="address">$06 </text>      ; сравнить Y с байтом #$06 (обновление состояния флага Z)</div>
-					<div class="debugger_string">00:810B: D0 F5     <text class="opcode">BNE</text> <text class="address">$8102  </text>    ; перейти на адрес $8102, если Z = 0 (продолжить цикл копирования)</div>
+					<div class="debugger_string">00:8100: A9 10     <text class="opcode">LDA #</text><text class="address">$10 </text>    ; загрузить байт #$10 в регистр A</div>
+					<div class="debugger_string">00:8102: A2 00     <text class="opcode">LDX #</text><text class="address">$00 </text>    ; загрузить байт #$00 в регистр X</div>
+					<div class="debugger_string">00:8104: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $0099</div>
+					<div class="debugger_string">00:8106: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01</div>
+					<div class="debugger_string">00:8107: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $009A</div>
+					<div class="debugger_string">00:8109: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01</div>
+					<div class="debugger_string">00:810A: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text>   ; записать байт из регистра A в адрес $009B</div>
 				</div>
-			</p>
-			<p>
-				Чтобы инструкция <text class="opcode">LDA</text> использовала режим адресации Absolute,Y, она записывается с помощью опкода B9. После опкода ставится операнд 00 E0 для указания адреса <text class="address">$E000</text><text class="opcode">,Y</text>, из которого будет загружен байт в регистр A. Изменяя байт в регистре Y, изменятся итоговые адреса в инструкциях <text class="opcode">LDA</text> <text class="address">$E000</text><text class="opcode">,Y </text> и <text class="opcode">STA</text> <text class="address">$0120</text><text class="opcode">,Y </text> при их выполнении.
-			</p>
-			<p class="tip">
-				Нельзя выйти за пределы диапазона $0000-$FFFF, используя адресацию Absolute Indexed. Например, выполняя инструкцию LDA $FFFF,Y с текущим значением Y = #$01, байт в регистр A будет загружен из адреса $0000, а не $10000.
-			</p>
-		</div>
-		<div id="Indirect" class="tabcontent">
-			<h2>Indirect</h2>
-			<h3>Indirect Indexed</h3>
-			<p>
-				Косвенно-индексная адресация. Используется для более гибкого обращения к памяти, чем обычная индексная адресация, а также при обращении к памяти с данными, которая по размеру больше, чем 256 байтов.
-			</p>
-			<p>
-				Для инструкции, использующей косвенно-индексную адресацию, требуется 2 соседних адреса в нулевой странице.
-			</p>
-			<h3>Indexed Indirect</h3>
-			<p>
-				Индексно-косвенная адресация, встречается в коде довольно редко.
-			</p>
-		</div>
-		<div id="Relative" class="tabcontent">
-		</div>
-		<div id="Other" class="tabcontent">
-			<h2>Прочие режимы адресации</h2>
-			<h3>Accumulator</h3>
-			<h3>Implied</h3>
-			<script src="https://iromhacker.ru/spoiler.js"></script>
-			<script src="https://iromhacker.ru/tab.js"></script>
-		</div>
+				<p>
+					Чтобы инструкция <text class="opcode">STA</text> использовала режим адресации Zero Page,X, она записывается с помощью опкода 95. После опкода ставится операнд 99 для указания адреса <text class="address">$99</text><text class="opcode">,X</text>, в который будет записан байт из регистра A. Изменяя байт в регистре X, при выполнении инструкций <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text> меняется итоговый адрес, в который произойдет запись байта из регистра A.
+				</p>
+				<p class="tip">
+					Нельзя выйти за пределы нулевой страницы, используя адресацию Zero Page Indexed. Например, выполняя инструкцию STA $FF,X с текущим значением X = #$01, байт из регистра A будет записан в адрес $0000, а не $0100.
+				</p>
+				<h3>Absolute Indexed</h3>
+				<p>
+					Используется вместе с адресацией Absolute (диапазон $0000-$FFFF). Операнд будет размером 2 байта, старший и младший байты адреса записываются в обратном порядке.
+				</p>
+				<p>
+					В примере показан цикл, с помощью которого происходит поочередное копирование байтов из адресов $E000-$E005 в адреса $0120-$0125.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A0 00     <text class="opcode">LDY #</text><text class="address">$00</text>       ; загрузить байт #$00 в регистр Y</div>
+						<div class="debugger_string">00:8102: B9 00 E0  <text class="opcode">LDA</text> <text class="address">$E000</text><text class="opcode">,Y </text>   ; загрузить байт из адреса $E000,Y в регистр A</div>
+						<div class="debugger_string">00:8105: 99 20 01  <text class="opcode">STA</text> <text class="address">$0120</text><text class="opcode">,Y </text>   ; записать байт из регистра A в адрес $0120,Y</div>
+						<div class="debugger_string">00:8108: C8        <text class="opcode">INY</text>            ; увеличить байт в Y на #$01</div>
+						<div class="debugger_string">00:8109: C0 06     <text class="opcode">CPY #</text><text class="address">$06 </text>      ; сравнить Y с байтом #$06 (обновление состояния флага Z)</div>
+						<div class="debugger_string">00:810B: D0 F5     <text class="opcode">BNE</text> <text class="address">$8102  </text>    ; перейти на адрес $8102, если Z = 0 (продолжить цикл копирования)</div>
+					</div>
+				</p>
+				<p>
+					Чтобы инструкция <text class="opcode">LDA</text> использовала режим адресации Absolute,Y, она записывается с помощью опкода B9. После опкода ставится операнд 00 E0 для указания адреса <text class="address">$E000</text><text class="opcode">,Y</text>, из которого будет загружен байт в регистр A. Изменяя байт в регистре Y, изменятся итоговые адреса в инструкциях <text class="opcode">LDA</text> <text class="address">$E000</text><text class="opcode">,Y </text> и <text class="opcode">STA</text> <text class="address">$0120</text><text class="opcode">,Y </text> при их выполнении.
+				</p>
+				<p class="tip">
+					Нельзя выйти за пределы диапазона $0000-$FFFF, используя адресацию Absolute Indexed. Например, выполняя инструкцию LDA $FFFF,Y с текущим значением Y = #$01, байт в регистр A будет загружен из адреса $0000, а не $10000.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="Indirect" class="tabcontent">
+				<h2>Indirect</h2>
+				<h3>Indirect Indexed</h3>
+				<p>
+					Косвенно-индексная адресация. Используется для более гибкого обращения к памяти, чем обычная индексная адресация, а также при обращении к памяти с данными, которая по размеру больше, чем 256 байтов.
+				</p>
+				<p>
+					Для инструкции, использующей косвенно-индексную адресацию, требуется 2 соседних адреса в нулевой странице.
+				</p>
+				<h3>Indexed Indirect</h3>
+				<p>
+					Индексно-косвенная адресация, встречается в коде довольно редко.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="Relative" class="tabcontent">
+			</div>
+		</p>
+		<p>
+			<div id="Other" class="tabcontent">
+				<h2>Прочие режимы адресации</h2>
+				<h3>Accumulator</h3>
+				<h3>Implied</h3>
+				<script src="https://iromhacker.ru/spoiler.js"></script>
+				<script src="https://iromhacker.ru/tab.js"></script>
+			</div>
+		</p>
 	</body>
 </html>
