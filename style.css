@@ -119,8 +119,6 @@ table {
 	display: inline-block;
 }
 
-table.normal {font-family: inherit;}
-
 table.root
 {
 	font-family: inherit;
