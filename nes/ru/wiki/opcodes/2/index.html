@@ -44,21 +44,13 @@
 		<p>
 			<table class="tab" border=1 cellspacing=1 cellpadding=5>
 				<tr>
-					<td>Основные</td>
 					<td class="tabLink" onclick="openTab(event, 'Immediate')">Immediate</td>
 					<td class="tabLink" onclick="openTab(event, 'Zero Page')">Zero Page</td>
 					<td class="tabLink" onclick="openTab(event, 'Absolute')">Absolute</td>
-				</tr>
-				<tr>
-					<td>Дополнительные</td>
 					<td class="tabLink" onclick="openTab(event, 'Indexed')">Indexed</td>
-					<td colspan="2">Indirect</td>
-				</tr>
-				<tr>
-					<td>Прочие</td>
+					<td>Indirect</td>
 					<td>Relative</td>
-					<td>Accumulator</td>
-					<td>Implied</td>
+					<td>Прочие</td>
 				</tr>
 			</table>
 		</p>
@@ -175,7 +167,7 @@
 				<div class="debugger_string">00:810A: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text>   ; записать байт из регистра A в адрес $009B</div>
 			</div>
 			<p>
-				Чтобы инструкция <text class="opcode">STA</text> использовала режим адресации Zero Page,X, она записывается с помощью опкода 95. После опкода ставится операнд 99 для указания адреса <text class="address">$99</text><text class="opcode">,X</text>, в который будет записан байт из регистра A. Изменяя байт в регистре X, изменится и итоговый адрес в командах <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text> , в который произойдет запись байта.
+				Чтобы инструкция <text class="opcode">STA</text> использовала режим адресации Zero Page,X, она записывается с помощью опкода 95. После опкода ставится операнд 99 для указания адреса <text class="address">$99</text><text class="opcode">,X</text>, в который будет записан байт из регистра A. Изменяя байт в регистре X, изменится и итоговый адрес в инструкциях <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text> , в который произойдет запись байта.
 			</p>
 			<p class="tip">
 				Нельзя выйти за пределы нулевой страницы, используя адресацию Zero Page Indexed. Например, выполняя инструкцию STA $FF,X с текущим значением X = #$01, байт из регистра A будет записан в адрес $0000, а не $0100.
@@ -198,7 +190,7 @@
 				</div>
 			</p>
 			<p>
-				Чтобы инструкция <text class="opcode">LDA</text> использовала режим адресации Absolute,Y, она записывается с помощью опкода B9. После опкода ставится операнд 00 E0 для указания адреса <text class="address">$E000</text><text class="opcode">,Y</text>, из которого будет загружен байт в регистр A. Изменяя байт в регистре Y, изменятся итоговые адреса в командах <text class="opcode">LDA</text> <text class="address">$E000</text><text class="opcode">,Y </text> и <text class="opcode">STA</text> <text class="address">$0120</text><text class="opcode">,Y </text>.
+				Чтобы инструкция <text class="opcode">LDA</text> использовала режим адресации Absolute,Y, она записывается с помощью опкода B9. После опкода ставится операнд 00 E0 для указания адреса <text class="address">$E000</text><text class="opcode">,Y</text>, из которого будет загружен байт в регистр A. Изменяя байт в регистре Y, изменятся итоговые адреса в инструкциях <text class="opcode">LDA</text> <text class="address">$E000</text><text class="opcode">,Y </text> и <text class="opcode">STA</text> <text class="address">$0120</text><text class="opcode">,Y </text>.
 			</p>
 			<p class="tip">
 				Нельзя выйти за пределы диапазона $0000-$FFFF, используя адресацию Absolute Indexed. Например, выполняя инструкцию LDA $FFFF,Y с текущим значением Y = #$01, байт в регистр A будет загружен из адреса $0000, а не $10000.
@@ -218,7 +210,14 @@
 				Индексно-косвенная адресация, встречается в коде довольно редко.
 			</p>
 		</div>
-		<script src="https://iromhacker.ru/spoiler.js"></script>
-		<script src="https://iromhacker.ru/tab.js"></script>
+		<div id="Relative" class="tabcontent">
+		</div>
+		<div id="Other" class="tabcontent">
+			<h2>Прочие режимы адресации</h2>
+			<h3>Accumulator</h3>
+			<h3>Implied</h3>
+			<script src="https://iromhacker.ru/spoiler.js"></script>
+			<script src="https://iromhacker.ru/tab.js"></script>
+		</div>
 	</body>
 </html>
