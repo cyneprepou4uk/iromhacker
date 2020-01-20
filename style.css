@@ -68,22 +68,10 @@ a:link, a:visited, a:hover, a:active {
 
 
 
-/* <text class="object">текст</text> */
-text {font-weight: bold;}
-
-text.object {color: orangered;}
-
-text.opcode {
-	color: cornflowerblue;
-	font-weight: inherit;
-}
-
-text.address {
-	color: limegreen;
-	font-weight: inherit;
-}
-
-text.underline {border-bottom: solid 1px; font-weight: normal;}
+text.object {color: orangered;} /* нигде не используется */
+text.opcode {color: cornflowerblue;}
+text.address {color: limegreen;}
+text.underline {border-bottom: solid 1px;}
 
 p.tip {font-style: italic; color: cadetblue;}
 
