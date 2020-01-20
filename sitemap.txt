@@ -20,10 +20,6 @@ https://iromhacker.ru/404.html
 		https://iromhacker.ru/nes/ru/fceux/setup/3/index.html
 			https://iromhacker.ru/nes/ru/fceux/setup/3-1/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/4/index.html
-			https://iromhacker.ru/nes/ru/fceux/setup/4-1/index.html
-			https://iromhacker.ru/nes/ru/fceux/setup/4-2/index.html
-			https://iromhacker.ru/nes/ru/fceux/setup/4-3/index.html
-			https://iromhacker.ru/nes/ru/fceux/setup/4-4/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/5/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/6/index.html
 		
