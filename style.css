@@ -66,6 +66,12 @@ a:link, a:visited, a:hover, a:active {
 	text-decoration: underline; /*none*/
 }
 
+a.return:link, a.return:visited, a.return:hover, a.return:active {
+	color:#32CD32;
+	text-shadow:0 0 5px rgba(0,255,0,0.5);
+	text-decoration: underline; /*none*/
+}
+
 
 
 text.object {color: orangered;} /* нигде не используется */
