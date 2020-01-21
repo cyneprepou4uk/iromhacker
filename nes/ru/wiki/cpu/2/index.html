@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Ромхакинг NES. Справочник по инструкциям процессора 6502</title>
+		<meta name="description" content="Подробное описание всех 56-ти команд процессора с примерами. A detailed description of all opcodes with examples">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+		<script src="https://iromhacker.ru/bitrix24.js" async></script>
+	</head>
+	<body>
+		<h1>Справочник по инструкциям процессора</h1>
+		<p>
+			<center>
+				<a class="return" href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p class="content">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Центральный процессор</a></li>
+			<ul>
+				<li><a href="../1-1/index.html">Регистр статуса процессора</a></li>
+				<li><a href="../1-2/index.html">Режимы адресации</a></li>
+			</ul>
+			<li>Справочник по инструкциям процессора</li>
+			<ul>
+				<li><a href="../2-1/index.html">Шпаргалка по инструкциям</a></li>
+			</ul>
+		</ul>
+		<h2>Список инструкций процессора</h2>
+		<p class="tip">
+			Список неофициальных инструкций можно посмотреть на <a href="https://wiki.nesdev.com/w/index.php/Programming_with_unofficial_opcodes" target="_blank">NesDev</a>. Некоторые из них можно использовать для небольшой оптимизации своего кода. 
+		</p>
+		<p>
+			Выбери интересующую инструкцию из списка, чтобы посмотреть ее описание и примеры использования.
+		</p>
+		<p>
+			<table border=1 cellspacing=1 cellpadding=5>
+				<tr>
+					<td>ADC</td>
+					<td>AND</td>
+					<td>ASL</td>
+					<td>BCC</td>
+					<td>BCS</td>
+					<td>BEQ</td>
+					<td>BIT</td>
+					<td>BMI</td>
+					<td>BNE</td>
+					<td>BPL</td>
+					<td>BRK</td>
+					<td>BVC</td>
+					<td>BVS</td>
+					<td>CLC</td>
+				</tr>
+				<tr>
+					<td>CLD</td>
+					<td>CLI</td>
+					<td>CLV</td>
+					<td>CMP</td>
+					<td>CPX</td>
+					<td>CPY</td>
+					<td>DEC</td>
+					<td>DEX</td>
+					<td>DEY</td>
+					<td>EOR</td>
+					<td>INC</td>
+					<td>INX</td>
+					<td>INY</td>
+					<td>JMP</td>
+				</tr>
+				<tr>
+					<td>JSR</td>
+					<td class="tabLink" onclick="openTab(event, 'LDA')">LDA</td>
+					<td class="tabLink" onclick="openTab(event, 'LDX')">LDX</td>
+					<td class="tabLink" onclick="openTab(event, 'LDY')">LDY</td>
+					<td>LSR</td>
+					<td>NOP</td>
+					<td>ORA</td>
+					<td>PHA</td>
+					<td>PHP</td>
+					<td>PLA</td>
+					<td>PLP</td>
+					<td>ROL</td>
+					<td>ROR</td>
+					<td>RTI</td>
+				</tr>
+				<tr>
+					<td>RTS</td>
+					<td>SBC</td>
+					<td>SEC</td>
+					<td>SED</td>
+					<td>SEI</td>
+					<td class="tabLink" onclick="openTab(event, 'STA')">STA</td>
+					<td class="tabLink" onclick="openTab(event, 'STX')">STX</td>
+					<td class="tabLink" onclick="openTab(event, 'STY')">STY</td>
+					<td>TAX</td>
+					<td>TAY</td>
+					<td>TSX</td>
+					<td>TXA</td>
+					<td>TXS</td>
+					<td>TYA</td>
+				</tr>
+			</table>
+		</p>
+		<p class="tip">
+			Раздел еще в разработке, ссылки будут добавлены постепенно. До тех пор можешь использовать, например, <a href="http://obelisk.me.uk/6502/reference.html" target="_blank">этот</a> справочник, или поискать в интернете другой.
+		</p>
+		<p>
+			<div id="ADC" class="tabcontent">
+				<h2>ADC (Add with Carry)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="AND" class="tabcontent">
+				<h2>AND (Logical AND)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="ASL" class="tabcontent">
+				<h2>ASL (Arithmetic Shift Left)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BCC" class="tabcontent">
+				<h2>BCC (Branch if Carry Clear)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BCS" class="tabcontent">
+				<h2>BCS (Branch if Carry Set)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BEQ" class="tabcontent">
+				<h2>BEQ (Branch if Equal)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BIT" class="tabcontent">
+				<h2>BIT (Bit Test)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BMI" class="tabcontent">
+				<h2>BMI (Branch if Minus)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BNE" class="tabcontent">
+				<h2>BNE (Branch if Not Equal)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BPL" class="tabcontent">
+				<h2>BPL (Branch if Positive)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BRK" class="tabcontent">
+				<h2>BRK (Force Interrupt)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BVC" class="tabcontent">
+				<h2>BVC (Branch if Overflow Clear)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="BVS" class="tabcontent">
+				<h2>BVS (Branch if Overflow Set)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="CLC" class="tabcontent">
+				<h2>CLC (Clear Carry Flag)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="CLD" class="tabcontent">
+				<h2>CLD (Clear Decimal Mode)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="CLI" class="tabcontent">
+				<h2>CLI (Clear Interrupt Disable)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="CLV" class="tabcontent">
+				<h2>CLV (Clear Overflow Flag)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="CMP" class="tabcontent">
+				<h2>CMP (Compare)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="CPX" class="tabcontent">
+				<h2>CPX (Compare X Register)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="CPY" class="tabcontent">
+				<h2>CPY (Compare Y Register)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="DEC" class="tabcontent">
+				<h2>DEC (Decrement Memory)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="DEX" class="tabcontent">
+				<h2>DEX (Decrement X Register)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="DEY" class="tabcontent">
+				<h2>DEY (Decrement Y Register)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="EOR" class="tabcontent">
+				<h2>EOR (Exclusive OR)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="INC" class="tabcontent">
+				<h2>INC (Increment Memory)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="INX" class="tabcontent">
+				<h2>INX (Increment X Register)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="INY" class="tabcontent">
+				<h2>INY (Increment Y Register)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="JMP" class="tabcontent">
+				<h2>JMP (Jump)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="JSR" class="tabcontent">
+				<h2>JSR (Jump to Subroutine)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="LDA" class="tabcontent">
+				<h2>LDA (Load Accumulator)</h2>
+				<p>
+					Загружает в регистр A фиксированный байт или байт из адреса. Байт в регистре будет перезаписан.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/JpEj2Ij.gif"><!--0015-->
+				</p>
+				<h3>Флаги</h3>
+				<p>
+					После выполнения команды обновляется состояние флагов.
+				</p>
+				<h4>Z</h4>
+				<p>
+					Если загруженный байт = #$00, то Z = 1, иначе Z = 0.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/fGD1IGN.gif"><!--0021-->
+				</p>
+				<h4>N</h4>
+				<p>
+					Если загруженный байт в диапазоне #$00-#$7F, то N = 0, иначе N = 1.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/wAVOatZ.gif"><!--0022-->
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="LDX" class="tabcontent">
+				<h2>LDX (Load X Register)</h2>
+				<p>
+					Загружает в регистр X фиксированный байт или байт из адреса. Байт в регистре будет перезаписан.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/j3MLJfV.gif"><!--0016-->
+				</p>
+				<h3>Флаги</h3>
+				<p>
+					После выполнения команды обновляется состояние флагов.
+				</p>
+				<h4>Z</h4>
+				<p>
+					Если загруженный байт = #$00, то Z = 1, иначе Z = 0.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/1icNKk0.gif"><!--0023-->
+				</p>
+				<h4>N</h4>
+				<p>
+					Если загруженный байт в диапазоне #$00-#$7F, то N = 0, иначе N = 1.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/Q5FszaJ.gif"><!--0024-->
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="LDY" class="tabcontent">
+				<h2>LDY (Load Y Register)</h2>
+				<p>
+					Загружает в регистр Y фиксированный байт или байт из адреса. Байт в регистре будет перезаписан.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/DSKKahB.gif"><!--0017-->
+				</p>
+				<h3>Флаги</h3>
+				<p>
+					После выполнения команды обновляется состояние флагов.
+				</p>
+				<h4>Z</h4>
+				<p>
+					Если загруженный байт = #$00, то Z = 1, иначе Z = 0.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/ineVDs4.gif"><!--0025-->
+				</p>
+				<h4>N</h4>
+				<p>
+					Если загруженный байт в диапазоне #$00-#$7F, то N = 0, иначе N = 1.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/e5k97sS.gif"><!--0026-->
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="LSR" class="tabcontent">
+				<h2>LSR (Logical Shift Right)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="NOP" class="tabcontent">
+				<h2>NOP (No Operation)</h2>
+				<p>
+				
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="ORA" class="tabcontent">
+				<h2>ORA (Logical Inclusive OR)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="PHA" class="tabcontent">
+				<h2>PHA (Push Accumulator)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="PHP" class="tabcontent">
+				<h2>PHP (Push Processor Status)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="PLA" class="tabcontent">
+				<h2>PLA (Pull Accumulator)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="PLP" class="tabcontent">
+				<h2>PLP (Pull Processor Status)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="ROL" class="tabcontent">
+				<h2>ROL (Rotate Left)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="ROR" class="tabcontent">
+				<h2>ROR (Rotate Right)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="RTI" class="tabcontent">
+				<h2>RTI (Return from Interrupt)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="RTS" class="tabcontent">
+				<h2>RTS (Return from Subroutine)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="SBC" class="tabcontent">
+				<h2>SBC (Subtract with Carry)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="SEC" class="tabcontent">
+				<h2>SEC (Set Carry Flag)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="SED" class="tabcontent">
+				<h2>SED (Set Decimal Flag)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="SEI" class="tabcontent">
+				<h2>SEI (Set Interrupt Disable)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="STA" class="tabcontent">
+				<h2>STA (Store Accumulator)</h2>
+				<p>
+					Записывает байт из регистра A в указанный адрес.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/7QyNIeK.gif"><!--0018-->
+				</p>
+				<p>
+					Состояние флагов не обновляется. Байт в регистре A остается без изменений.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="STX" class="tabcontent">
+				<h2>STX (Store X Register)</h2>
+				<p>
+					Записывает байт из регистра X в указанный адрес.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/GrQH409.gif"><!--0019-->
+				</p>
+				<p>
+					Состояние флагов не обновляется. Байт в регистре X остается без изменений.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="STY" class="tabcontent">
+				<h2>STY (Store Y Register)</h2>
+				<p>
+					Записывает байт из регистра Y в указанный адрес.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/MtPpnxx.gif"><!--0020-->
+				</p>
+				<p>
+					Состояние флагов не обновляется. Байт в регистре Y остается без изменений.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="TAX" class="tabcontent">
+				<h2>TAX (Transfer Accumulator to X)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="TAY" class="tabcontent">
+				<h2>TAY (Transfer Accumulator to Y)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="TSX" class="tabcontent">
+				<h2>TSX (Transfer Stack Pointer to X)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="TXA" class="tabcontent">
+				<h2>TXA (Transfer X to Accumulator)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="TXS" class="tabcontent">
+				<h2>TXS (Transfer X to Stack Pointer)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="TYA" class="tabcontent">
+				<h2>TYA (Transfer Y to Accumulator)</h2>
+			</div>
+		</p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+		<script src="https://iromhacker.ru/tab.js"></script>
+	</body>
+</html>

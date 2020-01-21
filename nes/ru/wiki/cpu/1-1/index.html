@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Ромхакинг NES. Регистр статуса процессора 6502</title>
+		<meta name="description" content="Подробное описание состояния флагов процессора с примерами. A detailed description of CPU status flags register with examples">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+		<script src="https://iromhacker.ru/bitrix24.js" async></script>
+	</head>
+	<body>
+		<h1>Регистр статуса процессора</h1>
+		<p>
+			<center>
+				<a class="return" href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p class="content">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Центральный процессор</a></li>
+			<ul>
+				<li>Регистр статуса процессора</li>
+				<li><a href="../1-2/index.html">Режимы адресации</a></li>
+			</ul>
+			<li><a href="../2/index.html">Справочник по инструкциям процессора</a></li>
+			<ul>
+				<li><a href="../2-1/index.html">Шпаргалка по инструкциям</a></li>
+			</ul>
+		</ul>
+		<h2>Status Register</h2>
+		<p>
+			Регистр флагов - 8-битный регистр статуса процессора. Каждый бит этого регистра отвечает за определенный флаг. По флагам определяется текущее состояние процессора.
+		</p>
+		<p>
+			На состояния некоторых флагов можно ставить условия, а затем по результатам проверки этих условий выполнять одни инструкции вместо других, создавая различные варианты развития событий в коде и, соответственно, в самой игре.
+		</p>
+		<p>
+			Выбери флаг из списка, чтобы посмотреть по нему информацию.
+		</p>
+		<p>
+			<table border=1 cellspacing=1 cellpadding=5>
+				<tr>
+					<td>Бит</td>
+					<td>7</td>
+					<td>6</td>
+					<td>5</td>
+					<td>4</td>
+					<td>3</td>
+					<td>2</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>Флаг</td>
+					<td class="tabLink" onclick="openTab(event, 'N')">N</td>
+					<td>V</td>
+					<td>U</td>
+					<td>B</td>
+					<td>D</td>
+					<td>I</td>
+					<td class="tabLink" onclick="openTab(event, 'Z')">Z</td>
+					<td class="tabLink" onclick="openTab(event, 'C')">C</td>
+				</tr>
+			</table>
+		</p>
+		<p class="tip">
+			Раздел еще в разработке, ссылки будут добавлены постепенно.
+		</p>
+		<p>
+			<div id="N" class="tabcontent">
+				<h2>N (Negative)</h2>
+				<p>
+					Указывает на то, что в результате выполнения инструкции получился отрицательный байт. Если байт положительный (диапазон #$00-#$7F), тогда N = 0. Если байт отрицательный (диапазон #$80-#$FF), тогда N = 1. Проще говоря, состояние бита7 у результата копируется во флаг N.
+				</p>
+				<p>
+					В примере в регистр A загружается сначала положительный байт, а затем отрицательный.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/wAVOatZ.gif"><!--0022-->
+				</p>
+				<p>
+					Состояние флага можно проверить инструкциями <text class="opcode">BPL</text> и <text class="opcode">BMI</text>.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="V" class="tabcontent">
+				<h2>V (Overflow)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="U" class="tabcontent">
+				<h2>U</h2>
+			</div>
+		</p>
+		<p>
+			<div id="B" class="tabcontent">
+				<h2>B</h2>
+			</div>
+		</p>
+		<p>
+			<div id="D" class="tabcontent">
+				<h2>D (Decimal)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="I" class="tabcontent">
+				<h2>I (Interrupt)</h2>
+			</div>
+		</p>
+		<p>
+			<div id="Z" class="tabcontent">
+				<h2>Z (Zero)</h2>
+				<p>
+					Указывает на то, что в результате выполнения инструкции получился байт, равный нулю (#$00), в этом случае Z = 1. Если получившийся байт не равен нулю (диапазон #$01-#$FF), тогда Z = 0.
+				</p>
+				<p>
+					В примере в регистр A загружается сначала байт, равный #$00, а затем любой другой.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/fGD1IGN.gif"><!--0021-->
+				</p>
+				<p>
+					Состояние флага можно проверить инструкциями <text class="opcode">BNE</text> и <text class="opcode">BEQ</text>.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="C" class="tabcontent">
+				<h2>C (Carry)</h2>
+				<p>
+					Флаг переноса, используется в арифметических и битовых инструкциях. Подробнее читай в разделе с инструкциями.
+				</p>
+				<p>
+					Например, если при сложении байта из регистра A с другим байтом получится результат больше, чем #$FF, тогда C = 1, в противном случае C = 0. А также текущее состояние флага C учитывается при сложении.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/40tL6j4.gif"><!--0023-->
+				</p>
+				<p>
+					После выполнения первой инструкции <text class="opcode">ADC</text> при сложении байтов #$F0 и #$18 получился результат #$08 (#$0108), то есть больше #$FF, поэтому C = 1. При дальнейшем сложении #$08 и #$38 получился результат #$41 (#$40 + C), то есть #$FF или меньше, что привело к C = 0.
+				</p>
+				<p>
+					Состояние флага можно выставить вручную инструкциями <text class="opcode">CLC</text> и <text class="opcode">SEC</text>.
+				</p>
+				<p>
+					Состояние флага можно проверить инструкциями <text class="opcode">BCC</text> и <text class="opcode">BCS</text>.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="ADC" class="tabcontent">
+				<h2>ADC (Add with Carry)</h2>
+			</div>
+		</p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+		<script src="https://iromhacker.ru/tab.js"></script>
+	</body>
+</html>
