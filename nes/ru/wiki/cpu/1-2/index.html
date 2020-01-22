@@ -44,7 +44,7 @@
 			Разные инструкции могут использовать один и тот же режим адресации. У одних инструкций может быть больше выбора режимов адресации, чем у других.
 		</p>
 		<p>
-			Выбери режим адресации из списка, чтобы посмотреть ее описание и примеры использования.
+			Выбери режим адресации из списка, чтобы посмотреть его описание и примеры использования.
 		</p>
 		<p>
 			<table class="tab" border=1 cellspacing=1 cellpadding=5>
@@ -196,7 +196,7 @@
 						<div class="debugger_string">00:8100: A0 00     <text class="opcode">LDY #</text><text class="address">$00</text>       ; загрузить байт #$00 в регистр Y</div>
 						<div class="debugger_string">00:8102: B9 00 E0  <text class="opcode">LDA</text> <text class="address">$E000</text><text class="opcode">,Y </text>   ; загрузить байт из адреса $E000,Y в регистр A</div>
 						<div class="debugger_string">00:8105: 99 20 01  <text class="opcode">STA</text> <text class="address">$0120</text><text class="opcode">,Y </text>   ; записать байт из регистра A в адрес $0120,Y</div>
-						<div class="debugger_string">00:8108: C8        <text class="opcode">INY</text>            ; увеличить байт в Y на #$01</div>
+						<div class="debugger_string">00:8108: C8        <text class="opcode">INY</text>            ; увеличить байт в регистре Y на #$01</div>
 						<div class="debugger_string">00:8109: C0 06     <text class="opcode">CPY #</text><text class="address">$06 </text>      ; сравнить Y с байтом #$06 (обновление состояния флага Z)</div>
 						<div class="debugger_string">00:810B: D0 F5     <text class="opcode">BNE</text> <text class="address">$8102  </text>    ; перейти на адрес $8102, если Z = 0 (продолжить цикл копирования)</div>
 					</div>
@@ -206,6 +206,20 @@
 				</p>
 				<p class="tip">
 					Нельзя выйти за пределы диапазона $0000-$FFFF, используя адресацию Absolute Indexed. Например, выполняя инструкцию LDA $FFFF,Y с текущим значением Y = #$01, байт в регистр A будет загружен из адреса $0000, а не $10000.
+				</p>
+				<h4>Увеличение затрачиваемых тактов</h4>
+				<p>
+					У некоторых инструкций при использовании адресации Absolute Indexed будет затрачен +1 дополнительный такт. Это происходит в том случае, когда при сложении операнда и значения индексного регистра требуется увеличить старший байт итогового адреса на #$01 (относительно адреса, указанного в операнде).
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A2 0F     <text class="opcode">LDX #</text><text class="address">$0F</text>       ; загрузить байт #$0F в регистр X</div>
+						<div class="debugger_string">00:8102: BC F0 06  <text class="opcode">LDY</text> <text class="address">$06F0</text><text class="opcode">,X</text>    ; $06F0 + #$0F = $06FF, 4 такта на выполнение инструкции</div>
+						<div class="debugger_string">00:8105: E8        <text class="opcode">INX</text>            ; увеличить байт в регистре X на #$01</div>
+						<div class="debugger_string">00:8106: BC F0 06  <text class="opcode">LDY</text> <text class="address">$06F0</text><text class="opcode">,X </text>   ; $06F0 + #$10 = $0700, 5 тактов на выполнение инструкции</div>
+						<div class="debugger_string">00:8109: E8        <text class="opcode">INX</text>            ; увеличить байт в регистре X на #$01</div>
+						<div class="debugger_string">00:810A: BC F0 06  <text class="opcode">LDY</text> <text class="address">$06F0</text><text class="opcode">,X </text>   ; $06F0 + #$11 = $0701, 5 тактов на выполнение инструкции</div>
+					</div>
 				</p>
 			</div>
 		</p>
