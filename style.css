@@ -74,9 +74,9 @@ a.return:link, a.return:visited, a.return:hover, a.return:active {
 
 
 
-text.object {color: orangered;} /* нигде не используется */
 text.opcode {color: cornflowerblue;}
 text.address {color: limegreen;}
+text.label {color: orangered;}
 text.copyright {color: mediumorchid;}
 text.underline {border-bottom: solid 1px;}
 
