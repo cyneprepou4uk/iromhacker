@@ -81,7 +81,7 @@ text.copyright {color: mediumorchid;}
 text.underline {border-bottom: solid 1px;}
 
 p.tip {font-style: italic; color: cadetblue;}
-p.notice {font-style: italic; color: orange;}
+p.notice {color: orange;}
 
 div.debugger_code {
 	font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
