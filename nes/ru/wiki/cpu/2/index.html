@@ -34,8 +34,8 @@
 			</ul>
 		</ul>
 		<h2>Список инструкций процессора</h2>
-		<p class="tip">
-			Список неофициальных инструкций можно посмотреть на <a href="https://wiki.nesdev.com/w/index.php/Programming_with_unofficial_opcodes" target="_blank">NesDev</a>. Некоторые из них можно использовать для небольшой оптимизации своего кода. 
+		<p class="notice">
+			Для ознакомления с данной статьей требуется знание регистров процессора и режимов адресации.
 		</p>
 		<p>
 			Выбери интересующую инструкцию из списка, чтобы посмотреть ее описание и примеры использования.
@@ -46,25 +46,25 @@
 					<td>ADC</td>
 					<td>AND</td>
 					<td>ASL</td>
-					<td>BCC</td>
-					<td>BCS</td>
-					<td>BEQ</td>
+					<td class="tabLink" onclick="openTab(event, 'BCC')">BCC</td>
+					<td class="tabLink" onclick="openTab(event, 'BCS')">BCS</td>
+					<td class="tabLink" onclick="openTab(event, 'BEQ')">BEQ</td>
 					<td>BIT</td>
-					<td>BMI</td>
-					<td>BNE</td>
-					<td>BPL</td>
+					<td class="tabLink" onclick="openTab(event, 'BMI')">BMI</td>
+					<td class="tabLink" onclick="openTab(event, 'BNE')">BNE</td>
+					<td class="tabLink" onclick="openTab(event, 'BPL')">BPL</td>
 					<td>BRK</td>
-					<td>BVC</td>
-					<td>BVS</td>
+					<td class="tabLink" onclick="openTab(event, 'BVC')">BVC</td>
+					<td class="tabLink" onclick="openTab(event, 'BVS')">BVS</td>
 					<td>CLC</td>
 				</tr>
 				<tr>
 					<td>CLD</td>
 					<td>CLI</td>
 					<td>CLV</td>
-					<td>CMP</td>
-					<td>CPX</td>
-					<td>CPY</td>
+					<td class="tabLink" onclick="openTab(event, 'CMP')">CMP</td>
+					<td class="tabLink" onclick="openTab(event, 'CPX')">CPX</td>
+					<td class="tabLink" onclick="openTab(event, 'CPY')">CPY</td>
 					<td>DEC</td>
 					<td>DEX</td>
 					<td>DEY</td>
@@ -80,7 +80,7 @@
 					<td class="tabLink" onclick="openTab(event, 'LDX')">LDX</td>
 					<td class="tabLink" onclick="openTab(event, 'LDY')">LDY</td>
 					<td>LSR</td>
-					<td>NOP</td>
+					<td class="tabLink" onclick="openTab(event, 'NOP')">NOP</td>
 					<td>ORA</td>
 					<td>PHA</td>
 					<td>PHP</td>
@@ -111,14 +111,17 @@
 		<p class="tip">
 			Раздел еще в разработке, ссылки будут добавлены постепенно. До тех пор можешь использовать, например, <a href="http://obelisk.me.uk/6502/reference.html" target="_blank">этот</a> справочник, или поискать в интернете другой.
 		</p>
+		<p class="tip">
+			Список неофициальных инструкций можно посмотреть на <a href="https://wiki.nesdev.com/w/index.php/Programming_with_unofficial_opcodes" target="_blank">NesDev</a>. Некоторые из них можно использовать для небольшой оптимизации своего кода. 
+		</p>
 		<p>
 			<div id="ADC" class="tabcontent">
-				<h2>ADC (Add with Carry)</h2>
+				<h2>ADC (ADd with Carry)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="AND" class="tabcontent">
-				<h2>AND (Logical AND)</h2>
+				<h2>AND (bitwise AND with accumulator)</h2>
 			</div>
 		</p>
 		<p>
@@ -128,186 +131,451 @@
 		</p>
 		<p>
 			<div id="BCC" class="tabcontent">
-				<h2>BCC (Branch if Carry Clear)</h2>
+				<h2>BCC (Branch on Carry Clear)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "C = 0".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага C.</li>
+					<ul>
+						<li>Если C = 0, происходит переход на относительный адрес.</li>
+						<li>Если C = 1, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="BCS" class="tabcontent">
-				<h2>BCS (Branch if Carry Set)</h2>
+				<h2>BCS (Branch on Carry Set)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "C = 1".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага C.</li>
+					<ul>
+						<li>Если C = 1, происходит переход на относительный адрес.</li>
+						<li>Если C = 0, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="BEQ" class="tabcontent">
-				<h2>BEQ (Branch if Equal)</h2>
+				<h2>BEQ (Branch on EQual)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "Z = 1".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага Z.</li>
+					<ul>
+						<li>Если Z = 1, происходит переход на относительный адрес.</li>
+						<li>Если Z = 0, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="BIT" class="tabcontent">
-				<h2>BIT (Bit Test)</h2>
+				<h2>BIT (test BITs)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="BMI" class="tabcontent">
-				<h2>BMI (Branch if Minus)</h2>
+				<h2>BMI (Branch on MInus)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "N = 1".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага N.</li>
+					<ul>
+						<li>Если N = 1, происходит переход на относительный адрес.</li>
+						<li>Если N = 0, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="BNE" class="tabcontent">
-				<h2>BNE (Branch if Not Equal)</h2>
+				<h2>BNE (Branch on Not Equal)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "Z = 0".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага Z.</li>
+					<ul>
+						<li>Если Z = 0, происходит переход на относительный адрес.</li>
+						<li>Если Z = 1, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="BPL" class="tabcontent">
-				<h2>BPL (Branch if Positive)</h2>
+				<h2>BPL (Branch on PLus)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "N = 0".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага N.</li>
+					<ul>
+						<li>Если N = 0, происходит переход на относительный адрес.</li>
+						<li>Если N = 1, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="BRK" class="tabcontent">
-				<h2>BRK (Force Interrupt)</h2>
+				<h2>BRK (BReak)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="BVC" class="tabcontent">
-				<h2>BVC (Branch if Overflow Clear)</h2>
+				<h2>BVC (Branch on oVerflow Clear)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "V = 0".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага V.</li>
+					<ul>
+						<li>Если V = 0, происходит переход на относительный адрес.</li>
+						<li>Если V = 1, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="BVS" class="tabcontent">
-				<h2>BVS (Branch if Overflow Set)</h2>
+				<h2>BVS (Branch on oVerflow Set)</h2>
+				<p>
+					Условный переход на указанный (относительный) адрес при выполнении условия "V = 1".
+				</p>
+				<p class="tip">
+					Подробнее про относительный адрес читай в описании режима адресации Relative.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции проверяется текущее состояние флага V.</li>
+					<ul>
+						<li>Если V = 1, происходит переход на относительный адрес.</li>
+						<li>Если V = 0, условие инструкции не выполнятся, и процессор переходит к следующей инструкции.</li>
+					</ul>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="CLC" class="tabcontent">
-				<h2>CLC (Clear Carry Flag)</h2>
+				<h2>CLC (CLear Carry)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="CLD" class="tabcontent">
-				<h2>CLD (Clear Decimal Mode)</h2>
+				<h2>CLD (CLear Decimal)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="CLI" class="tabcontent">
-				<h2>CLI (Clear Interrupt Disable)</h2>
+				<h2>CLI (CLear Interrupt)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="CLV" class="tabcontent">
-				<h2>CLV (Clear Overflow Flag)</h2>
+				<h2>CLV (CLear oVerflow)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="CMP" class="tabcontent">
-				<h2>CMP (Compare)</h2>
+				<h2>CMP (CoMPare accumulator)</h2>
+				<p>
+					Сравнивает байт из регистра A с фиксированным байтом или с байтом из адреса.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/d2d2lWj.gif"><!--0024-->
+				</p>
+				<p class="tip">
+					Поочередное сравнение байта #$01 из регистра A с байтами #$00, #$01 и #$02.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>Чтобы провести сравнение двух байтов, из регистра A вычитается сравниваемый байт.</li>
+					<li>После сравнения обновляется состояние флагов N, Z и C в зависимости от того, какой байт был получен в результате вычитания сравниваемого байта из регистра A.</li>
+					<ul>
+						<li>Если байт в регистре A больше или равен сравниваемому байту, тогда C = 1, иначе C = 0.</li>
+					</ul>
+					<li>Байт в регистре A остается без изменений.</li>
+					<li>Байт в адресе (при сравнении с байтом из адреса) остается без изменений.</li>
+					<li>Если байт из регистра A сравнивается с байтом из некого адреса, на этом адресе сработает Read брейкпоинт.</li>
+				</ul>
+				<h2>Примеры использования CMP</h2>
+				<p>
+					Поскольку кроме обновления состояния флагов эта инструкция больше ничего не умеет, сравнение проводится ради последующей проверки состояния этих флагов для выяснения результата сравнения.
+				</p>
+				<p class="tip">
+					Для проверки результата сравнения не рекомендуется выставлять условие на флаг N, так как по флагу N нельзя достоверно определить какой из двух байтов больше/меньше другого, если рассматривать их как Unsigned (беззнаковые).
+				</p>
+				<p>
+					Технически не имеет значения в каком порядке сравнивать 2 байта, если ставить правильные условия на результат сравнения. Принято сравнивать байт из адреса с фиксированным байтом, а не наоборот.
+				</p>
+				<h3>Проверка равенства</h3>
+				<p>
+					По флагу Z выясняется равенство двух байтов инструкциями <text class="opcode">BNE</text> или <text class="opcode">BEQ</text>. Если сравниваемые байты равны, то есть в результате вычитания получился байт #$00, тогда Z = 1, иначе Z = 0.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120</div>
+						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$09  </text>   ; сравнение A с байтом #$09</div>
+						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">equal</text>    ; переход в случае A == #$09</div>
+						<div class="debugger_string"> </div>
+						<div class="debugger_string"><text class="label">not_equal</text>    ; выполнить нижестоящий код в случае A != #$09</div>
+					</div>
+				</p>
+				<h4>Проверка на равенство #$00</h4>
+				<p>
+					Выполнять инструкцию <text class="opcode">CMP #</text><text class="address">$00</text> для последующей проверки на флаг Z нужно лишь в том случае, если другие инструкции, выполненные до этого, могли повлиять на состояние флага Z.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120 (обновление Z)</div>
+						<div class="debugger_string"><text class="opcode">LDX</text> <text class="address">$0121</text>    ; загрузка в X из $0121 (обновление Z)</div>
+						<div class="debugger_string"><text class="opcode">LDY</text> <text class="address">$0122 </text>   ; загрузка в Y из $0122 (обновление Z)</div>
+						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$00 </text>    ; сравнение A с #$00 для обновления Z конкретно из A</div>
+						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">zero</text>     ; переход при условии A == #$00 </div>
+						<div class="debugger_string"> </div>
+						<div class="debugger_string"><text class="label">not_zero</text>     ; выполнить нижестоящий код в случае A != #$00</div>
+					</div>
+				</p>
+				<p>
+					В остальных случаях можно сразу проверить флаг Z.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120</div>
+						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">zero</text>     ; переход при условии A == #$00 </div>
+						<div class="debugger_string"> </div>
+						<div class="debugger_string"><text class="label">not_zero</text>     ; выполнить нижестоящий код в случае A != #$00</div>
+					</div>
+				</p>
+				<h3>Проверка на разницу</h3>
+				<p>
+					По флагу C выясняется разница в значении двух байтов инструкциями <text class="opcode">BCC</text> или <text class="opcode">BCS</text>. Если байт в регистре A больше или равен сравниваемому байту, тогда C = 1, иначе C = 0.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>           ; загрузка в A из $0120</div>
+						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$09  </text>          ; сравнение A с #$09</div>
+						<div class="debugger_string"><text class="opcode">BCC</text> <text class="label">less</text>            ; переход при условии A < #$09</div>
+						<div class="debugger_string"> </div>
+						<div class="debugger_string"><text class="label">greater_or_equal</text>    ; выполнить нижестоящий код в случае A >= #$09</div>
+					</div>
+				</p>
+				<h4>Проверка на результат "больше"</h4>
+				<p>
+					Поскольку C = 1 получается как в случае "равенства", так и в случае "больше", то для проверки исключительно на результат "больше", а не "больше или равно", нужно предварительно отсеять возможное равенство двух байтов через проверку состояния флага Z.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>      ; загрузка в A из $0120</div>
+						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$09  </text>     ; сравнение A с #$09</div>
+						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">equal</text>      ; переход при условии A == #$09</div>
+						<div class="debugger_string"><text class="opcode">BCS</text> <text class="address"></text><text class="label">greater</text>    ; переход при условии A > #$09</div>
+						<div class="debugger_string"> </div>
+						<div class="debugger_string"><text class="label">less</text>           ; выполнить нижестоящий код в случае A < #$09</div>
+					</div>
+				</p>
 			</div>
 		</p>
 		<p>
 			<div id="CPX" class="tabcontent">
-				<h2>CPX (Compare X Register)</h2>
+				<h2>CPX (ComPare X register)</h2>
+				<p>
+					Сравнивает байт из регистра X с фиксированным байтом или с байтом из адреса.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/MgziF7H.gif"><!--0025-->
+				</p>
+				<p class="tip">
+					Поочередное сравнение байта #$01 из регистра X с байтами #$00, #$01 и #$02.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>Чтобы провести сравнение двух байтов, из регистра X вычитается сравниваемый байт.</li>
+					<li>После сравнения обновляется состояние флагов N, Z и C в зависимости от того, какой байт был получен в результате вычитания сравниваемого байта из регистра X.</li>
+					<ul>
+						<li>Если байт в регистре X больше или равен сравниваемому байту, тогда C = 1, иначе C = 0.</li>
+					</ul>
+					<li>Байт в регистре X остается без изменений.</li>
+					<li>Байт в адресе (при сравнении с байтом из адреса) остается без изменений.</li>
+					<li>Если байт из регистра X сравнивается с байтом из некого адреса, на этом адресе сработает Read брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="CPY" class="tabcontent">
-				<h2>CPY (Compare Y Register)</h2>
+				<h2>CPY (ComPare Y register)</h2>
+				<p>
+					Сравнивает байт из регистра Y с фиксированным байтом или с байтом из адреса.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/gzcVK17.gif"><!--0026-->
+				</p>
+				<p class="tip">
+					Поочередное сравнение байта #$01 из регистра Y с байтами #$00, #$01 и #$02.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>Чтобы провести сравнение двух байтов, из регистра Y вычитается сравниваемый байт.</li>
+					<li>После сравнения обновляется состояние флагов N, Z и C в зависимости от того, какой байт был получен в результате вычитания сравниваемого байта из регистра Y.</li>
+					<ul>
+						<li>Если байт в регистре Y больше или равен сравниваемому байту, тогда C = 1, иначе C = 0.</li>
+					</ul>
+					<li>Байт в регистре Y остается без изменений.</li>
+					<li>Байт в адресе (при сравнении с байтом из адреса) остается без изменений.</li>
+					<li>Если байт из регистра Y сравнивается с байтом из некого адреса, на этом адресе сработает Read брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="DEC" class="tabcontent">
-				<h2>DEC (Decrement Memory)</h2>
+				<h2>DEC (DECrement memory)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="DEX" class="tabcontent">
-				<h2>DEX (Decrement X Register)</h2>
+				<h2>DEX (DEcrement X register)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="DEY" class="tabcontent">
-				<h2>DEY (Decrement Y Register)</h2>
+				<h2>DEY (DEcrement Y register)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="EOR" class="tabcontent">
-				<h2>EOR (Exclusive OR)</h2>
+				<h2>EOR (bitwise Exclusive OR)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="INC" class="tabcontent">
-				<h2>INC (Increment Memory)</h2>
+				<h2>INC (INCrement memory)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="INX" class="tabcontent">
-				<h2>INX (Increment X Register)</h2>
+				<h2>INX (INcrement X register)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="INY" class="tabcontent">
-				<h2>INY (Increment Y Register)</h2>
+				<h2>INY (INcrement Y register)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="JMP" class="tabcontent">
-				<h2>JMP (Jump)</h2>
+				<h2>JMP (JuMP)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="JSR" class="tabcontent">
-				<h2>JSR (Jump to Subroutine)</h2>
+				<h2>JSR (Jump to SubRoutine)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="LDA" class="tabcontent">
-				<h2>LDA (Load Accumulator)</h2>
+				<h2>LDA (LoaD Accumulator)</h2>
 				<p>
-					Загружает (копирует) в регистр A фиксированный байт или байт из адреса. Байт в регистре будет перезаписан. Байт в адресе (при загрузке из адреса) остается без изменений.
+					Загружает (копирует) в регистр A фиксированный байт или байт из адреса.
 				</p>
 				<p>
-					<img src="https://i.imgur.com/JpEj2Ij.gif"><!--0015-->
+					<img src="https://i.imgur.com/JqHvxPS.gif"><!--0015-->
 				</p>
 				<p class="tip">
-					Поочередная загрузка байтов #$01, #$02 и #$03 в регистр A.
+					Загрузка в регистр A константы #$01, байта #$02 из адреса $0050 и байта #$03 из адреса $0140.
 				</p>
-				<h3>Флаги</h3>
-				<p>
-					После выполнения инструкции обновляется состояние флагов N и Z в зависимости от того, какой байт был загружен в регистр A.
-				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре A будет перезаписан. </li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был загружен в регистр A.</li>
+					<li>Байт в адресе (при загрузке из адреса) остается без изменений.</li>
+					<li>Если байт в регистр A загружается из некого адреса, на этом адресе сработает Read брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="LDX" class="tabcontent">
-				<h2>LDX (Load X Register)</h2>
+				<h2>LDX (LoaD X register)</h2>
 				<p>
-					Загружает (копирует) в регистр X фиксированный байт или байт из адреса. Байт в регистре будет перезаписан. Байт в адресе (при загрузке из адреса) остается без изменений.
+					Загружает (копирует) в регистр X фиксированный байт или байт из адреса.
 				</p>
 				<p>
-					<img src="https://i.imgur.com/j3MLJfV.gif"><!--0016-->
+					<img src="https://i.imgur.com/HhPeXd3.gif"><!--0016-->
 				</p>
 				<p class="tip">
-					Поочередная загрузка байтов #$01, #$02 и #$03 в регистр X.
+					Загрузка в регистр X константы #$01, байта #$02 из адреса $0050 и байта #$03 из адреса $0140.
 				</p>
-				<h3>Флаги</h3>
-				<p>
-					После выполнения инструкции обновляется состояние флагов N и Z в зависимости от того, какой байт был загружен в регистр X.
-				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре X будет перезаписан. </li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был загружен в регистр X.</li>
+					<li>Байт в адресе (при загрузке из адреса) остается без изменений.</li>
+					<li>Если байт в регистр X загружается из некого адреса, на этом адресе сработает Read брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="LDY" class="tabcontent">
-				<h2>LDY (Load Y Register)</h2>
+				<h2>LDY (LoaD Y register)</h2>
 				<p>
-					Загружает (копирует) в регистр Y фиксированный байт или байт из адреса. Байт в регистре будет перезаписан. Байт в адресе (при загрузке из адреса) остается без изменений.
+					Загружает (копирует) в регистр Y фиксированный байт или байт из адреса.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/PJTI3mm.gif"><!--0017-->
 				</p>
 				<p class="tip">
-					Поочередная загрузка байтов #$01, #$02 и #$03 в регистр Y.
+					Загрузка в регистр Y константы #$01, байта #$02 из адреса $0050 и байта #$03 из адреса $0140.
 				</p>
-				<p>
-					<img src="https://i.imgur.com/DSKKahB.gif"><!--0017-->
-				</p>
-				<h3>Флаги</h3>
-				<p>
-					После выполнения инструкции обновляется состояние флагов N и Z в зависимости от того, какой байт был загружен в регистр Y.
-				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре Y будет перезаписан.</li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был загружен в регистр Y.</li>
+					<li>Байт в адресе (при загрузке из адреса) остается без изменений.</li>
+					<li>Если байт в регистр Y загружается из некого адреса, на этом адресе сработает Read брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
@@ -317,156 +585,232 @@
 		</p>
 		<p>
 			<div id="NOP" class="tabcontent">
-				<h2>NOP (No Operation)</h2>
+				<h2>NOP (No OPeration)</h2>
 				<p>
-				
+					Отсутствие какой-либо операции.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/p5RYVhz.gif"><!--0027-->
+				</p>
+				<p class="tip">
+					Ничего не происходит.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>При выполнении инструкции процессор затрачивает 2 такта и переходит к следующей инструкции.</li>
+					<li>Состояния флагов и байты в регистрах A, X и Y остаются без изменений.</li>
+				</ul>
+				<h2>Примеры использования NOP</h2>
+				<p>
+					Этой инструкцией затирается код, который не нужно выполнять. Также можно временно затереть некую инструкцию, чтобы понаблюдать как это скажется на игре, например удалив прыжок в подпрограмму.
+				</p>
+				<h3>Затирание кода</h3>
+				<p>
+					Можно затереть лишнюю инструкцию, избавив себя от необходимости переписывать код.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: AD 20 01  <text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120</div>
+						<div class="debugger_string">00:8103: 8D 21 01  <text class="opcode">STA</text> <text class="address">$0121</text>    ; запись A в $0121</div>
+						<div class="debugger_string">00:8106: 8D 22 01  <text class="opcode">STA</text> <text class="address">$0122</text>    ; запись A в $0122</div>
+						<div class="debugger_string">00:8109: 8D 23 01  <text class="opcode">STA</text> <text class="address">$0123</text>    ; запись A в $0123</div>
+					</div>
+				</p>
+				<p>
+					Удаляем в середине инструкцию <text class="opcode">STA</text> <text class="address">$0122</text>, полностью затерев ее байтами #$EA:
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: AD 20 01  <text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120</div>
+						<div class="debugger_string">00:8103: 8D 21 01  <text class="opcode">STA</text> <text class="address">$0121</text>    ; запись A в $0121</div>
+						<div class="debugger_string">00:8106: EA        <text class="opcode">NOP</text>          ; нет операции</div>
+						<div class="debugger_string">00:8107: EA        <text class="opcode">NOP</text>          ; нет операции</div>
+						<div class="debugger_string">00:8108: EA        <text class="opcode">NOP</text>          ; нет операции</div>
+						<div class="debugger_string">00:8109: 8D 23 01  <text class="opcode">STA</text> <text class="address">$0123</text>    ; запись A в $0123</div>
+					</div>
+				</p>
+				<h3>Создание прыжков</h3>
+				<p>
+					Для создания прыжка инструкциями <text class="opcode">JMP</text> или <text class="opcode">JSR</text> требуется 3 байта. Однако если нет возможности сделать прыжок на месте инструкции, которая занимает 3 байта, перезаписываются 2 инструкции по 2 байта каждая, а оставшийся лишний байт меняется на #$EA.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A9 01     <text class="opcode">LDA #</text><text class="address">$01</text>    ; загрузка #$01 в A</div>
+						<div class="debugger_string">00:8102: 85 20     <text class="opcode">STA</text> <text class="address">$20</text>     ; запись A в $0020</div>
+						<div class="debugger_string">00:8104: 85 21     <text class="opcode">STA</text> <text class="address">$21</text>     ; запись A в $0021</div>
+					</div>
+				</p>
+				<p>
+					Вместо инструкций <text class="opcode">STA</text> <text class="address">$20</text> и <text class="opcode">STA</text> <text class="address">$21</text> создаем прыжок в подпрограмму. Оставшийся байт #$21 меняем на #$EA:
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A9 01     <text class="opcode">LDA #</text><text class="address">$01</text>     ; загрузка #$01 в A</div>
+						<div class="debugger_string">00:8102: 20 50 81  <text class="opcode">JSR</text> <text class="address">$8150</text>    ; прыжок в подпрограмму $8150</div>
+						<div class="debugger_string">00:8105: EA        <text class="opcode">NOP</text>          ; нет операции</div>
+					</div>
+				</p>
+				<p class="tip">
+					Если оставить байт #$21 без изменений, он будет расценен кодом как опкод инструкции AND.
 				</p>
 			</div>
 		</p>
 		<p>
 			<div id="ORA" class="tabcontent">
-				<h2>ORA (Logical Inclusive OR)</h2>
+				<h2>ORA (bitwise OR with Accumulator)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="PHA" class="tabcontent">
-				<h2>PHA (Push Accumulator)</h2>
+				<h2>PHA (PusH Accumulator)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="PHP" class="tabcontent">
-				<h2>PHP (Push Processor Status)</h2>
+				<h2>PHP (PusH Processor status)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="PLA" class="tabcontent">
-				<h2>PLA (Pull Accumulator)</h2>
+				<h2>PLA (PuLl Accumulator)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="PLP" class="tabcontent">
-				<h2>PLP (Pull Processor Status)</h2>
+				<h2>PLP (PuLl Processor status)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="ROL" class="tabcontent">
-				<h2>ROL (Rotate Left)</h2>
+				<h2>ROL (ROtate Left)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="ROR" class="tabcontent">
-				<h2>ROR (Rotate Right)</h2>
+				<h2>ROR (ROtate Right)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="RTI" class="tabcontent">
-				<h2>RTI (Return from Interrupt)</h2>
+				<h2>RTI (ReTurn from Interrupt)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="RTS" class="tabcontent">
-				<h2>RTS (Return from Subroutine)</h2>
+				<h2>RTS (ReTurn from Subroutine)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="SBC" class="tabcontent">
-				<h2>SBC (Subtract with Carry)</h2>
+				<h2>SBC (SuBtract with Carry)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="SEC" class="tabcontent">
-				<h2>SEC (Set Carry Flag)</h2>
+				<h2>SEC (SEt Carry)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="SED" class="tabcontent">
-				<h2>SED (Set Decimal Flag)</h2>
+				<h2>SED (SEt Decimal)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="SEI" class="tabcontent">
-				<h2>SEI (Set Interrupt Disable)</h2>
+				<h2>SEI (SEt Interrupt)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="STA" class="tabcontent">
-				<h2>STA (Store Accumulator)</h2>
+				<h2>STA (STore Accumulator)</h2>
 				<p>
-					Записывает (копирует) байт из регистра A в указанный адрес. Байт в адресе будет перезаписан.
+					Записывает (копирует) байт из регистра A в указанный адрес.
 				</p>
 				<p>
-					<img src="https://i.imgur.com/7QyNIeK.gif"><!--0018-->
+					<img src="https://i.imgur.com/1B4D6GB.gif"><!--0018-->
 				</p>
 				<p class="tip">
-					Запись байта #$01 из регистра A в адрес $0120.
+					Запись байта #$01 из регистра A в адреса $0051 и $0141.
 				</p>
-				<p>
-					После выполнения инструкции состояние флагов не обновляется. Байт в регистре A остается без изменений.
-				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в адресе будет перезаписан. </li>
+					<li>Состояние флагов не обновляется.</li>
+					<li>Байт в регистре A остается без изменений.</li>
+					<li>На адресе, в который записывается байт, сработает Write брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="STX" class="tabcontent">
-				<h2>STX (Store X Register)</h2>
+				<h2>STX (STore X register)</h2>
 				<p>
-					Записывает (копирует) байт из регистра X в указанный адрес. Байт в адресе будет перезаписан.
+					Записывает (копирует) байт из регистра X в указанный адрес.
 				</p>
 				<p>
-					<img src="https://i.imgur.com/GrQH409.gif"><!--0019-->
+					<img src="https://i.imgur.com/qEzxGSg.gif"><!--0019-->
 				</p>
 				<p class="tip">
-					Запись байта #$01 из регистра X в адрес $0120.
+					Запись байта #$01 из регистра X в адреса $0051 и $0141.
 				</p>
-				<p>
-					После выполнения инструкции состояние флагов не обновляется. Байт в регистре X остается без изменений.
-				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в адресе будет перезаписан. </li>
+					<li>Состояние флагов не обновляется.</li>
+					<li>Байт в регистре X остается без изменений.</li>
+					<li>На адресе, в который записывается байт, сработает Write брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="STY" class="tabcontent">
-				<h2>STY (Store Y Register)</h2>
+				<h2>STY (STore Y register)</h2>
 				<p>
-					Записывает (копирует) байт из регистра Y в указанный адрес. Байт в адресе будет перезаписан.
+					Записывает (копирует) байт из регистра Y в указанный адрес.
 				</p>
 				<p>
-					<img src="https://i.imgur.com/MtPpnxx.gif"><!--0020-->
+					<img src="https://i.imgur.com/vuiXTsN.gif"><!--0020-->
 				</p>
 				<p class="tip">
-					Запись байта #$01 из регистра Y в адрес $0120.
+					Запись байта #$01 из регистра Y в адреса $0051 и $0141.
 				</p>
-				<p>
-					После выполнения инструкции состояние флагов не обновляется. Байт в регистре Y остается без изменений.
-				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в адресе будет перезаписан. </li>
+					<li>Состояние флагов не обновляется.</li>
+					<li>Байт в регистре Y остается без изменений.</li>
+					<li>На адресе, в который записывается байт, сработает Write брейкпоинт.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="TAX" class="tabcontent">
-				<h2>TAX (Transfer Accumulator to X)</h2>
+				<h2>TAX (Transfer Accumulator to X register)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="TAY" class="tabcontent">
-				<h2>TAY (Transfer Accumulator to Y)</h2>
+				<h2>TAY (Transfer Accumulator to Y register)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="TSX" class="tabcontent">
-				<h2>TSX (Transfer Stack Pointer to X)</h2>
+				<h2>TSX (Transfer Stack pointer to X register)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="TXA" class="tabcontent">
-				<h2>TXA (Transfer X to Accumulator)</h2>
+				<h2>TXA (Transfer X register to Accumulator)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="TXS" class="tabcontent">
-				<h2>TXS (Transfer X to Stack Pointer)</h2>
+				<h2>TXS (Transfer X register to Stack pointer)</h2>
 			</div>
 		</p>
 		<p>
 			<div id="TYA" class="tabcontent">
-				<h2>TYA (Transfer Y to Accumulator)</h2>
+				<h2>TYA (Transfer Y register to Accumulator)</h2>
 			</div>
 		</p>
 		<script src="https://iromhacker.ru/spoiler.js"></script>
