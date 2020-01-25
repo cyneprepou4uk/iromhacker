@@ -362,7 +362,7 @@
 						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$09  </text>   ; сравнение A с байтом #$09</div>
 						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">equal</text>    ; переход в случае A == #$09</div>
 						<div class="debugger_string"> </div>
-						<div class="debugger_string"><text class="label">not_equal</text>    ; выполнить нижестоящий код в случае A != #$09</div>
+						<div class="debugger_string"><text class="label">not_equal:</text>   ; выполнить нижестоящий код в случае A != #$09</div>
 					</div>
 				</p>
 				<h4>Проверка на равенство #$00</h4>
@@ -371,13 +371,13 @@
 				</p>
 				<p>
 					<div class="debugger_code">
-						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120 (обновление Z)</div>
-						<div class="debugger_string"><text class="opcode">LDX</text> <text class="address">$0121</text>    ; загрузка в X из $0121 (обновление Z)</div>
-						<div class="debugger_string"><text class="opcode">LDY</text> <text class="address">$0122 </text>   ; загрузка в Y из $0122 (обновление Z)</div>
-						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$00 </text>    ; сравнение A с #$00 для обновления Z конкретно из A</div>
+						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120 (обновится Z)</div>
+						<div class="debugger_string"><text class="opcode">LDX</text> <text class="address">$0121</text>    ; загрузка в X из $0121 (обновится Z)</div>
+						<div class="debugger_string"><text class="opcode">LDY</text> <text class="address">$0122 </text>   ; загрузка в Y из $0122 (обновится Z)</div>
+						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$00 </text>    ; сравнение A с #$00 (для обновления Z конкретно из A)</div>
 						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">zero</text>     ; переход при условии A == #$00 </div>
 						<div class="debugger_string"> </div>
-						<div class="debugger_string"><text class="label">not_zero</text>     ; выполнить нижестоящий код в случае A != #$00</div>
+						<div class="debugger_string"><text class="label">not_zero:</text>    ; выполнить нижестоящий код в случае A != #$00</div>
 					</div>
 				</p>
 				<p>
@@ -388,7 +388,7 @@
 						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>    ; загрузка в A из $0120</div>
 						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">zero</text>     ; переход при условии A == #$00 </div>
 						<div class="debugger_string"> </div>
-						<div class="debugger_string"><text class="label">not_zero</text>     ; выполнить нижестоящий код в случае A != #$00</div>
+						<div class="debugger_string"><text class="label">not_zero:</text>    ; выполнить нижестоящий код в случае A != #$00</div>
 					</div>
 				</p>
 				<h3>Проверка на разницу</h3>
@@ -397,11 +397,11 @@
 				</p>
 				<p>
 					<div class="debugger_code">
-						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>           ; загрузка в A из $0120</div>
-						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$09  </text>          ; сравнение A с #$09</div>
-						<div class="debugger_string"><text class="opcode">BCC</text> <text class="label">less</text>            ; переход при условии A < #$09</div>
+						<div class="debugger_string"><text class="opcode">LDA</text> <text class="address">$0120</text>            ; загрузка в A из $0120</div>
+						<div class="debugger_string"><text class="opcode">CMP #</text><text class="address">$09  </text>           ; сравнение A с #$09</div>
+						<div class="debugger_string"><text class="opcode">BCC</text> <text class="label">less</text>             ; переход при условии A < #$09</div>
 						<div class="debugger_string"> </div>
-						<div class="debugger_string"><text class="label">greater_or_equal</text>    ; выполнить нижестоящий код в случае A >= #$09</div>
+						<div class="debugger_string"><text class="label">greater_or_equal:</text>    ; выполнить нижестоящий код в случае A >= #$09</div>
 					</div>
 				</p>
 				<h4>Проверка на результат "больше"</h4>
@@ -415,7 +415,7 @@
 						<div class="debugger_string"><text class="opcode">BEQ</text> <text class="label">equal</text>      ; переход при условии A == #$09</div>
 						<div class="debugger_string"><text class="opcode">BCS</text> <text class="address"></text><text class="label">greater</text>    ; переход при условии A > #$09</div>
 						<div class="debugger_string"> </div>
-						<div class="debugger_string"><text class="label">less</text>           ; выполнить нижестоящий код в случае A < #$09</div>
+						<div class="debugger_string"><text class="label">less:</text>          ; выполнить нижестоящий код в случае A < #$09</div>
 					</div>
 				</p>
 			</div>
