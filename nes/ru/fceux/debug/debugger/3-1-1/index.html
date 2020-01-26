@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>ЯРомхакеръ. Ромхакинг NES. Debugger. Основные типы брейкпоинтов</title>
-		<meta name="description" content="Описание работы брейкпоинтов типа Read, Write, Execute и Forbit в эмуляторе FCEUX">
+		<meta name="description" content="Описание работы брейкпоинтов Read, Write, Execute и Forbit в эмуляторе FCEUX">
 		<meta name="keywords" content="">
 		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
 		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
@@ -41,11 +41,7 @@
 				<li><a href="../5-1/index.html">Хранение списка комментариев</a></li>
 				<li><a href="../5-2/index.html">Редактирование .nl файлов</a></li>
 			</ul>
-			<li><a href="../6/index.html">Редактирование кода</a></li>
-			<ul>
-				<li><a href="../6-1/index.html">Inline Assembler</a></li>
-				<li><a href="../6-2/index.html">ROM Data Editor</a></li>
-			</ul>
+			<li><a href="../6/index.html">Редактирование кода и данных</a></li>
 			<li>Прочая информация в окне и его возможности</li>
 		</ul>
 		<h2>Типы брейкпоинтов</h2>
@@ -161,9 +157,9 @@
 				</p>
 					<img src="6.png">
 				</p>
-				<h3>Особые адреса</h3>
+				<h3>Адреса обработчиков прерываний</h3>
 				<p>
-					При создании Execute брейкпоинта в поле ввода адреса можно вводить сокращения RST, NMI (или VBL) и IRQ вместо адресов обработчиков сооветствующих прерываний процессора. При сохранении адрес будет автоматически заменен на нужный.
+					Для Execute брейкпоинта в поле ввода адреса можно вводить сокращения RST, NMI (или VBL) и IRQ вместо адресов обработчиков сооветствующих прерываний процессора. При сохранении брейкпоинта адрес будет автоматически заменен на нужный.
 				</p>
 				<p class="tip">
 					Эти сокращения можно вводить и для любых других типов условий брейкпоинта, однако смысл это делать есть только для Execute, чтобы изучить код этих обработчиков.
