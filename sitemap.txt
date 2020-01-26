@@ -14,9 +14,6 @@ https://iromhacker.ru/404.html
 
 		https://iromhacker.ru/nes/ru/fceux/setup/1/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/2/index.html
-			https://iromhacker.ru/nes/ru/fceux/setup/2-1/index.html
-			https://iromhacker.ru/nes/ru/fceux/setup/2-2/index.html
-			https://iromhacker.ru/nes/ru/fceux/setup/2-3/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/3/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/4/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/5/index.html
