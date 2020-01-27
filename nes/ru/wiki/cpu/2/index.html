@@ -36,8 +36,14 @@
 		<p class="notice">
 			Для ознакомления с данной статьей требуется знание регистров процессора и режимов адресации.
 		</p>
+		<p class="tip">
+			Список неофициальных инструкций смотри на <a href="https://wiki.nesdev.com/w/index.php/Programming_with_unofficial_opcodes" target="_blank">NesDev</a>. Некоторые из них могут быть использованы для небольшой оптимизации своего кода. 
+		</p>
 		<p>
 			Выбери интересующую инструкцию из списка, чтобы посмотреть ее описание и примеры использования.
+		</p>
+		<p class="tip">
+			Раздел еще в разработке, ссылки будут добавлены постепенно. До тех пор читай, например, <a href="http://obelisk.me.uk/6502/reference.html" target="_blank">этот</a> справочник, или найди в интернете другой.
 		</p>
 		<p>
 			<table border=1 cellspacing=1 cellpadding=5>
@@ -98,20 +104,14 @@
 					<td class="tabLink" onclick="openTab(event, 'STA')">STA</td>
 					<td class="tabLink" onclick="openTab(event, 'STX')">STX</td>
 					<td class="tabLink" onclick="openTab(event, 'STY')">STY</td>
-					<td>TAX</td>
-					<td>TAY</td>
-					<td>TSX</td>
-					<td>TXA</td>
-					<td>TXS</td>
-					<td>TYA</td>
+					<td class="tabLink" onclick="openTab(event, 'TAX')">TAX</td>
+					<td class="tabLink" onclick="openTab(event, 'TAY')">TAY</td>
+					<td class="tabLink" onclick="openTab(event, 'TSX')">TSX</td>
+					<td class="tabLink" onclick="openTab(event, 'TXA')">TXA</td>
+					<td class="tabLink" onclick="openTab(event, 'TXS')">TXS</td>
+					<td class="tabLink" onclick="openTab(event, 'TYA')">TYA</td>
 				</tr>
 			</table>
-		</p>
-		<p class="tip">
-			Раздел еще в разработке, ссылки будут добавлены постепенно. До тех пор можешь использовать, например, <a href="http://obelisk.me.uk/6502/reference.html" target="_blank">этот</a> справочник, или поискать в интернете другой.
-		</p>
-		<p class="tip">
-			Список неофициальных инструкций можно посмотреть на <a href="https://wiki.nesdev.com/w/index.php/Programming_with_unofficial_opcodes" target="_blank">NesDev</a>. Некоторые из них можно использовать для небольшой оптимизации своего кода. 
 		</p>
 		<p>
 			<div id="ADC" class="tabcontent">
@@ -698,7 +698,7 @@
 					</div>
 				</p>
 				<p class="tip">
-					Если оставить байт #$21 без изменений, он будет расценен кодом как опкод инструкции AND.
+					Если оставить байт #$21 без изменений, он будет расценен кодом как опкод инструкции AND, которая будет выполнена после того, как код вернется из подпрограммы.
 				</p>
 			</div>
 		</p>
@@ -833,31 +833,121 @@
 		<p>
 			<div id="TAX" class="tabcontent">
 				<h2>TAX (Transfer Accumulator to X register)</h2>
+				<p>
+					Передает (копирует) байт из регистра A в регистр X.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/tqpDwOn.gif"><!--0036-->
+				</p>
+				<p class="tip">
+					Передача байта #$99 из регистра A в регистр X.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре X будет перезаписан.</li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был передан в регистр X.</li>
+					<li>Байт в регистре A остается без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="TAY" class="tabcontent">
 				<h2>TAY (Transfer Accumulator to Y register)</h2>
+				<p>
+					Передает (копирует) байт из регистра A в регистр Y.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/X1otwca.gif"><!--0037-->
+				</p>
+				<p class="tip">
+					Передача байта #$99 из регистра A в регистр Y.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре Y будет перезаписан.</li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был передан в регистр Y.</li>
+					<li>Байт в регистре A остается без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="TSX" class="tabcontent">
 				<h2>TSX (Transfer Stack pointer to X register)</h2>
+				<p>
+					Передает (копирует) младший байт адреса регистра указателя стека в регистр X.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/IbHjAli.gif"><!--0040-->
+				</p>
+				<p class="tip">
+					Передача байта #$76 из регистра указателя стека в регистр X.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре X будет перезаписан.</li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был передан в регистр X.</li>
+					<li>Байт в регистре SP остается без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="TXA" class="tabcontent">
 				<h2>TXA (Transfer X register to Accumulator)</h2>
+				<p>
+					Передает (копирует) байт из регистра X в регистр A.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/FiD1b0z.gif"><!--0038-->
+				</p>
+				<p class="tip">
+					Передача байта #$99 из регистра X в регистр A.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре A будет перезаписан.</li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был передан в регистр A.</li>
+					<li>Байт в регистре X остается без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="TXS" class="tabcontent">
 				<h2>TXS (Transfer X register to Stack pointer)</h2>
+				<p>
+					Передает (копирует) байт из регистра X в младший байт адреса регистра указателя стека.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/8TqwK9w.gif"><!--0041-->
+				</p>
+				<p class="tip">
+					Передача байта #$FF из регистра X в регистр указателя стека.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре SP будет перезаписан.</li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был передан в регистр SP.</li>
+					<li>Байт в регистре X остается без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<p>
 			<div id="TYA" class="tabcontent">
 				<h2>TYA (Transfer Y register to Accumulator)</h2>
+				<p>
+					Передает (копирует) байт из регистра Y в регистр A.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/Xh71fy6.gif"><!--0039-->
+				</p>
+				<p class="tip">
+					Передача байта #$99 из регистра Y в регистр A.
+				</p>
+				<h3>Особенности</h3>
+				<ul>
+					<li>После выполнения инструкции байт в регистре A будет перезаписан.</li>
+					<li>Обновляется состояние флагов N и Z в зависимости от того, какой байт был передан в регистр A.</li>
+					<li>Байт в регистре Y остается без изменений.</li>
+				</ul>
 			</div>
 		</p>
 		<script src="https://iromhacker.ru/spoiler.js"></script>
