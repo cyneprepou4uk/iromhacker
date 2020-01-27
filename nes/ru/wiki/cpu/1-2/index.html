@@ -45,9 +45,6 @@
 		<p>
 			Выбери режим адресации из списка, чтобы посмотреть его описание и примеры использования.
 		</p>
-		<p class="tip">
-			Раздел еще в разработке, ссылки будут добавлены постепенно.
-		</p>
 		<p>
 			<table class="tab" border=1 cellspacing=1 cellpadding=5>
 				<tr>
@@ -56,8 +53,8 @@
 					<td class="tabLink" onclick="openTab(event, 'Absolute')">Absolute</td>
 					<td class="tabLink" onclick="openTab(event, 'Indexed')">Indexed</td>
 					<td class="tabLink" onclick="openTab(event, 'Indirect')">Indirect</td>
-					<td>Relative</td>
-					<td>Прочие</td>
+					<td class="tabLink" onclick="openTab(event, 'Relative')">Relative</td>
+					<td class="tabLink" onclick="openTab(event, 'Other')">Прочие</td>
 				</tr>
 			</table>
 		</p>
@@ -362,13 +359,117 @@
 		</p>
 		<p>
 			<div id="Relative" class="tabcontent">
+			<h2>Relative</h2>
+			<p>
+				Относительный режим адресации. Используется только в инструкциях условного перехода, которые проверяют состояние флагов и совершают относительный переход при выполнении условия инструкции.
+			</p>
+			<p>
+				Режим называется "относительный", потому что он не имеет конкретного адреса перехода. В операнде, который размером 1 байт, указывается дистанция того, сколько байтов нужно "перепрыгнуть" относительно адреса нижестоящей инструкции.
+			</p>
+			<h3>Относительный переход вперед</h3>
+			<p>
+				В операнде инструкции условного перехода ставится положительный байт #$00-#$7F. Начальным адресом перехода является адрес, в котором находится следующая по списку инструкция. Например, если инструкция <text class="opcode">BEQ</text> находится по адресу $8102, значит следующая инструкция будет по адресу $8104, это и есть начальный адрес для перехода.
+			</p>
+			<p>
+				<div class="debugger_code">
+					<div class="debugger_string">00:8100: A6 DE     <text class="opcode">LDX</text> <text class="address">$DE</text></div>
+					<div class="debugger_string">00:8102: F0 00     <text class="opcode">BEQ</text> <text class="address">$8104</text>    ; операнд #$00, значит адрес перехода $8104</div>
+					<div class="debugger_string">00:8104: A0 01     <text class="opcode">LDY #</text><text class="address">$01</text></div>
+					<div class="debugger_string">00:8106: 84 DF     <text class="opcode">STY</text> <text class="address">$DF</text></div>
+					<div class="debugger_string">00:8108: 60        <text class="opcode">RTS</text></div>
+				</div>
+			</p>
+			<p>
+				К начальному адресу перехода добавляется операнд инструкции. Если операнд #$01, адрес будет $8105, если #$02, то адрес $8106, и так далее. Если нужно при выполнении условия перейти на адрес $8108 к инструцкции <text class="opcode">RTS</text>, требуется поменять операнд на #$04.
+			</p>
+			<p>
+				<div class="debugger_code">
+					<div class="debugger_string">00:8100: A6 DE     <text class="opcode">LDX</text> <text class="address">$DE</text></div>
+					<div class="debugger_string">00:8102: F0 04     <text class="opcode">BEQ</text> <text class="address">$8108</text>    ; $8104 + #$04</div>
+					<div class="debugger_string">00:8104: A0 01     <text class="opcode">LDY #</text><text class="address">$01</text></div>
+					<div class="debugger_string">00:8106: 84 DF     <text class="opcode">STY</text> <text class="address">$DF</text></div>
+					<div class="debugger_string">00:8108: 60        <text class="opcode">RTS</text></div>
+				</div>
+			</p>
+			<h4>Как вычислить операнд</h4>
+			<p>
+				Ты можешь выделить в Hex Editor'е байты, которые нужно перепрыгнуть. Например, 
+			</p>
+			<p>
+				В названии окна будет указано количество выделенных байтов. Именно этот байт нужно записать в операнде инструкции.
+			</p>
+			<p class="tip">
+				С опытом короткие дистанции можно будет вычислить на глаз, а иногда даже заранее будешь ставить нужный байт, когда уже знаешь какой именно код тебе нужно прописать.
+			</p>
+			<h3>Относительный переход назад</h3>
+			<p>
+				Операндом ставится отрицательный байт #$80-#$FF. Если байт #$00 это начальный адрес перехода, то #$FF - смещение адреса перехода на 1 байт назад, #$FE - смещение на 2 байта назад, и так далее.
+			</p>
+			<p>
+				Очень часто обратный переход используется при создании циклов, чтобы повторно выполнить его тело, пока счетчик цикла не закончится и не будет выполнено условие выхода из цикла.
+			</p>
+			<p>
+				<div class="debugger_code">
+					<div class="debugger_string">00:8100: A2 03     <text class="opcode">LDX #</text><text class="address">$03</text></div>
+					<div class="debugger_string">00:8102: AD FF 01  <text class="opcode">LDA</text> <text class="address">$01FF</text></div>
+					<div class="debugger_string">00:8105: 9D 00 01  <text class="opcode">STA</text> <text class="address">$0100</text><text class="opcode">,X</text></div>
+					<div class="debugger_string">00:8108: CA        <text class="opcode">DEX</text></div>
+					<div class="debugger_string">00:8109: 10 FA     <text class="opcode">BPL</text> <text class="address">$8105</text>      ; переход назад на $8105</div>
+				</div>
+			</p>
+			<h3>Рекомендации по вычислению операнда</h3>
+			<h4>Универсальный способ</h4>
+			<p>
+				Чтобы правильно подобрать дистанцию условного перехода, нужно изменять байт операнда инструкции на тот, который ты считаешь приблизительно правильным. Затем кликни на Debugger, который обновит адрес перехода. При необходимости скорректируй байт в ту или иную сторону и проверь снова.
+			</p>
+			<p class="tip">
+				Для большей наглядности можно создавать временный комментарий для адреса, на который нужно перейти. Если операнд записан правильно, этот комментарий должен отобразиться в адресе перехода у инструкции. После чего комментарий можно удалить.
+			</p>
+			<h4>Дистанция перехода вперед</h4>
+			<p>
+				В Hex Editor'е нужно выделить байты, которые требуется перепрыгнуть. Возьмем код из первого примера, где в операнде BEQ записано #$00.
+			</p>
+			<p>
+				<div class="debugger_code">
+					<div class="debugger_string">00:8100: A6 DE     <text class="opcode">LDX</text> <text class="address">$DE</text></div>
+					<div class="debugger_string">00:8102: F0 00     <text class="opcode">BEQ</text> <text class="address">$8104</text></div>
+					<div class="debugger_string">00:8104: A0 01     <text class="opcode">LDY #</text><text class="address">$01</text></div>
+					<div class="debugger_string">00:8106: 84 DF     <text class="opcode">STY</text> <text class="address">$DF</text></div>
+					<div class="debugger_string">00:8108: 60        <text class="opcode">RTS</text></div>
+				</div>
+			</p>
+			<p>
+				Чтобы вычислить операнд для перехода на адрес $8108, нужно начать выделение с байта опкода инструкции, находящейся после <text class="opcode">BEQ</text>, а закончить выделение перед опкодом инструкции, находящейся по адресу $8108. В названии окна будет указано количество выделенных байтов HEX-числом, этот байт нужно записать в опкоде <text class="opcode">BEQ</text>.
+			</p>
+			<p>
+				<img src="1.png">
+			</p>
+			<h4>Дистанция перехода назад</h4>
+			<p>
+				Рекомендуется использовать окно Inline Assembler, в котором можно указать конкретный адрес условного перехода. Операнд будет вычислен автоматически. Этот же способ походит и для указания адреса перехода вперед.
+			</p>
+			<p>
+				<img src="https://i.imgur.com/wV7QmwA.gif"><!--0042-->
+			</p>
+			<p class="tip">
+				Альтернативно можно придумать свою формулу, например "операнд = #$100 - #$02 - (адрес Bxx - желаемый адрес)".
+			</p>
 			</div>
 		</p>
 		<p>
 			<div id="Other" class="tabcontent">
 				<h2>Прочие режимы адресации</h2>
+				<p>
+					Эти режимы адресации просто для ознакомления. Им не требуется указание операнда, инструкция состоит лишь из опкода. Подробнее про работу этих инструкций прочитаешь в соответствующем разделе.
+				</p>
 				<h3>Accumulator</h3>
+				<p>
+					Инструкции <text class="opcode">ASL</text>, <text class="opcode">LSR</text>, <text class="opcode">ROL</text> и <text class="opcode">ROR</text>, использующие данный режим адресации, работают непосредственно с аккумулятором (регистром A).
+				</p>
 				<h3>Implied</h3>
+				<p>
+					"Подразумеваемый" режим адресации. Инструкция уже содержит информацию о том, с каким регистром или адресом нужно работать. Таких инструкций довольно много, к примеру <text class="opcode">INX</text>, <text class="opcode">TYA</text>, <text class="opcode">SEC</text>, <text class="opcode">RTS</text>.
+				</p>
 				<script src="https://iromhacker.ru/spoiler.js"></script>
 				<script src="https://iromhacker.ru/tab.js"></script>
 			</div>
