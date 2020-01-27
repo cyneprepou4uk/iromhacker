@@ -282,6 +282,9 @@
 						<div class="debugger_string">00:8100: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text>    ; соседние адреса $00DE и $00DF</div>
 					</div>
 				</p>
+				<p class="tip">
+					Если в операнде инструкции указать младший байт адреса #$FF, то соседним адресом будет считаться $0000, а не $0100.
+				</p>
 				<p>
 					Как и в случае с обычной индексной адресацией, по соседним адресам записываются младший и старший байт итогового адреса.
 				</p>
@@ -298,7 +301,7 @@
 				</p>
 				<p>
 					<div class="debugger_code">
-						<div class="debugger_string">00:8108: A0 00     <text class="opcode">LDY #</text><text class="address">$00</text></div>
+						<div class="debugger_string">00:8108: A0 00     <text class="opcode">LDY #</text><text class="address">$00               ; Y = #$00</text></div>
 						<div class="debugger_string">00:810A: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F080    ; $F080 + #$00</div>
 						<div class="debugger_string">00:810C: C8        <text class="opcode">INY</text>                    ; Y = #$01</div>
 						<div class="debugger_string">00:810D: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F081    ; $F080 + #$01</div>
@@ -309,8 +312,19 @@
 				<p>
 					Это позволит работать с диапазоном памяти размером 256 адресов. Но в отличие от обычной индексной адресации, ты можешь изменять начальный адрес этого диапазона когда это небходимо.
 				</p>
-				<p class="tip">
-					Если в операнде инструкции указать младший байт адреса #$FF, то соседним адресом будет считаться $0000, а не $0100.
+				<h4>Увеличение затрачиваемых тактов</h4>
+				<p>
+					У некоторых инструкций при использовании адресации Post-Indexed Indirect будет затрачен +1 дополнительный такт. Это происходит в случае перехода на новую страницу адресов, то есть когда к адресу, вычисляемому по младшему и старшему байтам в соседних адресах, прибавляется значения индексного регистра, после чего увеличивается старший байт итогового адреса.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A0 7F     <text class="opcode">LDY #</text><text class="address">$7F</text>               ; Y = #$7F</div>
+						<div class="debugger_string">00:8102: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F0FF    ; $F080 + #$7F, 5 тактов на выполнение инструкции</div>
+						<div class="debugger_string">00:8104: C8        <text class="opcode">INY</text>                    ; Y = #$80</div>
+						<div class="debugger_string">00:8105: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F100    ; $F080 + #$80, 6 тактов на выполнение инструкции</div>
+						<div class="debugger_string">00:8107: C8        <text class="opcode">INY</text>                    ; Y = #$81</div>
+						<div class="debugger_string">00:8108: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F101    ; $F080 + #$81, 6 тактов на выполнение инструкции</div>
+					</div>
 				</p>
 				<h3>Pre-Indexed Indirect</h3>
 				<p>
