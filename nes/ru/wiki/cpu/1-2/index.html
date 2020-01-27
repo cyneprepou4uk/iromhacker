@@ -52,14 +52,11 @@
 					<td class="tabLink" onclick="openTab(event, 'Zero Page')">Zero Page</td>
 					<td class="tabLink" onclick="openTab(event, 'Absolute')">Absolute</td>
 					<td class="tabLink" onclick="openTab(event, 'Indexed')">Indexed</td>
-					<td>Indirect</td>
+					<td class="tabLink" onclick="openTab(event, 'Indirect')">Indirect</td>
 					<td>Relative</td>
 					<td>Прочие</td>
 				</tr>
 			</table>
-		</p>
-		<p class="tip">
-			Раздел еще в разработке, ссылки будут добавлены постепенно.
 		</p>
 		<p>
 		<div id="Immediate" class="tabcontent">
@@ -171,11 +168,11 @@
 				<div class="debugger_code">
 					<div class="debugger_string">00:8100: A9 10     <text class="opcode">LDA #</text><text class="address">$10 </text>    ; загрузить байт #$10 в регистр A</div>
 					<div class="debugger_string">00:8102: A2 00     <text class="opcode">LDX #</text><text class="address">$00 </text>    ; загрузить байт #$00 в регистр X</div>
-					<div class="debugger_string">00:8104: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $0099</div>
-					<div class="debugger_string">00:8106: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01</div>
-					<div class="debugger_string">00:8107: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $009A</div>
-					<div class="debugger_string">00:8109: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01</div>
-					<div class="debugger_string">00:810A: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text>   ; записать байт из регистра A в адрес $009B</div>
+					<div class="debugger_string">00:8104: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $0099 ($0099 + #$00)</div>
+					<div class="debugger_string">00:8106: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01 (X = #$01)</div>
+					<div class="debugger_string">00:8107: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X</text>    ; записать байт из регистра A в адрес $009A ($0099 + #$01)</div>
+					<div class="debugger_string">00:8109: E8        <text class="opcode">INX</text>          ; увеличить байт в регистре X на #$01 (X = #$02)</div>
+					<div class="debugger_string">00:810A: 95 99     <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text>   ; записать байт из регистра A в адрес $009B ($0099 + #$02)</div>
 				</div>
 				<p>
 					Чтобы инструкция <text class="opcode">STA</text> использовала режим адресации Zero Page,X, она записывается с помощью опкода 95. После опкода ставится операнд 99 для указания адреса <text class="address">$99</text><text class="opcode">,X</text>, в который будет записан байт из регистра A. Изменяя байт в регистре X, при выполнении инструкций <text class="opcode">STA</text> <text class="address">$99</text><text class="opcode">,X </text> меняется итоговый адрес, в который произойдет запись байта из регистра A.
@@ -225,16 +222,124 @@
 		<p>
 			<div id="Indirect" class="tabcontent">
 				<h2>Indirect</h2>
-				<h3>Indirect Indexed</h3>
 				<p>
-					Косвенно-индексная адресация. Используется для более гибкого обращения к памяти, чем обычная индексная адресация, а также при обращении к памяти с данными, которая по размеру больше, чем 256 байтов.
+					Косвенная (непрямая) адресация. Итоговый адрес вычисляется исходя из байтов, находящихся в двух соседних адресах. В первом адресе находится младший байт итогового адреса, а во втором - старший байт.
 				</p>
 				<p>
-					Для инструкции, использующей косвенно-индексную адресацию, требуется 2 соседних адреса в нулевой странице.
+					Эти 2 соседних адреса могут находиться в любом месте диапазона $0000-$FFFF, но в подавляющем большинстве случаев это будут адреса RAM $0000-$07FF, так как в RAM можно без труда менять байты на нужные, чтобы контролировать косвенный адрес.
 				</p>
-				<h3>Indexed Indirect</h3>
+				<h3>Indirect Jump</h3>
 				<p>
-					Индексно-косвенная адресация, встречается в коде довольно редко.
+					Единственная инструкция, использующая режим адресации Indirect - <text class="opcode">JMP</text>. Благодаря ей можно совершать прыжки на различные участки кода, подготавливая соответствующие байты для адреса прыжка.
+				</p>
+				<p>
+					Операнд инструкции размером 2 байта, ими указывается 16-битный адрес первого соседнего адреса. Старший и младший байты этого адреса записываются в обратном порядке.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: 6C 20 01  <text class="opcode">JMP (</text><text class="address">$0120</text><text class="opcode">)</text>    ; непрямой прыжок</div>
+					</div>
+				</p>
+				<p>
+					Адрес $0120 содержит младший байт итогового адреса, а соседний адрес $0121 - старший байт. Чтобы инструкция <text class="opcode">JMP (</text><text class="address">$0120</text><text class="opcode">)</text> совершила прыжок на адрес $89AB, нужно записать байт #$AB в адрес $0120 и байт #$89 в адрес $0121. Порядок записи не имеет значения, но первым принято записывать младший байт.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A9 AB     <text class="opcode">LDA #</text><text class="address">$AB</text>               ; загрузка младшего байта</div>
+						<div class="debugger_string">00:8102: 8D 20 01  <text class="opcode">STA</text> <text class="address">$0120</text> = #$AB       ; запись младшего байта</div>
+						<div class="debugger_string">00:8105: A9 89     <text class="opcode">LDA #</text><text class="address">$89</text>               ; загрузка старшего байта</div>
+						<div class="debugger_string">00:8107: 8D 21 01  <text class="opcode">STA</text> <text class="address">$0121</text> = #$89       ; запись старшего байта</div>
+						<div class="debugger_string">00:810A: 6C 20 01  <text class="opcode">JMP (</text><text class="address">$0120</text><text class="opcode">)</text> = $89AB    ; итоговый адрес $89AB</div>
+					</div>
+				</p>
+				<p>
+					Если подготовить таблицу с младшими и старшими байтами, и записывать их в 2 соседних адреса RAM, выбранных в операнде инструкции Indirect <text class="opcode">JMP</text>, можно создавать любое количество развилок в своем коде.
+				</p>
+				<h4>Технические особенности</h4>
+				<p>
+					В процессоре 6502 существует баг, из-за которого нельзя выйти за пределы страницы памяти, если в операнде инструкции указать младший байт адреса #$FF.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: 6C FF 02  <text class="opcode">JMP (</text><text class="address">$02FF</text><text class="opcode">)</text>    ; младший байт считывается из $02FF, а старший байт из $0200</div>
+					</div>
+				</p>
+				<p>
+					Однако эмулятор FCEUX не эмулирует данную особенность, в нем соседним адресом будет считаться адрес $0300.
+				</p>
+				<h3>Post-Indexed Indirect</h3>
+				<p>
+					Косвенно-индексная адресация. В отличие от обычной индексной адресации, итоговый адрес контролируется при помощи регистра Y. Этот режим адресации используется для более гибкого обращения к памяти, чем обычная индексная адресация, а также при работе с таблицами, которые по размеру больше, чем 256 байтов.
+				</p>
+				<p>
+					Для инструкции, использующей косвенно-индексную адресацию, требуется 2 соседних адреса в нулевой странице. Операнд инструкции размером 1 байт, которым указывается младший байт первого адреса нулевой страницы.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text>    ; соседние адреса $00DE и $00DF</div>
+					</div>
+				</p>
+				<p>
+					Как и в случае с обычной индексной адресацией, по соседним адресам записываются младший и старший байт итогового адреса.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A9 80     <text class="opcode">LDA #</text><text class="address">$80</text>          ; загрузка младшего байта</div>
+						<div class="debugger_string">00:8102: 85 DE     <text class="opcode">STA</text> <text class="address">$DE</text> = #$80    ; запись младшего байта</div>
+						<div class="debugger_string">00:8104: A9 F0     <text class="opcode">LDA #</text><text class="address">$F0</text>          ; загрузка старшего байта</div>
+						<div class="debugger_string">00:8106: 85 DF     <text class="opcode">STA</text> <text class="address">$DF</text> = #$F0    ; запись старшего байта</div>
+					</div>
+				</p>
+				<p>
+					Получив итоговый адрес $F080, можно добавлять к нему значение регистра Y, который нужно подготовить перед выполнением инструкции <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text>.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8108: A0 00     <text class="opcode">LDY #</text><text class="address">$00</text></div>
+						<div class="debugger_string">00:810A: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F080    ; $F080 + #$00</div>
+						<div class="debugger_string">00:810C: C8        <text class="opcode">INY</text>                    ; Y = #$01</div>
+						<div class="debugger_string">00:810D: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F081    ; $F080 + #$01</div>
+						<div class="debugger_string">00:810F: C8        <text class="opcode">INY</text>                    ; Y = #$02</div>
+						<div class="debugger_string">00:8110: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F082    ; $F080 + #$02</div>
+					</div>
+				</p>
+				<p>
+					Это позволит работать с диапазоном памяти размером 256 адресов. Но в отличие от обычной индексной адресации, ты можешь изменять начальный адрес этого диапазона когда это небходимо.
+				</p>
+				<p class="tip">
+					Если в операнде инструкции указать младший байт адреса #$FF, то соседним адресом будет считаться $0000, а не $0100.
+				</p>
+				<h3>Pre-Indexed Indirect</h3>
+				<p>
+					Индексно-косвенная адресация. Встречается в коде довольно редко, так как использование этого режима адресации слишком затратно и неэффективно.
+				</p>
+				<p>
+					Отличается от косвенно-индексной тем, что здесь используется индексный регистр X. Этот регистр влияет не на итоговый адрес, а на тот адрес, откуда будут считываться младший и старший байты для итогового адреса.
+				</p>
+				<p>
+					В примере подготавливаются младшие и старшие байты сразу в двух парах соседних адресов нулевой страницы.
+				</p>
+				<p>
+					<div class="debugger_code">
+						<div class="debugger_string">00:8100: A9 CD     <text class="opcode">LDA #</text><text class="address">$CD</text>               ; загрузка младшего байта</div>
+						<div class="debugger_string">00:8102: 85 DE     <text class="opcode">STA</text> <text class="address">$DE</text> = #$AB         ; запись младшего байта</div>
+						<div class="debugger_string">00:8104: A9 AB     <text class="opcode">LDA #</text><text class="address">$AB</text>               ; загрузка старшего байта</div>
+						<div class="debugger_string">00:8106: 85 DF     <text class="opcode">STA</text> <text class="address">$DF</text> = #$CD         ; запись старшего байта</div>
+						<div class="debugger_string">00:8108: A9 25     <text class="opcode">LDA #</text><text class="address">$25</text>               ; загрузка младшего байта</div>
+						<div class="debugger_string">00:810A: 85 E0     <text class="opcode">STA</text> <text class="address">$E0</text> = #$25         ; запись младшего байта</div>
+						<div class="debugger_string">00:810C: A9 05     <text class="opcode">LDA #</text><text class="address">$05</text>               ; загрузка старшего байта</div>
+						<div class="debugger_string">00:810E: 85 E1     <text class="opcode">STA</text> <text class="address">$E1</text> = #$05         ; запись старшего байта</div>
+						<div class="debugger_string">00:8110: A2 00     <text class="opcode">LDX #</text><text class="address">$00</text>               ; вычисление адреса из байтов в $00DE и $00DF ($00DE + #$00)</div>
+						<div class="debugger_string">00:8112: A1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">,X)</text> @ $ABCD    ; загрузка байта в A из $ABCD</div>
+						<div class="debugger_string">00:8114: A2 02     <text class="opcode">LDX #</text><text class="address">$02</text>               ; вычисление адреса из байтов в $00E0 и $00E1 ($00DE + #$02)</div>
+						<div class="debugger_string">00:8116: A1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">,X)</text> @ $0525    ; загрузка байта в A из $0525</div>
+					</div>
+				</p>
+				<p>
+					По итогу всех этих действий удалось получить лишь 2 адреса - $ABCD и $0525. Слишком дорогое удовольствие с учетом того, что ради этого было выделено целых 4 адреса в нулевой странице. Чтобы повлиять на итоговые адреса, нужно изменять байты в соседних адресах нулевой страницы.
+				</p>
+				<p class="tip">
+					Указав в операнде инструкции с индексно-косвенным режимом адресации младший байт адреса #$FF, либо попытавшись увеличить старший байт адреса при сложении значения регистра X, соседние адреса все равно будут находиться в пределах нулевой страницы.
 				</p>
 			</div>
 		</p>
