@@ -13,8 +13,8 @@ body {
 	padding: 0 15px 100px 15px; /* фиксированный сверху/справа/снизу/слева */
 }
 
-body.root {max-width: 360px;}
-body.platform {max-width: 500px;}
+body.root {max-width: 360px; padding: 0 15px 0px 15px;} /* главная страница сайта */
+body.platform {max-width: 500px;} /* главная страница платформы */
 
 ul {margin-left: -15px;}
 
