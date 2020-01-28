@@ -16,8 +16,10 @@ body {
 body.root {max-width: 360px; padding: 0 15px 0px 15px;} /* главная страница сайта */
 body.platform {max-width: 500px;} /* главная страница платформы */
 
-ul {margin-left: -15px;}
+li {margin-left: 13px;}
+li.root {margin-left: 0px;}
 
+ul {margin-left: -15px;}
 ul.root, figure {
 	margin: 0;
 	padding: 0;
@@ -25,8 +27,6 @@ ul.root, figure {
 }
 
 li {margin-left: 13px;}
-
-li.root {margin-left: 0px;}
 
 ul.root {list-style: none;}
 
