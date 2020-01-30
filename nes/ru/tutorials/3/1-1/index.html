@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Ромхакинг NES. НазваниеСтатьи</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Виды адресов</h1>
+		<p>
+			<center>
+				<a class="return" href="https://iromhacker.ru/nes/ru/index.html">Вернуться на главную страницу</a>
+			</center>
+		</p>
+		<p class="content">
+			Содержание
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Поиск игровых адресов</a></li>
+			<ul>
+				<li><a href="../1-1/index.html">Виды адресов</a></li>
+				<li><a href="../1-2/index.html">Двоичный поиск</a></li>
+			</ul>
+			<li><a href="../2/index.html">Поиск свободных адресов</a></li>
+		</ul>
+		<h2>Виды адресов</h2>
+		<p>
+			Динамические данные могут храниться в различном формате. Некоторые форматы выглядят в RAM достаточно очевидно, например численное количество чего-либо. Некоторые могут быть непонятны на первый взгляд, вроде указателей или порядкового номера объекта.
+		</p>
+		<p>
+			Способ хранения данных, а также то, какие именно адреса существуют, зависят от самой игры. Если ты достаточно хорошо знаком с игрой в качестве рядового игрока, а не ромхакера, тебе будет проще опознать эти адреса. С незнакомыми играми работать несколько сложнее, но в целом это не критично.
+		</p>
+		<p>
+			Все случаи описать здесь не получится, будет рассказано только про самые распространенные. Выбери опцию из списка, чтобы посмотреть информацию по этому виду адресов.
+		</p>
+		<p>
+			<table border=1 cellspacing=1 cellpadding=5>
+				<tr>
+					<td class="tabLink" onclick="openTab(event, 'Lives')">Жизни</td>
+					<td>Таймеры</td>
+					<td>Счетчики</td>
+					<td>Джойстики</td>
+					<td>Параметры</td>
+					<td>Индикаторы</td>
+					<td>Координаты</td>
+					<td>Очки и деньги</td>
+					<td>Анимация</td>
+					<td>Рандом</td>
+					<td>Музыка</td>
+					<td>Графика</td>
+					<td>Номера</td>
+					<td>Прочее</td>
+				</tr>
+			</table>
+		</p>
+		<p>
+			<div id="Lives" class="tabcontent">
+				<h2>Жизни, очки здоровья (HP), количество Continue</h2>
+				<p>
+					Это одни из самых популярных адресов, которые ищут новички, так как с ними проще всего работать. С ними делаются первые тестовые хаки, связанные с бесконечностью данных игровых параметров.
+				</p>
+				<p>
+					111
+				</p>
+				<p class="tip">
+					В редких случаях байт в адресе HP может увеличиваться при получении урона, а не уменьшаться, например в играх Mortal Kombat. Персонаж умрет, когда это количество достигнет определенного значения.
+				</p>
+			</div>
+		</p>
+		<p>
+			<div id="RoL" class="tabcontent">
+			</div>
+		</p>
+		<p>
+			<div id="RoL" class="tabcontent">
+			</div>
+		</p>
+		<p>
+			<div id="RoL" class="tabcontent">
+			</div>
+		</p>
+		<p>
+			<div id="RoL" class="tabcontent">
+			</div>
+		</p>
+		<p>
+			<div id="RoL" class="tabcontent">
+			</div>
+		</p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+		<script src="https://iromhacker.ru/tab.js"></script>
+	</body>
+</html>
