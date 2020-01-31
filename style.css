@@ -13,7 +13,7 @@ body {
 	padding: 0 15px 100px 15px; /* фиксированный сверху/справа/снизу/слева */
 }
 
-body.root {max-width: 360px; padding: 0 15px 0px 15px;} /* главная страница сайта */
+body.root {max-width: 360px; padding: 0 5px 0px 5px;} /* главная страница сайта */
 body.platform {max-width: 500px;} /* главная страница платформы */
 
 li {margin-left: 13px;}
@@ -71,6 +71,14 @@ a.return:link, a.return:visited, a.return:hover, a.return:active {
 	text-shadow:0 0 5px rgba(0,255,0,0.5);
 	text-decoration: underline; /*none*/
 }
+
+a.slider-arrow:link, a.slider-arrow:visited, a.slider-arrow:hover, a.slider-arrow:active {
+	text-decoration: none; /* для стрелок слайдера */
+	color: white;
+	text-shadow: initial;
+}
+
+a.slider-arrow:hover {color: palegreen;}
 
 
 
@@ -246,6 +254,7 @@ dfn:hover::before {top: 20px;}
 
 
 /* Слайдер Glide.js */
+/* templatemonster.com/blog/wp-content/uploads/2014/01/demo/index.html */
 /* https://www.templatemonster.com/blog/tutorial-implement-dynamic-animated-slider-using-glide-js/ */
 .slider {
 	position: relative;
@@ -305,6 +314,23 @@ dfn:hover::before {top: 20px;}
 
 /* цвет активного индикатора */
 .slider-nav__item--current, .slider-nav__item--current:hover {background: palegreen;}
+
+.slider-arrow {
+  position: absolute;
+  display: block;
+  font-size: 2.0em;
+  margin-bottom: 0px;
+  padding: 0px 5px 0px 5px; /* фиксированный сверху/справа/снизу/слева */
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  opacity: .2;
+}
+.slider-arrow:hover {
+  opacity: 1;
+}
+.slider-arrow--right { bottom: 50%; right: 10px; }
+.slider-arrow--left { bottom: 50%; left: 10px; }
 
 
 
