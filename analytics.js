@@ -20,10 +20,10 @@ function loadScriptAsync(scriptSrc, callback) {
     document.head.appendChild(script);
 }
 
-loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-154896299-1', function() {
+loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-157470762-1', function() {
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 	
-	gtag('config', 'UA-154896299-1');
+	gtag('config', 'UA-157470762-1');
 });
