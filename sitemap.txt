@@ -2,29 +2,7 @@ https://iromhacker.ru/
 https://iromhacker.ru/404.html
 
 	https://iromhacker.ru/nes/ru/index.html
-		https://iromhacker.ru/nes/ru/tutorials/1/index.html
-		https://iromhacker.ru/nes/ru/tutorials/2/1/index.html
-		https://iromhacker.ru/nes/ru/tutorials/2/2/index.html
-		https://iromhacker.ru/nes/ru/tutorials/3/1/index.html
-	
-		https://iromhacker.ru/nes/ru/wiki/cpu/1/index.html
-			https://iromhacker.ru/nes/ru/wiki/cpu/1-1/index.html
-			https://iromhacker.ru/nes/ru/wiki/cpu/1-2/index.html
-		https://iromhacker.ru/nes/ru/wiki/cpu/2/index.html
-			https://iromhacker.ru/nes/ru/wiki/cpu/2-1/index.html
 
-		https://iromhacker.ru/nes/ru/fceux/setup/1/index.html
-		https://iromhacker.ru/nes/ru/fceux/setup/2/index.html
-		https://iromhacker.ru/nes/ru/fceux/setup/3/index.html
-		https://iromhacker.ru/nes/ru/fceux/setup/4/index.html
-		https://iromhacker.ru/nes/ru/fceux/setup/5/index.html
-		https://iromhacker.ru/nes/ru/fceux/setup/6/index.html
-		
-		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/1/index.html
-		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/2/index.html
-		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/3/index.html
-		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/4/index.html
-					
 		https://iromhacker.ru/nes/ru/fceux/debug/debugger/1/index.html
 		https://iromhacker.ru/nes/ru/fceux/debug/debugger/2/index.html
 		https://iromhacker.ru/nes/ru/fceux/debug/debugger/3/index.html
@@ -38,6 +16,28 @@ https://iromhacker.ru/404.html
 			https://iromhacker.ru/nes/ru/fceux/debug/debugger/5-2/index.html
 		https://iromhacker.ru/nes/ru/fceux/debug/debugger/6/index.html
 		
+		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/1/index.html
+		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/2/index.html
+		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/3/index.html
+		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/4/index.html
+
+		https://iromhacker.ru/nes/ru/fceux/setup/1/index.html
+		https://iromhacker.ru/nes/ru/fceux/setup/2/index.html
+		https://iromhacker.ru/nes/ru/fceux/setup/3/index.html
+		https://iromhacker.ru/nes/ru/fceux/setup/4/index.html
+		https://iromhacker.ru/nes/ru/fceux/setup/5/index.html
+		
 		https://iromhacker.ru/nes/ru/programs/calculator/1/index.html
 		https://iromhacker.ru/nes/ru/programs/calculator/2/index.html
 			https://iromhacker.ru/nes/ru/programs/calculator/2-1/index.html
+		
+		https://iromhacker.ru/nes/ru/tutorials/1/index.html
+		https://iromhacker.ru/nes/ru/tutorials/2/1/index.html
+		https://iromhacker.ru/nes/ru/tutorials/2/2/index.html
+		https://iromhacker.ru/nes/ru/tutorials/3/1/index.html
+	
+		https://iromhacker.ru/nes/ru/wiki/cpu/1/index.html
+			https://iromhacker.ru/nes/ru/wiki/cpu/1-1/index.html
+			https://iromhacker.ru/nes/ru/wiki/cpu/1-2/index.html
+		https://iromhacker.ru/nes/ru/wiki/cpu/2/index.html
+			https://iromhacker.ru/nes/ru/wiki/cpu/2-1/index.html
