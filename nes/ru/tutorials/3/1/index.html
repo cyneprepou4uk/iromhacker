@@ -143,6 +143,16 @@
 				<p>
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/cyiV4ecp9kI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</p>
+				<h3>Sprite Memory</h3>
+				<p>
+					Некоторые данные могут выводиться на экране с помощью спрайтов, а не заднего фона. Поиск по принципу похож на поиск адресов через PPU Memory - надо найти адреса в памяти спрайтов, в которые записываются нужные тайлы для спрайтов, отображенных на экране, поставить на них Write брейкпоинты и отследить цепочку записи.
+				</p>
+				<p>
+					Этот способ поиска несколько сложнее, чем поиск по видеопамяти, поскольку труднее локализовать нужный адрес в памяти спрайтов, чтобы затем найти откуда в него пишутся значения. Здесь тоже требуется опыт работы с Debugger'ом и знание инструкций процессора.
+				</p>
+				<p>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/JxUGp-zj91Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</p>
 				<h3>Двоичный поиск</h3>
 				<p>
 					Универсальный поиск адресов методом копирования данных между двумя сохранениями описан в подразделе этой статьи.
