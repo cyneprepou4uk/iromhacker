@@ -24,10 +24,10 @@
 		<ul>
 			<li><a href="../1/index.html">Поиск игровых адресов</a></li>
 			<ul>
-				<li><a href="../1-1/index.html">Виды адресов</a></li>
-				<li><a href="../1-2/index.html">Двоичный поиск</a></li>
+				<li>Виды адресов</li>
+				<li>Двоичный поиск</li>
 			</ul>
-			<li><a href="../2/index.html">Поиск свободных адресов</a></li>
+			<li>Поиск свободных адресов</li>
 		</ul>
 		<h2>Виды адресов</h2>
 		<p>
@@ -44,17 +44,18 @@
 				<tr>
 					<td class="tabLink" onclick="openTab(event, 'Lives')">Жизни</td>
 					<td>Таймеры</td>
-					<td>Счетчики</td>
+					<td class="tabLink" onclick="openTab(event, 'Counters')">Счетчики</td>
 					<td>Джойстики</td>
 					<td>Параметры</td>
 					<td>Индикаторы</td>
 					<td>Координаты</td>
 					<td>Очки и деньги</td>
 					<td>Анимация</td>
-					<td>Рандом</td>
+					<td class="tabLink" onclick="openTab(event, 'Random')">Рандом</td>
 					<td>Музыка</td>
 					<td>Графика</td>
 					<td>Номера</td>
+					<td class="tabLink" onclick="openTab(event, 'Temporary')">Временные</td>
 					<td>Прочее</td>
 				</tr>
 			</table>
@@ -74,23 +75,49 @@
 			</div>
 		</p>
 		<p>
-			<div id="RoL" class="tabcontent">
+			<div id="123" class="tabcontent">
 			</div>
 		</p>
 		<p>
-			<div id="RoL" class="tabcontent">
+			<div id="Counters" class="tabcontent">
+				<h2>Счетчики</h2>
+				<p>
+					Счетчики находить достаточно просто. В большинстве случаев байт в адресе будет постоянно уменьшаться на #$01, пока не достигнет #$00. Реже будет увеличиваться на #$01, пока не достигнет определенного значения.
+				</p>
+				<h3>Большие счетчики</h3>
+				<p>
+					Поскольку 1 адрес может хранить в себе байт максимум #$FF, то есть число 255 (чуть больше 4-х кадров), для крупных счетчиков этого недостаточно. В таких случаях используются сразу 2 адреса, которые в сумме хранят в себе 16-битное число, что позволяет создавать счетчики со значением до 65535.
+				</p>
+				<p class="tip">
+					Эти 2 адреса могут находиться где угодно, не обязательно по соседству друг с другом.
+				</p>
+				<p>
+					Старший байт такого счетчика будет уменьшаться только тогда, когда полностью уменьшится младший байт счетчика. Вот пример счетчика, который считает от 600 до 0, значение уменьшается ежекадрово на протяжении 10-ти кадров.
+				</p>
+				<p>
+					<img src="https://i.imgur.com/qvhHblH.gif"><!--0046-->
+				</p>
 			</div>
 		</p>
 		<p>
-			<div id="RoL" class="tabcontent">
+			<div id="123" class="tabcontent">
 			</div>
 		</p>
 		<p>
-			<div id="RoL" class="tabcontent">
+			<div id="123" class="tabcontent">
 			</div>
 		</p>
 		<p>
-			<div id="RoL" class="tabcontent">
+			<div id="Random" class="tabcontent">
+				<h2>Адреса с рандомом</h2>
+			</div>
+		</p>
+		<p>
+			<div id="Temporary" class="tabcontent">
+				<h2>Временные адреса</h2>
+				<p>
+					Эти адреса внешне напоминают адреса с рандомом
+				</p>
 			</div>
 		</p>
 		<script src="https://iromhacker.ru/spoiler.js"></script>
