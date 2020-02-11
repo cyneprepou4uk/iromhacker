@@ -410,6 +410,29 @@
 			<p class="tip">
 				Если операндом записать байт #$FE, то при выполнении своего условия инструкция перейдет сама на себя, повторно выполнит свое условие и снова перейдет на себя. Это приведет к созданию бесконечного цикла.
 			</p>
+			<h3>Увеличение затрачиваемых тактов</h3>
+			<p>
+				Если условие инструкции условного перехода не выполняется, будет затрачено 2 такта. Если же условие выполняется, затрачивается 3 такта.
+			</p>
+			<p>
+				<div class="debugger_code">
+					<div class="debugger_string">00:8100: A9 00     <text class="opcode">LDA #</text><text class="address">$00</text>     ; Z = 0</div>
+					<div class="debugger_string">00:8102: D0 07     <text class="opcode">BNE</text> <text class="address">$810B</text>    ; условие не выполнено, 2 такта</div>
+					<div class="debugger_string">00:8104: F0 05     <text class="opcode">BEQ</text> <text class="address">$810B</text>    ; условие выполнено, 3 такта</div>
+				</div>
+			</p>
+			<p>
+				А если условие выполняется, и при вычислении адреса перехода старший байт этого адреса будет увеличен/уменьшен на #$01 относительно начального адреса, затрачивается 4 такта.
+			</p>
+			<p>
+				<div class="debugger_code">
+					<div class="debugger_string">00:8100: A9 00     <text class="opcode">LDA #</text><text class="address">$00</text></div>
+					<div class="debugger_string">00:80FC: F0 02     <text class="opcode">BEQ</text> <text class="address">$8100</text>    ; начальный адрес $80FE, старший байт адреса перехода = #$81, 4 такта</div>
+					<div class="debugger_string">00:80FE: EA        <text class="opcode">NOP</text></div>
+					<div class="debugger_string">00:80FF: EA        <text class="opcode">NOP</text></div>
+					<div class="debugger_string">00:8100: F0 EE     <text class="opcode">BEQ</text> <text class="address">$80F0</text>    ; начальный адрес $8102, старший байт адреса перехода = #$80, 4 такта</div>
+				</div>
+			</p>
 			<h3>Рекомендации по вычислению операнда</h3>
 			<p>
 				С опытом короткие дистанции можно будет вычислить на глаз, а иногда даже заранее будешь ставить нужный байт, когда уже знаешь какой именно код тебе нужно прописать. Но лучше все же не пытаться вычислять операнды до тех пор, пока код не будет написан полностью. Временно оставляй операнд #$00.
