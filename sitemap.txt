@@ -38,6 +38,7 @@ https://iromhacker.ru/404.html
 		https://iromhacker.ru/nes/ru/tutorials/2/2/index.html
 		https://iromhacker.ru/nes/ru/tutorials/3/1/index.html
 			https://iromhacker.ru/nes/ru/tutorials/3/1-1/index.html
+			https://iromhacker.ru/nes/ru/tutorials/3/1-2/index.html
 	
 		https://iromhacker.ru/nes/ru/wiki/cpu/1/index.html
 			https://iromhacker.ru/nes/ru/wiki/cpu/1-1/index.html
