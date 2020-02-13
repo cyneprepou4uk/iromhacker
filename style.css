@@ -137,7 +137,7 @@ table.root
 	overflow: auto;
 }
 
-iframe, table, img {
+iframe.youtube, table, img {
 	max-width: 100%;
 	position: relative;
 	border: 0px #000000 solid transparent;
