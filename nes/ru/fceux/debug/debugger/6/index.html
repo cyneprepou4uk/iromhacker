@@ -4,8 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>ЯРомхакеръ. Ромхакинг NES. Debugger. Редактирование кода</title>
-		<meta name="description" content="Описание нескольких способов отредактировать код и данные">
+		<title>Ромхакинг NES. Редактирование кода в Debugger'е</title>
+		<meta name="description" content="Как редактировать код и байты в эмуляторе FCEUX. Как взламывать игры. Как делать хаки. How to edit code and data. How to hack games. How to change bytes">
 		<meta name="keywords" content="">
 		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
 		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 			Содержание
 		</p>
 		<ul>
-			<li><a href="../1/index.html">Описание окна Debugger</a></li>
+			<li><a href="../1/index.html">Окно Debugger</a></li>
 			<li><a href="../2/index.html">Регистры и флаги</a></li>
 			<li><a href="../3/index.html">Брейкпоинты</a></li>
 			<ul>
@@ -34,10 +34,9 @@
 				<li><a href="../3-2/index.html">Прочие типы брейкпоинтов</a></li>
 			</ul>
 			<li><a href="../4/index.html">Кнопки для отладки кода</a></li>
-			<li><a href="../5/index.html">Комментирование кода и адресов</a></li>
+			<li><a href="../5/index.html">Добавление комментариев</a></li>
 			<ul>
-				<li><a href="../5-1/index.html">Хранение списка комментариев</a></li>
-				<li><a href="../5-2/index.html">Редактирование .nl файлов</a></li>
+				<li><a href="../5-1/index.html">Файлы комментариев</a></li>
 			</ul>
 			<li>Редактирование кода и данных</li>
 			<li>Прочая информация в окне и его возможности</li>
@@ -171,7 +170,7 @@
 					В поле ввода помещается не более 30 символов, то есть максимум можно записать 15 байтов без пробелов.
 				</p>
 				<p class="tip">
-					В поле Current Data указан адрес $B000, а не $F000, потому что маппер NROM дублирует адреса $8000-$BFFF и $C000-$FFFF.
+					В поле Current Data указан адрес $B000, а не $F000, потому что маппер NROM-128 дублирует адреса $8000-$BFFF и $C000-$FFFF.
 				</p>
 				<p>
 					Чтобы применить свои изменения, нажми кнопку Apply. Если все получилось, то в поле Current Data ты увидишь свои изменения. А чтобы сохранить изменения в файле без необходимости сохранять их через Hex Editor, нажми кнопку Save Rom File.
