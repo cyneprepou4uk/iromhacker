@@ -4,8 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>ЯРомхакеръ. Ромхакинг NES. Debugger. Прочие типы брейкпоинтов</title>
-		<meta name="description" content="Описание работы брейкпоинтов с условиями на CPU cycles, Instructions и Break on Bad Opcodes в эмуляторе FCEUX">
+		<title>Ромхакинг NES. Прочие типы брейкпоинтов в Debugger'е</title>
+		<meta name="description" content="Как ставить условия на такты, циклы, команды, неправильные инструкции. How to set conditions on cycles and bad instructions">
 		<meta name="keywords" content="">
 		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
 		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
@@ -64,10 +64,13 @@
 					<img src="1.png">
 				</p>
 				<p>
-					Условие данного брейкпоинта - приостановить эмуляцию при попытке выполнить UNDEFINED инструкцию.
+					Условие данного брейкпоинта - приостановить эмуляцию при попытке выполнить UNDEFINED инструкцию. Обычно это байт #$FF.
 				</p>
 				<p>
 					<img src="2.png">
+				</p>
+				<p class="tip">
+					Поскольку неофициальные инструкции процессора также отображаются как UNDEFINED, на них тоже будет срабатывать этот брейкпоинт, даже если код игры работает без ошибок. Но такие встречаются очень редко.
 				</p>
 				<p>
 					Этот тип брейкпоинта подходит для тестирования своего кода, чтобы убедиться, что прыжки и условные переходы были записаны верно. Также поможет заметить ошибку в коде из-за неправильно подключенного номера банка PRG. Если брейкпоинт срабатывает во время игры, то даже когда в геймплее багов не заметно, в коде явно что-то не в порядке.
