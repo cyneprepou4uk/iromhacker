@@ -223,7 +223,7 @@ dfn:hover::before {top: 20px;}
 	transition: 0.2s; /*скорость изменения цвета при наведении курсора*/
 }
 
-.spoiler_active, .spoiler:hover {
+.active, .spoiler:hover {
 	background-color: #505050; /* цвет фона открытого спойлера и при наведении курсора */
 }
 
@@ -235,7 +235,7 @@ dfn:hover::before {top: 20px;}
 	margin-left: 5px;
 }
 
-.active:after {
+.spoiler_active:after {
 	content: "\25BC \A0";
 	color: limegreen; /* цвет стрелочки открытого спойлера */
 }
