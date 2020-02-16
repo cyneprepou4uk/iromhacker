@@ -205,7 +205,7 @@ dfn:hover::before {top: 20px;}
 
 
 
-/* https://www.w3schools.com/howto/howto_js_spoiler.asp */
+/* https://www.w3schools.com/howto/howto_js_spoiler.asp и https://jsfiddle.net/3q87y2u8 */
 /* альтернативный спойлер https://jsfiddle.net/tovic/bY6ty */
 .spoiler {
 	font-family: inherit;
