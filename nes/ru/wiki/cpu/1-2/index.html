@@ -283,7 +283,7 @@
 					Если в операнде инструкции указать младший байт адреса #$FF, то соседним адресом будет считаться $0000, а не $0100.
 				</p>
 				<p>
-					Как и в случае с обычной индексной адресацией, по соседним адресам записываются младший и старший байт итогового адреса.
+					Как и в случае с обычной индексной адресацией, по соседним адресам записываются младший и старший байты итогового адреса.
 				</p>
 				<p>
 					<div class="debugger_code">
@@ -298,7 +298,7 @@
 				</p>
 				<p>
 					<div class="debugger_code">
-						<div class="debugger_string">00:8108: A0 00     <text class="opcode">LDY #</text><text class="address">$00               ; Y = #$00</text></div>
+						<div class="debugger_string">00:8108: A0 00     <text class="opcode">LDY #</text><text class="address">$00</text>               ; Y = #$00</div>
 						<div class="debugger_string">00:810A: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F080    ; $F080 + #$00</div>
 						<div class="debugger_string">00:810C: C8        <text class="opcode">INY</text>                    ; Y = #$01</div>
 						<div class="debugger_string">00:810D: B1 DE     <text class="opcode">LDA (</text><text class="address">$DE</text><text class="opcode">),Y</text> @ $F081    ; $F080 + #$01</div>
@@ -380,7 +380,7 @@
 				</div>
 			</p>
 			<p>
-				К начальному адресу перехода добавляется операнд инструкции. Если операнд #$01, адрес будет $8105, если #$02, то адрес $8106, и так далее. Если нужно при выполнении условия перейти на адрес $8108 к инструцкции <text class="opcode">RTS</text>, требуется поменять операнд на #$04.
+				К начальному адресу перехода добавляется операнд инструкции. Если операнд #$01, адрес будет $8105, если #$02, то адрес $8106, и так далее. Если нужно при выполнении условия перейти на инструкцию <text class="opcode">RTS</text>по адресу $8108, требуется поменять операнд на #$04.
 			</p>
 			<p>
 				<div class="debugger_code">
