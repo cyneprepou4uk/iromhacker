@@ -14,19 +14,21 @@ https://iromhacker.ru/404.html
 		https://iromhacker.ru/nes/ru/fceux/debug/debugger/5/index.html
 			https://iromhacker.ru/nes/ru/fceux/debug/debugger/5-1/index.html
 		https://iromhacker.ru/nes/ru/fceux/debug/debugger/6/index.html
-		https://iromhacker.ru/nes/ru/fceux/debug/ppu_viewer/index.html
-		https://iromhacker.ru/nes/ru/fceux/tools/ram_watch/index.html
 		
 		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/1/index.html
 		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/2/index.html
 		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/3/index.html
 		https://iromhacker.ru/nes/ru/fceux/debug/hex_editor/4/index.html
+		
+		https://iromhacker.ru/nes/ru/fceux/debug/ppu_viewer/index.html
 
 		https://iromhacker.ru/nes/ru/fceux/setup/1/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/2/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/3/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/4/index.html
 		https://iromhacker.ru/nes/ru/fceux/setup/5/index.html
+		
+		https://iromhacker.ru/nes/ru/fceux/tools/ram_watch/index.html
 		
 		https://iromhacker.ru/nes/ru/programs/calculator/1/index.html
 		https://iromhacker.ru/nes/ru/programs/calculator/2/index.html
