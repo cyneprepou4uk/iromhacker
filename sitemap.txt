@@ -30,9 +30,9 @@ https://iromhacker.ru/404.html
 		
 		https://iromhacker.ru/nes/ru/fceux/tools/ram_watch/index.html
 		
-		https://iromhacker.ru/nes/ru/programs/calculator/1/index.html
-		https://iromhacker.ru/nes/ru/programs/calculator/2/index.html
-			https://iromhacker.ru/nes/ru/programs/calculator/2-1/index.html
+		https://iromhacker.ru/nes/ru/programs/calc/1/index.html
+		https://iromhacker.ru/nes/ru/programs/calc/2/index.html
+			https://iromhacker.ru/nes/ru/programs/calc/2-1/index.html
 		
 		https://iromhacker.ru/nes/ru/tutorials/1/index.html
 		https://iromhacker.ru/nes/ru/tutorials/2/1/index.html
