@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>NES Romhacking. BZK 6502 Disassembler</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Notepad++ LuaScript plugin</h1>
+		<p>
+			<center>
+				<a class="return" href="https://iromhacker.ru/nes/ru/index.html">Back to the main page</a>
+			</center>
+		</p>
+		<p class="content">
+			Table of contents
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Introduction</a></li>
+			<li><a href="../2/index.html">Creating a CDL file</a></li>
+			<li><a href="../3/index.html">Config and input files</a></li>
+			<li><a href="../4/index.html">Output files</a></li>
+			<li>Notepad++ LuaScript plugin</li>
+			<li>Preparations for ca65 (WIP)</li>
+		</ul>
+		<h2>Notepad++ LuaScript plugin</h2>
+        <p>
+            Since this plugin requires having Notepad++ installed, you need to install it first. It's a very good text editor with lots of cool features. You can download if from <a href="https://notepad-plus-plus.org/downloads/">here</a>. Don't bother with setup options, just leave everything by default. If you already have Notepad++ installed, make sure it's updated in order to <text class="label">Plugins Admin</text> also being updated.
+        </p>
+        <p>
+            Once Notepad++ is installed, go to <text class="label">Plugins</text> -> <text class="label">Plugins Admin</text>. Type <text class="label">LuaScript</text> in <text class="label">Search</text> field, enable checkmark, press <text class="label">Install</text> button and confirm installation. Notepad++ will be closed while installing and then will be opened again.
+        </p>
+        <img src="1.png">
+        <p>
+            If installation was successful, you can now see a blue Lua icon at the upper right corner which opens/closes a console at the bottom, and also being able to select <text class="label">Plugins</text> -> <text class="label">LuaScript</text>.
+        </p>
+        <img src="2.png">
+        <p>
+            Choose <text class="label">Plugins</text> -> <text class="label">LuaScript</text> -> <text class="label">Edit Startup Script</text>. A <text class="label">startup.lua</text> file will be opened in Notepad++. Delete everything in this file. Now go to my disassembler's folder, to the <text class="label">_notepad</text> folder, open <text class="label">startup.lua</text> from here with a text editor, copy all text from here and paste into the empty <text class="label">startup.lua</text> which you have opened with <text class="label">Edit Startup Script</text> option.
+        </p>
+        <p>
+            Save <text class="label">startup.lua</text> file, then close Notepad++ and open it again. If everything was done correctly, you will see some additional lines in a console, something like this.
+        </p>
+        <img src="3.png">
+        <p>
+            And now by selecting <text class="label">Plugins</text> -> <text class="label">LuaScript</text> you will see a bunch of additional scripts which I have made. Note that because <text class="label">LuaScript</text> plugin has to check <text class="label">startup.lua</text> for errors each time you open Notepad++, the program might take a bit more time to be launched than usual.
+        </p>
+        <h4>Bonus script</h4>
+        <p>
+            By adding my <text class="label">startup.lua</text>, you've also enabled an auto option of calculation matches of the text in a current file instead of a file extension information. This number is displayed at the bottom left. Limit is 1000 matches for 1 symbol length and 10000 matches for 2 or more selected symbols (otherwise there can be a noticeable slowdown in the Notepad++).
+        </p>
+        <img src="13.png">
+        <h3>6502 syntax</h3>
+        <p>
+            To install the same colorful syntax highlighting as you've seen in the previous article, go to <text class="label">Language</text> -> <text class="label">User Defined Language</text> -> <text class="label">Define your language</text>.
+        </p>
+        <img src="4.png">
+        <p>
+            Press <text class="label">Import</text> button, and find <text class="label">6502 syntax.xml</text> file, which is located at the same <text class="label">_notepad</text> folder as <text class="label">startup.lua</text>. Then restart Notepad++. After that, all <text class="label">.asm</text>, <text class="label">.inc</text> and <text class="label">.log</text> files will automatically use this syntax. You can manually edit the syntax in <text class="label">Language</text> -> <text class="label">User Defined Language</text> -> <text class="label">Define your language</text> by choosing <text class="label">6502</text> language.
+        </p>
+        <h3>Lua scripts</h3>
+        <p>
+            Now I'll be explaining what my scripts actually do. I recommend you to leave Lua console opened the whole time while using these scripts. Console will print useful information and errors.
+        </p>
+        <p>
+            In order to use scripts more quickly, set hotkeys to them. Open <text class="label">Settings</text> -> <text class="label">Shortcut Mapper</text> -> <text class="label">Plugin Commands</text> tab. You'll find by scripts in here. Watch out for hotkeys conflicts, this window will warn you about them at the bottom.
+        </p>
+        <p>
+            Note that scripts don't work well with macros, you will end up with a garbage in your text file. You need to stop the marco first and then use the script.
+        </p>
+        <img src="5.png">
+        <h3>--- CONFIG ---</h3>
+        <h4>Toggle counter mode</h4>
+        <p>
+            A counter is a 8-bit HEX (00-FF) or DEC (0-255) value, which is used with <text class="label">.byte x2</text> and <text class="label">Paste counter and increase it</text> scripts. I'll explain it when we get to those.
+        </p>
+        <p>
+            Default counter mode is <text class="label">Disabled</text>. You can set it to <text class="label">HEX</text> mode, then <text class="label">DEC</text> mode, then back to <text class="label">Disabled</text>.
+        </p>
+        <h4>Set counter by selecting a 8-bit value</h4>
+        <p>
+            Default counter value is <text class="label">00</text> for HEX or <text class="label">0</text> for DEC. To change it, write somewhere in a text file a HEX or DEC value depending on current <text class="label">Counter mode</text>, select this text and launch that script to set a new counter.
+        </p>
+        <h4>Toggle bytes conversion mode to .word | .dbyt</h4>
+        <p>
+            It is used for <text class="label">.byte x2</text> script. You can convert 2 bytes into a <text class="label">.word</text> or a <text class="label">.dbyt</text> depending on this setting. Default is <text class="label">.word</text>.
+        </p>
+        <h4>Toggle labeling mode to $ | ofs_ | off_</h4>
+        <p>
+            It is used for <text class="label">.byte x2</text> script. You can simply convert 2 bytes to a <text class="label">.word</text> or a <text class="label">.dbyt</text> if current mode is <text class="label">$</text> (default), or you can add a label to this 16-bit value instead. I personally use <text class="label">ofs_</text> labels (blue syntax) for code locations and <text class="label">off_</text> labels (regular black syntax) for data locations.
+        </p>
+        <h4>Toggle offset value to 0 | 1</h4>
+        <p>
+            It is used for <text class="label">.byte x2</text> script. Default mode is <text class="label">0</text>. Used to subtract this offset value from a <text class="label">.word</text> or a <text class="label">.dbyt</text> label in some cases, which will be explained below.
+        </p>
+        <h4>Toggle labeling range $8000 | $A000 | $C000 | $E000 | $6000</h4>
+        <p>
+            Used for <text class="label">Label tables</text> and <text class="label">Label JMP/JSR</text> scripts in order to specify 0x2000 range for autolabeling.
+        </p>
+        <p>
+            <text class="label">$8000</text> = <text class="address">$8000-$9FFF</text> range (default), <text class="label">$A000</text> = <text class="address">$A000-$BFFF</text>, <text class="label">$C000</text> = <text class="address">$C000-$DFFF</text>, <text class="label">$E000</text> = <text class="address">$E000-$FFFF</text>, <text class="label">$6000</text> = <text class="address">$6000-$7FFF</text> (used for code located in SRAM).
+        </p>
+        <h3>--- BYTES ---</h3>
+        <h4>.byte -> instruction</h4>
+        <p>
+            Converts undisassembled bytes into actual instruction. Simply click on the text line where you want to start, and then keep launching the script for each new single instruction. Here is a before -> after example.
+        </p>
+        <img src="6.png">
+        <p>
+            At the very least you need to try this script on every byte that has <text class="label">"- - - - - -"</text> flags to see if it is a code or not. Sometimes the script can produce a couple of real instructions, but pretty soon the code will become a mess with a bunch of <text class="label">UNDEFINED</text> instructions, which means that it is actually data. Use <text class="label">Ctrl + Z</text> to undo.
+        </p>
+        <p>
+            To have a better view at the code, I suggest using autolabeling scripts first, which will mark most of the code/data locations.
+        </p>
+        <h4>.byte x2 -> [conversion] [label] [counter] [offset]</h4>
+        <p>
+            This script uses 4 arguments from <text class="label">CONFIG</text> section.
+        </p>
+        <p>
+            The 1st one is <text class="label">Conversion mode</text>, which is <text class="label">.word</text> or <text class="label">.dbyt</text>.
+        </p>
+        <img src="7.png">
+        <p>
+            The 2nd one is <text class="label">Labeling mode</text>. Previous screenshot was used <text class="label">$</text> mode, meaning that no labels were added. If you use <text class="label">ofs_</text> or <text class="label">off_</text> mode, the script will try to find that <text class="label">.word</text> or <text class="label">.dbyt</text> value in the current file and add labels to this value, and also to this location if it finds one. If the label already exists, it won't be added for the second time.
+        </p>
+        <img src="8.png">
+        <p>
+            You can test this script on bytes from tables, especially the ones with <text class="label">I</text> flag, to see if they actually point to some locations, or they are just some data.
+        </p>
+        <p>
+            The 3rd one is <text class="label">Counter</text>. Sometimes you will want to add an ID number to the label. This is how HEX counter looks like with a label.
+        </p>
+        <img src="9.png">
+        <p>
+            The counter is increased each time it was successfully used. If you want to set it to 00 again or some other value, use <text class="label">Set counter</text> script. And here is how it looks with DEC counter with default value <text class="label">203</text>, and also with <text class="label">off_</text> labeling mode.
+        </p>
+        <img src="10.png">
+        <p>
+            Note that for example <text class="opcode">ofs_89AB_00</text> and <text class="opcode">ofs_89AB_01</text> are actually 2 different labels for the same <text class="address">$89AB</text> location, and will be both added to it.
+        </p>
+        <p>
+            The 4th argument is <text class="label">Offset value</text>. Sometimes a routine can push values to the stack, and execute an <text class="opcode">RTS</text> instruction in order to go to a location selected from a table.
+        </p>
+        <img src="11.png">
+        <p>
+            The problem with these low and high bytes from a table is that they need to be <text class="label">$1</text> address less than an actual address where code goes after <text class="opcode">RTS</text> execution. This is where <text class="label">Offset value</text> comes in with <text class="label">1</text> value.
+        </p>
+        <img src="12.png">
+        <p>
+            At line 13 we had <text class="label">65</text> and <text class="label">81</text> bytes (<text class="address">$8165</text>), but they actually point at <text class="address">$8166</text> address. The script automatically adds 1 to the address (<text class="address">$8165</text> + 1 = <text class="address">$8166</text>), and by subtracting 1 near the <text class="label">.word</text> label we get a perfectly working label. If you compile this assembly file, bytes will still be <text class="label">65</text> and <text class="label">81</text> as they should be.
+        </p>
+        <p>
+            Note that <text class="label">Offset value</text> will be affecting <text class="label">$</text> labeling mode as well.
+        </p>
+        <h4>.byte -> [counter] .byte</h4>
+        <p>
+            Sometimes you will want to have a nice table with several bytes in a single line, not just 1 byte in 1 line. This script uses <text class="label">Counter</text> value (<text class="label">HEX</text> or <text class="label">DEC</text>, doesn't matter).
+        </p>
+        <p>
+            First you need to set a <text class="label">Counter</text> to 2 or higher value. Then you select a number of lines that can be divided by this value. For example you have set value <text class="label">4</text>, which means you need to select 4, 8, 12, 16 and so on number of lines. Then launch the script. Here is a before -> after example with 4 <text class="label">Counter</text> value and 24 .byte lines.
+        </p>
+        <img src="14.png">
+        <p>
+            Note that selected lines will be deleted, and list of bytes will be added without flags and addresses info.
+        </p>
+        <h4>.byte $ -> .byte %</h4>
+        <p>
+            This script converts a byte to 8 bits.
+        </p>
+        <img src="15.png">
+        <h4>List of bytes -> list of .byte</h4>
+        <p>
+            This script converts a text with bytes to lines with .byte. You can copy bytes from a Hex Editor, paste to the file, select lines with these bytes and launch the script.
+        </p>
+        <p>
+            Here is a before -> after example. These bytes were copied from 010 Editor, which copies bytes with spaces and 16 bytes in a line for some reason, but the script can handle that.
+        </p>
+        <img src="16.png">
+        <h3>--- LABELS ---</h3>
+        <p>
+            These scripts are for autolabeling addresses in the current file. They can take several seconds to be completed, so don't freak out if Notepad++ freezes.
+        </p>
+        <p>
+            Scripts only work with instructions that have <text class="label">$xxxx</text> operand. If it can't detect <text class="label">$</text> symbol, it assumes that the label is already added for this instruction.
+        </p>
+        <p>
+            Make sure to check out the console and deal with possible errors if the script can't find some addresses. If an error occurs, label won't be added, you need to deal with this manually.
+        </p>
+        <p>
+            Also you can launch these scripts over and over again, for example after using <text class="label">.byte -> instruction</text> script to label new unlabeled instructions.
+        </p>
+        <h4>Label all branches</h4>
+        <p>
+            This scripts labels all branch instructions, which are <text class="opcode">BEQ</text>, <text class="opcode">BNE</text>, <text class="opcode">BMI</text> and so on.
+        </p>
+        <img src="17.png">
+        <p>
+            This is a <text class="underline">"must done"</text> script, because if branch instructions are not labeled, <text class="label">ca65</text> assembler will be very disappointed with that.
+        </p>
+        <h4>Label tables [range]</h4>
+        <p>
+            This script labels all instructions that use <text class="label">Absolute,X</text> and <text class="label">Absolute,Y</text> instructions, for example <text class="opcode">LDA</text> $xxxx,Y.
+        </p>
+        <p>
+            It uses <text class="label">Labeling range</text> argument, and won't label operands which don't fit into this range. For example with <text class="label">$8000</text> config range it will label <text class="address">$8000-$9FFF</text> range. If you want to label another range, toggle <text class="label">Labeling range</text> config script and launch Label tables again.
+        </p>
+        <img src="18.png">
+        <p>
+            Some of the errors that can occur is when the operand doesn't point to the table directly. For example in this particular case the start <text class="label">Y</text> value is <text class="label">FC</text>, not 00, so the actual address is <text class="address">$88D2</text> + FC = <text class="address">$89CE</text>.
+        </p>
+        <img src="19.png">
+        <p>
+            To make it work, you need to manually add a <text class="label">tbl_89CE</text> label to <text class="address">$89CE</text> location, and <text class="opcode">LDA</text> $88D2,Y should actually look like this.
+        </p>
+        <img src="20.png">
+        <p>
+            In my case error occurred because the script couldn't find <text class="address">$88D2</text>, but if it would find it, a label would be added as usual. So you need to double check all <text class="label">tbl_</text> labels and correct them if needed.
+        </p>
+        <p>
+            Note that some tables can be only 1 byte length, for example code can read byte 20 from <text class="address">$89AB</text> via <text class="opcode">LDA</text> $89AB instruction, not via <text class="opcode">LDA</text> #$20 instruction. If these addresses don't have labels, you're in a trouble when you start to edit and shift code. However, my script doesn't find these cases. You can do this manually by searching in Notepad++ with a specific <text class="label">regular expression</text> - <text class="label">(LDA|LDX|LDY|STA|INC|DEC|CMP|ADC|SBC|ORA|AND|EOR|ASL|ROL|LSR|ROR).\$(6|7|8|9|A|B|C|D|E|F)....\n</text>
+        </p>
+        <h4>Label JMP/JSR [range]</h4>
+        <p>
+            This script also takes Labeling range as an argument, but it labels <text class="opcode">JMP</text> (absolute 4C) and <text class="opcode">JSR</text> instructions only. Labels for <text class="opcode">JMP</text> will look like <text class="label">loc_</text>, and for <text class="opcode">JSR</text> - <text class="label">sub_</text>.
+        </p>
+        <img src="21.png">
+        <p>
+            There is less room for errors than with <text class="label">Label tables</text> script, however some <text class="opcode">JMP</text> and <text class="opcode">JSR</text> instructions can actually point to a location from another bank. You need to keep an eye on bankswitching routines and see where it goes after that.
+        </p>
+        <p>
+            Taken together <text class="label">sub_</text>, <text class="label">loc_</text> and <text class="label">ofs_</text> labels, which are all highlighted with blue syntax, you can see how exactly code gets to these locations. Also, there can be a room for optimizations, like sometimes <text class="opcode">JMP</text> can jump directly to <text class="opcode">RTS</text>, meaning you can use another <text class="opcode">RTS</text> instead of that <text class="opcode">JMP</text>, saving 2 bytes and 3 cycles.
+        </p>
+        <h3>--- OTHER ---</h3>
+        <h4>Clear console</h4>
+        <p>
+            Simply clears the console if you want to clear it for some reason.
+        </p>
+        <h4>Paste counter and increase it</h4>
+        <p>
+            Pastes counter to the text file, depending on the current value and <text class="label">Counter mode</text>. After that the counter is increased by 1. It can be used together with some marco to add comments to tables or whatever.
+        </p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+		<script src="https://iromhacker.ru/tab.js"></script>
+	</body>
+</html>

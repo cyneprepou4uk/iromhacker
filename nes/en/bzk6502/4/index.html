@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>NES Romhacking. BZK 6502 Disassembler</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Output files</h1>
+		<p>
+			<center>
+				<a class="return" href="https://iromhacker.ru/nes/ru/index.html">Back to the main page</a>
+			</center>
+		</p>
+		<p class="content">
+			Table of contents
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Introduction</a></li>
+			<li><a href="../2/index.html">Creating a CDL file</a></li>
+			<li><a href="../3/index.html">Config and input files</a></li>
+			<li>Output files</li>
+			<li><a href="../5/index.html">Notepad++ LuaScript plugin</a></li>
+			<li>Preparations for ca65 (WIP)</li>
+		</ul>
+		<h2>Output files</h2>
+        <p>
+            Once you've launched the <text class="label">LAUNCHME.bat</text> file and the disassembly was completed, let's take a look at ASM files. I'll explain what all that means. Right now I'm looking at my <text class="label">Captain Tsubasa 2</text> disassembly.
+        </p>
+        <h3>Disassembly syntax</h3>
+        <p>
+            First of all, it makes you feel like you're looking at the code via <text class="label">Debugger</text> in <text class="label">FCEUX</text>. You can get the same syntax highlighting from the next article.
+        </p>
+        <img src="1.png">
+        <p>
+            Starting from the left, here goes CDL flags, ROM File address, bank number (calculated the same way as in <text class="label">FCEUX</text>), NES Memory address, opcode + operands, and finally instruction or a single byte.
+        </p>
+        <p>
+            RAM addresses (<text class="address">$0000-$07FF</text>) are labeled with <text class="label">"ram_"</text>. You can also find those inside a <text class="label">RAM_file</text> from config file with some additional info.
+        </p>
+        <img src="2.png">
+        <p>
+            Some RAM addresses have additional <text class="label">"a:"</text> text. It enforces <text class="label">Absolute</text> addressing mode for <text class="label">Zero Page</text> RAM addresses in instructions which can use both <text class="label">Zero Page</text> and <text class="label">Absolute</text> addressing modes. If not enforced, <text class="label">ca65</text> assembler will compile a 2-byte instruction, not 3-byte as in the original game, which means that the code below will be shifted upwards.
+        </p>
+        <img src="6.png">
+        <p>
+            Here are bytes which are using text from a table file. In this case these bytes are actually instructions, but since CDL haven't logged their usage, they were printed as bytes.
+        </p>
+        <img src="3.png">
+        <p class="tip">
+            If you're familiar with which byte corresponds to which opcode, you won't have much trouble determine unused code from data. But in any case my Notepad++ script will do most of this job for you.
+        </p>
+        <p>
+            And finally each file starts with some stuff for <text class="label">ca65</text> assembler, and prints ROM File range for the current bank. If the same ASM file name was selected for several banks in a config file, there will be several sections like this.
+        </p>
+        <img src="5.png">
+        <h3>Flags</h3>
+        <p>
+            There are 6 CDL flags which are displayed in assembly file. Each flag corresponds to one of the <text class="label">"-"</text> symbols. If none of the CDL flags were set, the disassembler will print <text class="label">"- - - - - -"</text> line + a byte + text from a table file (if configured).
+        </p>
+        <p>
+            One thing you can be sure of is that Code/Data Logger hasn't logged any usage of this particular byte. Which can also (probably) mean that this byte/instruction is never actually used in the game. The better your CDL file, the more you can be sure of it.
+        </p>
+        <h4>Code flag (C), bit0</h4>
+        <p>
+            This is the most important flag for the disassembler. If set, byte will be printed as an instruction, otherwise as a byte.
+        </p>
+        <img src="4.png">
+        <p>
+            In case some code was copied from somewhere in <text class="address">$8000-$FFFF</text> to <text class="label">SRAM</text> (<text class="address">$6000-$7FFF</text>) and executed from <text class="label">SRAM</text>, these bytes <text class="underline">will not</text> be marked with <text class="label">C</text> flag and hence <text class="underline">will not</text> be disassembled as instructions.
+        </p>
+        <h4>Data flag (D), bit1</h4>
+        <p>
+            If a byte was read as data, it will be marked with <text class="label">D</text>.
+        </p>
+        <img src="10.png">
+        <p>
+            <text class="label">Code/Data Logger</text> also sets <text class="label">D</text> flag in case somewhere was executed an <text class="label">Absolute</text> <text class="opcode">JMP</text> $xxxx (4C) instruction to this location.
+        </p>
+        <img src="11.png">
+        <p>
+            So keep an eye on <text class="label">"C D ?"</text> flags combinations, especially if they still don't have labels after my autolabeling Notepad++ script (which probably means that <text class="opcode">JMP</text> is located in another ASM file).
+        </p>
+        <p class="tip">
+            In very rare cases both C and D flags can be set while not actually having any JMPs to it.
+        </p>
+        <h4>Data Mapping flag (0-4), bit2-bit3 and bit7</h4>
+        <p>
+            This flag shows where Data was located last time it was used. <text class="label">0</text> means somewhere in <text class="address">$8000-$9FFF</text> range, <text class="label">1</text> = <text class="address">$A000-$BFFF</text>, <text class="label">2</text> = <text class="address">$C000-$DFFF</text>, <text class="label">3</text> = <text class="address">$E000-$FFFF</text>. The disassembler ignores this flag if <text class="label">D</text> flag is not set.
+        </p>
+        <img src="8.png">
+        <p>
+            This flag can be used to make sure you have mapped banks properly in a config file. For example if you decided to map code at $8000-$9FFF, but you see <text class="label">"D 1"</text> all over the file, then think again.
+        </p>
+        <p>
+            There is one more case with <text class="label">4</text> = <text class="address">$6000-$7FFF</text>. Some mappers allow to switch PRG banks in <text class="address">$6000-$7FFF</text> area. I haven't tested it yet, but in theory these bytes should be properly mapped with <text class="label">C</text> flag, and having <text class="label">"D 4"</text> for data bytes.
+        </p>
+        <h4>Indirect flag (I), bit5</h4>
+        <p>
+            <text class="label">I</text> flag is set if some instruction with ($indirect,X) or ($indirect),Y was reading this byte, for example <text class="opcode">LDA</text> ($xx),Y. In the screenshot you can see that <text class="label">I</text> flag helps separate 2 different tables with bytes.
+        </p>
+        <img src="12.png">
+        <p>
+            <text class="label">I</text> flag often gets set if this byte was read as a low/high byte of some other address. <text class="label">I</text> flag is always set together with <text class="label">D</text> flag.
+        </p>
+        <h4>Indirect Jump flag (J), bit4</h4>
+        <p>
+            <text class="label">J</text> is set if some <text class="label">Indirect</text> <text class="opcode">JMP</text> ($xxxx) (6C) instruction was executed to this location. Here are 2 bytes that were used as low/high bytes for this address.
+        </p>
+        <img src="9.png">
+        <p>
+            <text class="label">J</text> will be always set together with <text class="label">C</text> flag, because games don't jump into data.
+        </p>
+        <h4>Audio flag (A), bit6</h4>
+        <p>
+            <text class="label">A</text> is set if this byte was used as a <text class="label">DPCM</text>-sample byte for a <text class="label">DMC</text> audio channel. These bytes can be located only somewhere in <text class="address">$C000-$FFFF</text> range, and the address of the last byte always ends with <text class="label">0</text>, for example <text class="address">$C3F<text class="underline">0</text></text>.
+        </p>
+        <img src="7.png">
+        <p>
+            If you have found those, I suggest you create a <text class="label">.bin</text> file with them and use <text class="label">.incbin "DPCM.bin"</text> (or something) instead of having them inside an ASM file.
+        </p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+		<script src="https://iromhacker.ru/tab.js"></script>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>NES Romhacking. BZK 6502 Disassembler</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>Creating a CDL file</h1>
+		<p>
+			<center>
+				<a class="return" href="https://iromhacker.ru/nes/ru/index.html">Back to the main page</a>
+			</center>
+		</p>
+		<p class="content">
+			Table of contents
+		</p>
+		<ul>
+			<li><a href="../1/index.html">Introduction</a></li>
+			<li>Creating a CDL file</li>
+			<li><a href="../3/index.html">Config and input files</a></li>
+			<li><a href="../4/index.html">Output files</a></li>
+			<li><a href="../5/index.html">Notepad++ LuaScript plugin</a></li>
+			<li>Preparations for ca65 (WIP)</li>
+		</ul>
+		<h2>Creating a CDL file</h2>
+        <p>
+            Some of you may already know that <text class="label">FCEUX</text> emulator has a <text class="label">Code/Data Logger</text> tool, which can produce a <text class="label">.cdl</text> file. What this tool basically does is highlights code with yellow bytes and data with blue bytes.
+        </p>
+        <img src="1.png">
+        <p>
+            It also displays <text class="label">"c"</text> and <text class="label">"d"</text> markers on the left in a <text class="label">Debugger</text> (if <text class="label">Code/Data Logger</text> tool is active).
+        </p>
+        <img src="2.png">
+        <p>
+            A CDL file itself contains the same amount of bytes as ROM does (not including a header). Each CDL byte corresponds to each ROM file byte. A CDL byte contains different flags for a ROM byte, for example <text class="label">bit0</text> is a <text class="label">Code Flag</text>, and <text class="label">bit1</text> is a <text class="label">Data Flag</text>. However, there are other flags which are not used in a <text class="label">Hex Editor</text> or <text class="label">Debugger</text>, but still get logged. I'll explain those 4 other flags later when describing output files.
+        </p>
+		<h3>How to make a CDL file</h3>
+        <p class="tip">
+            I haven't tested a CDL file produced by a Mesen emulator, but I guess it should be compatible with my disassembler.
+        </p>
+        <p>
+            Open <text class="label">FCEUX</text> emulator and launch a ROM. Then select <text class="label">Debug</text> -> <text class="label">Code/Data Logger</text>.
+        </p>
+        <img src="3.png">
+        <p>
+            Press <text class="label">Start</text> button in the middle, make a <text class="label">Hard Reset</text> (<text class="label">NES</text> -> <text class="label">Power</text>), and go play your game for a couple of hours while having fun. When you finish, press <text class="label">Save</text> or <text class="label">Save as</text> buttons to save a <text class="label">.cdl</text> file.
+        </p>
+		<h3>How to play a game</h3>
+        <p>
+            The idea is to log as much PRG as possible while playing. It means that you need to visit every areas, collect every items, watch every ending cutscenes, enter both correct and incorrect passwords, move cursors in every directions in each menu, press every buttons, stuff like that. The goal is to <text class="label">"PRG not Logger"</text> have as less % as you can achieve.
+        </p>
+        <img src="4.png">
+        <p>
+            You can safely use savestates to test different game scenarios, for example you are standing at some crossroad and want to go left and right at the same time. No problem, make a savestate, go left, load a savestate and then go right. <text class="label">Code/Data Logger</text> will append all logged information to the CDL file.
+        </p>
+        <p>
+            One thing I wouldn't recommend you to do is manually messing up with RAM in order to skip some levels or something while <text class="label">Code/Data Logger</text> is ON. If you really need to test something by editing RAM, I suggest making a savestate and pause <text class="label">Code/Data Logger</text> while you do that. But if you are a skillful enough romhacker and know what you are doing, then go ahead.
+        </p>
+        <p>
+            Of course it's very unlikely that you end up logging 100% of PRG since there can be some unused code and data in the ROM, but still try to log as much as you can. BTW, my disassembler doesn't care about how much CHR data you've logged, but if <text class="label">"CHR not Logged"</text> will be around 0% at the end, this also means that you've done a good job playing and logging the game.
+        </p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+		<script src="https://iromhacker.ru/tab.js"></script>
+	</body>
+</html>

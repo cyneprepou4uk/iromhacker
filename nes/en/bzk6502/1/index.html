@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>NES Romhacking. BZK 6502 Disassembler</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="icon" href="https://iromhacker.ru/favicon.png" type="image/png">
+		<link href="https://iromhacker.ru/style.css" rel="stylesheet">
+		<script src="https://iromhacker.ru/analytics.js"></script>
+	</head>
+	<body>
+		<h1>BZK 6502 Disassembler</h1>
+		<p>
+			<center>
+				<a class="return" href="https://iromhacker.ru/nes/ru/index.html">Back to the main page</a>
+			</center>
+		</p>
+		<p class="content">
+			Table of contents
+		</p>
+		<ul>
+			<li>Introduction</li>
+			<li><a href="../2/index.html">Creating a CDL file</a></li>
+			<li><a href="../3/index.html">Config and input files</a></li>
+			<li><a href="../4/index.html">Output files</a></li>
+			<li><a href="../5/index.html">Notepad++ LuaScript plugin</a></li>
+			<li>Preparations for ca65 (WIP)</li>
+		</ul>
+		<h2>Introduction</h2>
+        <p class="notice">
+            Sorry for my bad English :) I hope you'll be able to understand this manual. If you have any questions, ask at the RHDN forum.
+        </p>
+        <p>
+            BZK 6502 Disassembler is a Lua script that is heavily and solely based on a <text class="label">.cdl</text> file. What the script does is separates code from data, it doesn't make any assumptions like some other disassemblers. The more complete CDL file you possess, the more information you will get and the easier for you will be to create an actual assembly of the game.
+        </p>
+        <p>
+            The final goal is to make output files compatible with a <text class="label">ca65</text> assembler. All scripts will save you at least 50% of your time. However, creating an actual working disassembly of the game, where you can edit and move any code you want, is still a pain in the ass even with my scripts, and not many romhackers are willing to go through it.
+        </p>
+        <p>
+            That's why the very basic goal of my disassembler it simply to have a better view at the game code using a text editor, instead of looking at it via Debugger, even if you don't have much romhacking skills. I tried to make everything as simple as I could afford.
+        </p>
+        <p>
+            Step 1 is to make a CDL file, edit config and launch the disassembler to create assembly files. Step 2 is to polish this files with Notepad++ script. It will take you a couple of hours in total. Of course if you want to create a perfect disassembly for editing the code in a game, you need to spend much more time on it and then go to step 3 - prepare these assembly files for an assembler.
+        </p>
+		<h3>Features</h3>
+		<h4>Disassembler</h4>
+        <br>
+        <li>Separate code from data using a CDL file</li>
+        <li>Display all 6 CDL flags</li>
+        <li>Display ROM File and NES Memory address</li>
+        <li>Use several table files to display symbols</li>
+        <li>Auto adding labels to RAM addresses</li>
+        <li>Additional info about each CPU address</li>
+		<h4>Notepad++ script</h4>
+        <br>
+        <li>Convert .byte to instructions</li>
+        <li>Convert .byte to .word/.dbyt + labels</li>
+        <li>Auto adding labels to Branches, Tables and JMP/JSR instructions</li>
+        <li>Other manipulations with bytes</li>
+        <p>
+            And a couple of bonuses:
+        </p>
+        <li>Syntax highlighting</li>
+        <li>Display matches counter of a selected text</li>
+		<h4>Preparation before ca65 compilation (will be completed soon)</h4>
+        <p>
+            The idea is to have your assembly files as is (like keeping flags and addresses in files), but still being compatible with an assembler by launching one more script each time before compilation.
+        </p>
+        <li>Make a basic compatibility with ca65</li>
+        <li>Allow user to write labels in any language</li>
+        <li>Convert text from any language into a list of bytes</li>
+        <li>Create .ram.nl file for FCEUX</li>
+        <h3>Getting started</h3>
+        <p>
+            At first you need to download a source code from my GitHub repository. Then move to the next articles. When you are ready, launch the <text class="label">LAUNCHME.bat</text> file.
+        </p>
+		<script src="https://iromhacker.ru/spoiler.js"></script>
+		<script src="https://iromhacker.ru/tab.js"></script>
+	</body>
+</html>
