@@ -42,7 +42,7 @@
         </p>
         <img src="2.png">
         <p>
-            Choose <text class="label">Plugins</text> -> <text class="label">LuaScript</text> -> <text class="label">Edit Startup Script</text>. A <text class="label">startup.lua</text> file will be opened in Notepad++. Delete everything in this file. Now go to my disassembler's folder, to the <text class="label">_notepad</text> folder, open <text class="label">startup.lua</text> from here with a text editor, copy all text from here and paste into the empty <text class="label">startup.lua</text> which you have opened with <text class="label">Edit Startup Script</text> option.
+            Choose <text class="label">Plugins</text> -> <text class="label">LuaScript</text> -> <text class="label">Edit Startup Script</text>. A <text class="label">startup.lua</text> file will be opened in Notepad++. Delete everything in this file. Now go to my disassembler's folder, to the <text class="label">_notepad</text> folder, open <text class="label">startup.lua</text> with a text editor, copy all text from it and paste into your empty <text class="label">startup.lua</text> which you have opened with <text class="label">Edit Startup Script</text> option.
         </p>
         <p>
             Save <text class="label">startup.lua</text> file, then close Notepad++ and open it again. If everything was done correctly, you will see some additional lines in a console, something like this.
@@ -69,7 +69,7 @@
             Now I'll be explaining what my scripts actually do. I recommend you to leave Lua console opened the whole time while using these scripts. Console will print useful information and errors.
         </p>
         <p>
-            In order to use scripts more quickly, set hotkeys to them. Open <text class="label">Settings</text> -> <text class="label">Shortcut Mapper</text> -> <text class="label">Plugin Commands</text> tab. You'll find by scripts in here. Watch out for hotkeys conflicts, this window will warn you about them at the bottom.
+            In order to use scripts more quickly, set hotkeys to them. Open <text class="label">Settings</text> -> <text class="label">Shortcut Mapper</text> -> <text class="label">Plugin Commands</text> tab. You'll find my scripts in here. Watch out for hotkeys conflicts, this window will warn you about them at the bottom.
         </p>
         <p>
             Note that scripts don't work well with macros, you will end up with a garbage in your text file. You need to stop the marco first and then use the script.
@@ -208,7 +208,7 @@
             This script labels all instructions that use <text class="label">Absolute,X</text> and <text class="label">Absolute,Y</text> instructions, for example <text class="opcode">LDA</text> $xxxx,Y.
         </p>
         <p>
-            It uses <text class="label">Labeling range</text> argument, and won't label operands which don't fit into this range. For example with <text class="label">$8000</text> config range it will label <text class="address">$8000-$9FFF</text> range. If you want to label another range, toggle <text class="label">Labeling range</text> config script and launch Label tables again.
+            It uses <text class="label">Labeling range</text> argument, and won't label operands which don't fit into this range. For example with <text class="label">$8000</text> config range it will label <text class="address">$8000-$9FFF</text> range. If you want to label another range, toggle <text class="label">Labeling range</text> config script and launch <text class="label">Label tables</text> again.
         </p>
         <img src="18.png">
         <p>
@@ -227,7 +227,7 @@
         </p>
         <h4>Label JMP/JSR [range]</h4>
         <p>
-            This script also takes Labeling range as an argument, but it labels <text class="opcode">JMP</text> (absolute 4C) and <text class="opcode">JSR</text> instructions only. Labels for <text class="opcode">JMP</text> will look like <text class="label">loc_</text>, and for <text class="opcode">JSR</text> - <text class="label">sub_</text>.
+            This script also takes <text class="label">Labeling range</text> as an argument, but it labels <text class="opcode">JMP</text> (absolute 4C) and <text class="opcode">JSR</text> instructions only. Labels for <text class="opcode">JMP</text> will look like <text class="label">loc_</text>, and for <text class="opcode">JSR</text> - <text class="label">sub_</text>.
         </p>
         <img src="21.png">
         <p>

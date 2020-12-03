@@ -97,7 +97,7 @@
         </p>
         <h4>RAM_usage_output</h4>
         <p>
-            Additional information for <text class="label">RAM_file</text>. This option can show you how many times the disassembler has detected usage of a particular address, and addressing modes of the instructions that were used this address. It might give you some useful information if you figure out how to use it. Set to <text class="label">false</text> if you don't want to print them in a <text class="label">RAM_file</text>.
+            Additional information for <text class="label">RAM_file</text>. This option can show you how many times the disassembler has detected usage of a particular address, and addressing modes of the instructions that were using this address. It might give you some useful information if you figure out how to use it. Set to <text class="label">false</text> if you don't want to print them in a <text class="label">RAM_file</text>.
         </p>
         <p class="tip">
             For example if RAM_file says that this address was used only once, it is a circumstantial evidence of this address actually being useless in the game. Note that the disassembler only counts addresses from instructions operands if these instructions were logged as code. Which means that there can be more unlogged addresses usages out there.
@@ -125,7 +125,7 @@
         <li>Size of the bank. If start address is <text class="label">0x8000</text>, and size is <text class="label">0x2000</text>, code will be mapped at <text class="label">$8000-$9FFF</text>.</li>
         <li>Name of the table file, it will be used for bytes which were not logged as code. If you don't want to use a table file for the current bank, set to <text class="label">false</text>.</li>
         <p>
-            A table file looks like a regular table file which you were probably using before at some point. For my disassembler it should contain <text class="label">all 256 bytes</text>, starting from <text class="label">"00="</text> and ending with <text class="label">"FF="</text>. The disassembler doesn't actually look at bytes, it just counts lines of the file and reads text starting from <text class="label">4th</text> symbol, which is right after <text class="label">"="</text>.
+            A table file looks like a regular table file which you were probably using before at some point. For my disassembler it should contain <text class="underline">all 256 bytes</text>, starting from <text class="label">"00="</text> and ending with <text class="label">"FF="</text>. The disassembler doesn't actually look at bytes, it just counts lines of the file and reads text starting from <text class="label">4th</text> symbol, which is right after <text class="label">"="</text>.
         </p>
         <p>
             You can specify any <text class="label">UTF-8</text> text after <text class="label">"="</text> to those bytes (like Japanese or whatever), and several symbols if you want, not just single symbols as you're used to (like letters and numbers). In case there is no text after <text class="label">"="</text>, this byte will be ignored and nothing will be printed next to this byte in ASM file.
