@@ -208,7 +208,7 @@
         </p>
         <h4>Label tables [range]</h4>
         <p>
-            This script labels all instructions that use <text class="label">Absolute,X</text> and <text class="label">Absolute,Y</text> instructions, for example <text class="opcode">LDA</text> $xxxx,Y.
+            This script labels all instructions that use <text class="label">Absolute,X</text> and <text class="label">Absolute,Y</text> addressing modes, for example <text class="opcode">LDA</text> $xxxx,Y.
         </p>
         <p>
             It uses <text class="label">Labeling range</text> argument, and won't label operands which don't fit into this range. For example with <text class="label">$8000</text> config range it will label <text class="address">$8000-$9FFF</text> range. If you want to label another range, toggle <text class="label">Labeling range</text> config script and launch <text class="label">Label tables</text> again.
