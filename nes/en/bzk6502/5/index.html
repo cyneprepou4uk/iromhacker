@@ -234,7 +234,7 @@
         </p>
         <img src="21.png">
         <p>
-            There is less room for errors than with <text class="label">Label tables</text> script, however some <text class="opcode">JMP</text> and <text class="opcode">JSR</text> instructions can actually point to a location from another bank. You need to keep an eye on bankswitching routines and see where it goes after that.
+            There is less room for errors than with <text class="label">Label tables</text> script, however some <text class="opcode">JMP</text> and <text class="opcode">JSR</text> instructions can actually point to the same address but in another bank. You need to keep an eye on bankswitching routines and see where it goes after that.
         </p>
         <p>
             Taken together <text class="label">sub_</text>, <text class="label">loc_</text> and <text class="label">ofs_</text> labels, which are all highlighted with blue syntax, you can see how exactly code gets to these locations. Also, there can be a room for optimizations, like sometimes <text class="opcode">JMP</text> can jump directly to <text class="opcode">RTS</text>, meaning you can use another <text class="opcode">RTS</text> instead of that <text class="opcode">JMP</text>, saving 2 bytes and 3 cycles.
