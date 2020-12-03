@@ -31,7 +31,7 @@
 		</ul>
 		<h2>Config and input files</h2>
         <p class="tip">
-            If you want to see a successful example of a disassembly which I made for my Captain Tsubasa 2 translation, download <a href="BZK 6502.zip">this archive</a> and try for yourself. Make sure to unpack it into "C:\BZK 6502" folder if it the first time you're using it.
+            If you want to see a successful example of a disassembly which I made for my Captain Tsubasa 2 translation, download <a href="BZK 6502.zip">this archive</a> and try for yourself. Make sure to unpack it into "C:\BZK 6502" folder if it's the first time you're using it.
         </p>
         <p>
             Once you've downloaded the source code, open <text class="label">config.lua</text> file with a text editor. You're gonna need to edit this config depending on your needs and on your game.
@@ -106,7 +106,7 @@
             The most useful options are <text class="label">9</text> ($indirect), <text class="label">10</text> ($indirect,X) and <text class="label">11</text> ($indirect),Y. ($indirect) is a <text class="opcode">JMP</text> ($xxxx) instruction. ($indirect,X) is something like <text class="opcode">LDA</text> ($xx,X) instruction. ($indirect),Y is something like <text class="opcode">LDA</text> ($xx),Y instruction.
         </p>
         <p>
-            Indirect addressing mode uses 2 neighbouring addresses, for example <text class="opcode">LDA</text> ($00),Y uses both <text class="address">$00</text> and <text class="address">$01</text>. But the disassembler doesn't count the usage of the second <text class="address">$01</text> address in this case, it only takes the address <text class="address">$00</text> into account.
+            Indirect addressing mode uses 2 neighboring addresses, for example <text class="opcode">LDA</text> ($00),Y uses both <text class="address">$00</text> and <text class="address">$01</text>. But the disassembler doesn't count the usage of the second <text class="address">$01</text> address in this case, it only takes the address <text class="address">$00</text> into account.
         </p>
         <h4>DEBUG_file</h4>
         <p>
