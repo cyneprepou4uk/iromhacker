@@ -229,7 +229,7 @@
             In my case error occurred because the script couldn't find <text class="address">$88D2</text>, but if it would find it, a label would be added as usual. So you need to double check all <text class="label">tbl_</text> labels and correct them if needed.
         </p>
         <p>
-            Note that some tables can be only 1 byte length, for example code can read byte 20 from <text class="address">$89AB</text> via <text class="opcode">LDA</text> $89AB instruction, not via <text class="opcode">LDA</text> #$20 instruction. If these addresses don't have labels, you're in a trouble when you start to edit and shift code. However, my script doesn't find these cases. You can do this manually by searching in Notepad++ with a specific <text class="label">regular expression</text> - <text class="label">(LDA|LDX|LDY|STA|INC|DEC|CMP|ADC|SBC|ORA|AND|EOR|ASL|ROL|LSR|ROR).\$(6|7|8|9|A|B|C|D|E|F)....\n</text>
+            Note that some tables can be only 1 byte length, for example code can read byte 20 from <text class="address">$89AB</text> via <text class="opcode">LDA</text> $89AB instruction, not via <text class="opcode">LDA</text> #$20 instruction. If these addresses don't have labels, you're in a trouble when you start to edit and shift code. However, my script doesn't find these cases. You can do this manually by searching in Notepad++ with a specific regular expression - <text class="label">(LDA|LDX|LDY|STA|INC|DEC|CMP|ADC|SBC|ORA|AND|EOR|ASL|ROL|LSR|ROR).\$(6|7|8|9|A|B|C|D|E|F)....\n</text>
         </p>
         <h4>Label JMP/JSR [range]</h4>
         <p>
