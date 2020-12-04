@@ -34,16 +34,19 @@
             Sorry for my bad English :) I hope you'll be able to understand this manual. If you have any questions, ask at the <a href="https://www.romhacking.net/forum/index.php?topic=31875.0" target="_blank">RHDN topic</a>.
         </p>
         <p>
-            <a href="https://github.com/cyneprepou4uk/BZK-6502-Disassembler" target="_blank">BZK 6502 Disassembler</a> is a Lua script that is heavily and solely based on a <text class="label">.cdl</text> file. What the script does is separates code from data, it doesn't make any assumptions like some other disassemblers. The more complete CDL file you possess, the more information you will get and the easier for you will be to create an actual disassembly of the game.
+            <a href="https://github.com/cyneprepou4uk/BZK-6502-Disassembler" target="_blank">BZK 6502 Disassembler</a> is a Lua script that is heavily and solely based on a <text class="label">.cdl</text> file. What the script does is separates code from data, it doesn't make any assumptions like some other disassemblers. The more complete CDL file you possess, the more information the disassembler will receive, making it easier for you to create a full disassembly of your game.
         </p>
         <p>
-            The final goal is to make output files compatible with a <text class="label">ca65</text> assembler. All scripts will save you at least 50% of your time. However, creating an actual working disassembly of the game, where you can edit and move any code you want, is still a pain in the ass even with my scripts, and not many romhackers are willing to go through it.
+            Creating a disassembly of a game doesn't always mean creating a perfectly compilable disassembly where you can edit and move any code you want. This takes time, and spending it on making such a disassembly is not rational if you're not going to edit much stuff in the game.
         </p>
         <p>
-            That's why the very basic goal of my disassembler it simply to have a better view at the game code using a text editor, instead of looking at it via Debugger, even if you don't have much romhacking skills. I tried to make everything as simple as I could afford.
+            No, sometimes you just need to have a global view at the game code in order to figure out the best way to edit it and to learn how your game actually works. <text class="label">Debugger</text> is a great tool for studying the code in real time, but looking at the text files has a lot of its own advantages.
         </p>
         <p>
-            Step 1 is to make a CDL file, edit config and launch the disassembler to create assembly files. Step 2 is to polish this files with Notepad++ scripts. It will take you a couple of hours in total. Of course if you want to create a perfect disassembly for editing the code in a game, you need to spend much more time on it, and then go to step 3 - prepare these assembly files for an assembler.
+            Even if you don't have much romhacking skills, you can still create a disassembly of your game with little effort in a couple of hours, mostly by playing the game and launching some scripts. I've tried to make everything as simple as I could afford.
+        </p>
+        <p>
+            Of course if you want to go further and create a perfect disassembly, then good news: output files are targeted on being compatible with a <text class="label">ca65</text> assembler. You still need to do a lot of manual work by yourself in order to label everything, but my Notepad++ scripts can save you a bunch of time and nerves doing that.
         </p>
 		<h3>Features</h3>
 		<h4>Disassembler</h4>
@@ -75,8 +78,15 @@
         <li>Create .ram.nl file for FCEUX</li>
         <h3>Getting started</h3>
         <p>
-            At first you need to download the source code from my <a href="https://github.com/cyneprepou4uk/BZK-6502-Disassembler" target="_blank">GitHub repository</a>. Then move to the next articles. When you are ready, launch the <text class="label">LAUNCHME.bat</text> file.
+            Read next articles and perform this steps:
         </p>
+        <li>Step 1 - download the source code from my <a href="https://github.com/cyneprepou4uk/BZK-6502-Disassembler" target="_blank">GitHub repository</a></li>
+        <li>Step 2 - make a CDL file</li>
+        <li>Step 3 - edit config file</li>
+        <li>Step 4 - start the disassembler with a <text class="label">LAUNCHME.bat</text> file</li>
+        <li>Step 5 - install LuaScript plugin for Notepad++</li>
+        <li>Step 6 - polish assembly files with Notepad++ scripts</li>
+        <li>Step 7 - prepare assembly files for <text class="label">ca65</text> assembler (for advanced users)</li>
 		<script src="https://iromhacker.ru/spoiler.js"></script>
 		<script src="https://iromhacker.ru/tab.js"></script>
 	</body>
