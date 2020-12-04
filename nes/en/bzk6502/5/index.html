@@ -193,7 +193,7 @@
             Scripts only work with instructions that have <text class="label">$xxxx</text> operand. If it can't detect <text class="label">$</text> symbol, it assumes that the label is already added for this instruction.
         </p>
         <p>
-            Make sure to check out the console and deal with possible errors if the script can't find some addresses. If an error occurs, label won't be added, you need to deal with this manually.
+            Make sure to check out the console and deal with possible errors if the script can't find some addresses. If an error occurs, label won't be added, you need to deal with this manually. But if you simply want to create a quick disassembly just to look at the code, don't bother too much with these errors.
         </p>
         <p>
             Also you can launch these scripts over and over again, for example after using <text class="label">.byte -> instruction</text> script to label new unlabeled instructions.
@@ -205,6 +205,9 @@
         <img src="17.png">
         <p>
             This is a <text class="underline">"must done"</text> script, because if branch instructions are not labeled, <text class="label">ca65</text> assembler will be very disappointed with that.
+        </p>
+        <p class="tip">
+            I've encountered errors using this script only when BIT (2C) instructions were masking instructions like LDA #$xx, that's why the script couldn't find the address, because branch was pointing to the operand of that BIT instruction.
         </p>
         <h4>Label tables [range]</h4>
         <p>
