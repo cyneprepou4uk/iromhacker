@@ -71,7 +71,7 @@
             But that's not actually all. First of all, branch instructions are not labeled yet. They use a relative addressing mode, thus they need to point somewhere with a label. You will find out how to label them in the next article using <text class="label">Label branches</text> script.
         </p>
         <p>
-            And secondly, <text class="label">ca65</text> will freak out because of these flags and addresses on the left. This is where my (WIP) "preparation before compilation" script comes in, which will delete all this unnecessary text by creating clean copies of your file and assemble them instead.
+            And secondly, <text class="label">ca65</text> will freak out because of these flags and addresses on the left. This is where my (WIP) "preparation before compilation" script comes in, which will delete all this unnecessary text by creating "clean" copies of your files and assemble them instead.
         </p>
         <p>
             If for some reason you don't want to use this script, you still gonna need to delete this text. The easiest way is to use <text class="label">Find and Replace</text> Notepad++ function with this regular expression - <text class="label">.\s.\s.\s.\s.\s.\s0x0........:....:\s..\s..\s..\s\s</text>
