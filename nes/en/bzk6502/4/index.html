@@ -60,12 +60,32 @@
             And finally each file starts with some stuff for <text class="label">ca65</text> assembler, and prints ROM File range for the current bank. If the same ASM file name was selected for several banks in a config file, there will be several sections like this.
         </p>
         <img src="5.png">
+        <h4>Compability with ca65</h4>
+        <p>
+            The way these output files are made, they are already compatible with <text class="label">ca65</text> assembler. Instructions, bytes and comments are written by <text class="label">ca65</text> standards, each file has an <text class="label">.include</text> file with RAM labels. Just rename all <text class="label">.segment</text> the same way as in your <text class="label">ca65</text> config, and you're basically ready to go. The <text class="label">ca65</text>'s output file should be the same as your ROM.
+        </p>
+        <p class="tip">
+            Of course all of it is true only if you know how to configure and use ca65 assembler.
+        </p>
+        <p>
+            But that's not actually all. First of all, branch instructions are not labeled yet. They use a relative addressing mode, thus they need to point somewhere with a label. You will find out how to label them in the next article using <text class="label">Label branches</text> script.
+        </p>
+        <p>
+            And secondly, <text class="label">ca65</text> will freak out because of these flags and addresses on the left. This is where my (WIP) "preparation before compilation" script comes in, which will delete all this unnecessary text by creating clean copies of your file and assemble them instead.
+        </p>
+        <p>
+            If for some reason you don't want to use this script, you still gonna need to delete this text. The easiest way is to use <text class="label">Find and Replace</text> Notepad++ function with this regular expression - <text class="label">.\s.\s.\s.\s.\s.\s0x0........:....:\s..\s..\s..\s\s</text>
+        </p>
+        <img src="13.png">
+        <p>
+            And that's it. However I still suggest to use my Notepad++ scripts before doing that, because in fact they rely on this "useless" text on the left of the bytes and instructions.
+        </p>
         <h3>Flags</h3>
         <p>
             There are 6 CDL flags which are displayed in assembly file. Each flag corresponds to one of the <text class="label">"-"</text> symbols. If none of the CDL flags were set, the disassembler will print <text class="label">"- - - - - -"</text> line + a byte + text from a table file (if configured).
         </p>
         <p>
-            One thing you can be sure of is that Code/Data Logger hasn't logged any usage of this particular byte. Which can also (probably) mean that this byte/instruction is never actually used in the game. The better your CDL file, the more you can be sure of it.
+            One thing you can be sure of is that Code/Data Logger hasn't logged any usage of this particular byte. Which can also (probably) mean that this byte/instruction is never practically used in the game. The better your CDL file, the more you can be sure of it.
         </p>
         <h4>Code flag (C), bit0</h4>
         <p>
