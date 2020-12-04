@@ -93,7 +93,7 @@
             This is a name of the file which will contain labels for RAM addresses (<text class="address">$0000-$07FF</text>).
         </p>
         <p>
-            If the disassembler will detect any usage of <text class="label">SRAM</text> addresses (<text class="address">$6000-$7FFF</text>), it will add labels to those as well. However, output ASM files won't have these labels, we'll talk about this later.
+            If the disassembler will detect any usage of <text class="label">SRAM</text> addresses (<text class="address">$6000-$7FFF</text>), it will add labels to those as well. However, output ASM files won't have these labels. <text class="label">RAM_file</text> will print a manual about how to deal with this.
         </p>
         <h4>RAM_usage_output</h4>
         <p>
@@ -117,7 +117,7 @@
         </p>
         <h4>ASM_config_table</h4>
         <p>
-            This table contains 5 arguments for each ASM file. Disassembler doesn't calculate banks depending on the mapper, you need to specify arguments yourself. You can have as many banks as you want, and you don't need to disassembly the whole PRG ROM if you don't want to.
+            This table contains 5 arguments for each ASM file. The disassembler doesn't calculate banks depending on the mapper, you need to specify arguments yourself. You can have as many banks as you want, and you don't need to disassembly the whole PRG ROM if you don't want to.
         </p>
         <li>Name of the assembly file. If the name is <text class="label">"bank_00.asm"</text>, file will appear in <text class="label">\output\bank_00.asm</text>. If you specify the same name to some other ASM files, disassembly will be appended to this file, not overwritten.</li>
         <li>Start ROM File address from your <text class="label">ROM_file</text>.</li>
