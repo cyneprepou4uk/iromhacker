@@ -112,7 +112,7 @@
         <h3>--- BYTES ---</h3>
         <h4>.byte -> instruction</h4>
         <p>
-            Converts bytes into an actual instruction. Simply click on the text line where you want to start, and then keep launching the script for each new single instruction. Here is a before -> after example.
+            Converts bytes into an instruction. Simply click on the text line where you want to start, and then keep launching the script for each new single instruction. Here is a before -> after example.
         </p>
         <img src="6.png">
         <p>
@@ -134,7 +134,7 @@
         </p>
         <img src="8.png">
         <p>
-            You can test this script on bytes from tables, especially the ones with <text class="label">I</text> flag, to see if they actually point to some locations, or they are just some data.
+            You can test this script on bytes from tables, especially the ones with <text class="label">I</text> flag, to see if they point to some locations, or they are just some data.
         </p>
         <p>
             The 3rd one is <text class="label">Counter</text> (ignored if disabled). In some cases you will want to add an ID number to the label, for example displaying an index value which is used to read these particular low and high bytes. Make sure you figure out the lowest index value, sometimes it can start with F0 or something if it's some kind of a control byte. Anyway, this is how HEX counter looks like with a label.
@@ -145,7 +145,7 @@
         </p>
         <img src="10.png">
         <p>
-            Note that for example <text class="opcode">ofs_89AB_00</text> and <text class="opcode">ofs_89AB_01</text> are actually 2 different labels for the same <text class="address">$89AB</text> location, and will be both added to it.
+            Note that for example <text class="opcode">ofs_89AB_00</text> and <text class="opcode">ofs_89AB_01</text> are in fact 2 different labels for the same <text class="address">$89AB</text> location, and will be both added to it.
         </p>
         <p>
             The 4th argument is <text class="label">Offset value</text>. Sometimes a routine can push values to the stack, and execute an <text class="opcode">RTS</text> instruction in order to go to a location selected from a table.
@@ -156,7 +156,7 @@
         </p>
         <img src="12.png">
         <p>
-            At line 13 we had <text class="label">65</text> and <text class="label">81</text> bytes (<text class="address">$8165</text>), but they actually point at <text class="address">$8166</text> address. The script automatically adds 1 to the address (<text class="address">$8165</text> + 1 = <text class="address">$8166</text>), and by subtracting 1 near the <text class="label">.word</text> label we get a perfectly working label. If you compile this assembly file, bytes will still be <text class="label">65</text> and <text class="label">81</text> as they should be.
+            At line 13 we had <text class="label">65</text> and <text class="label">81</text> bytes (<text class="address">$8165</text>), but in fact they point at <text class="address">$8166</text> address. The script automatically adds 1 to the address (<text class="address">$8165</text> + 1 = <text class="address">$8166</text>), and by subtracting 1 near the <text class="label">.word</text> label we get a perfectly working label. If you compile this assembly file, bytes will still be <text class="label">65</text> and <text class="label">81</text> as they should be.
         </p>
         <p>
             Note that <text class="label">Offset value</text> will be affecting <text class="label">$</text> labeling mode as well.
@@ -222,7 +222,7 @@
         </p>
         <img src="19.png">
         <p>
-            To make it work, you need to manually add a <text class="label">tbl_89CE</text> label to <text class="address">$89CE</text> location, and <text class="opcode">LDA</text> $88D2,Y should actually look like this.
+            To make it work, you need to manually add a <text class="label">tbl_89CE</text> label to <text class="address">$89CE</text> location, while <text class="opcode">LDA</text> $88D2,Y should look like this.
         </p>
         <img src="20.png">
         <p>
