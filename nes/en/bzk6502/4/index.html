@@ -121,14 +121,6 @@
         <p>
             There is one more case with <text class="label">4</text> = <text class="address">$6000-$7FFF</text>. Some mappers allow to switch PRG banks in <text class="address">$6000-$7FFF</text> area. I haven't tested it yet, but in theory these bytes should be properly mapped with <text class="label">C</text> flag, and having <text class="label">"D 4"</text> for data bytes.
         </p>
-        <h4>Indirect flag (I), bit5</h4>
-        <p>
-            <text class="label">I</text> flag is set if some instruction with ($indirect,X) or ($indirect),Y was reading this byte, for example <text class="opcode">LDA</text> ($xx),Y. In the screenshot you can see that <text class="label">I</text> flag helps separate 2 different tables with bytes.
-        </p>
-        <img src="12.png">
-        <p>
-            <text class="label">I</text> flag often gets set if this byte was read as a low/high byte of some other address. <text class="label">I</text> flag is always set together with <text class="label">D</text> flag.
-        </p>
         <h4>Indirect Jump flag (J), bit4</h4>
         <p>
             <text class="label">J</text> is set if some <text class="label">Indirect</text> <text class="opcode">JMP</text> ($xxxx) (6C) instruction was executed to this location. Here are 2 bytes that were used as low/high bytes for this address.
@@ -136,6 +128,14 @@
         <img src="9.png">
         <p>
             <text class="label">J</text> will be always set together with <text class="label">C</text> flag, because games don't jump into data.
+        </p>
+        <h4>Indirect flag (I), bit5</h4>
+        <p>
+            <text class="label">I</text> flag is set if some instruction with ($indirect,X) or ($indirect),Y was reading this byte, for example <text class="opcode">LDA</text> ($xx),Y. In the screenshot you can see that <text class="label">I</text> flag helps separate 2 different tables with bytes.
+        </p>
+        <img src="12.png">
+        <p>
+            <text class="label">I</text> flag often gets set if this byte was read as a low/high byte of some other address. <text class="label">I</text> flag is always set together with <text class="label">D</text> flag.
         </p>
         <h4>Audio flag (A), bit6</h4>
         <p>

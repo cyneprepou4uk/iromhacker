@@ -86,7 +86,7 @@
             This option has 3 arguments.
         </p>
         <li>Name of the CHR file. Default name is <text class="label">"CHR_ROM.chr"</text>, and it will appear in <text class="label">\output\CHR_ROM.chr</text>.</li>
-        <li>Start address from the <text class="label">ROM_file</text>. CHR is located after PRG. The disassembler doesn't calculate address and size of the CHR, you need to do this manually.</li>
+        <li>Start address from the <text class="label">ROM_file</text>. CHR is located after PRG. The disassembler doesn't calculate address and size of the CHR, you need to do this manually.
         <li>Size of a CHR file. If your <text class="label">ROM_file</text> doesn't have a CHR, or if you simply don't want a CHR file as an output, set size to <text class="label">0x0</text>.</li>
         <h4>RAM_file</h4>
         <p>
@@ -121,7 +121,7 @@
         </p>
         <li>Name of the assembly file. If the name is <text class="label">"bank_00.asm"</text>, file will appear in <text class="label">\output\bank_00.asm</text>. If you specify the same name to some other ASM files, disassembly will be appended to this file, not overwritten.</li>
         <li>Start ROM File address from your <text class="label">ROM_file</text>.</li>
-        <li>Base NES Memory address for current bank. Usually you need to start a bank from <text class="label">0x8000</text>, <text class="label">0xA000</text>, <text class="label">0xC000</text> or <text class="label">0xE000</text>.</li>
+        <li>Base NES Memory address for current bank. Usually you need to start a bank from <text class="label">0x8000</text>, <text class="label">0xA000</text>, <text class="label">0xC000</text> or <text class="label">0xE000</text>. In case you're not sure what start address you need, set it to <text class="label">0x8000</text> for now, and then read about <text class="label">Data Mapping flag</text> from the next article.</li></li>
         <li>Size of the bank. If start address is <text class="label">0x8000</text>, and size is <text class="label">0x2000</text>, code will be mapped at <text class="label">$8000-$9FFF</text>.</li>
         <li>Name of the table file, it will be used for bytes which were not logged as code. If you don't want to use a table file for the current bank, set to <text class="label">false</text>.</li>
         <p>
