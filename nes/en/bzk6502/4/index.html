@@ -46,7 +46,7 @@
         </p>
         <img src="2.png">
         <p>
-            Some RAM addresses have additional <text class="label">"a:"</text> text. It enforces <text class="label">Absolute</text> addressing mode for <text class="label">Zero Page</text> RAM addresses in instructions which can use both <text class="label">Zero Page</text> and <text class="label">Absolute</text> addressing modes. If not enforced, <text class="label">ca65</text> assembler will compile a 2-byte instruction, not 3-byte as in the original game, which means that the code below will be shifted upwards.
+            Some RAM addresses have additional <text class="label">"a:"</text> text. What it does is enforces <text class="label">Absolute</text> addressing mode if this instruction is currently using <text class="label">Absolute</text> addressing mode with this <text class="label">Zero Page</text> RAM address. If not enforced, <text class="label">ca65</text> assembler will compile a 2-byte instruction, not 3-byte as in the original game, which means that the code below will be shifted upwards.
         </p>
         <img src="6.png">
         <p>
