@@ -214,9 +214,12 @@
             This script labels all instructions that use <text class="label">Absolute,X</text> and <text class="label">Absolute,Y</text> addressing modes, for example <text class="opcode">LDA</text> $xxxx,Y.
         </p>
         <p>
-            It uses <text class="label">Labeling range</text> argument, and won't label operands which don't fit into this range. For example with <text class="label">$8000</text> config range it will label <text class="address">$8000-$9FFF</text> range. If you want to label another range, toggle <text class="label">Labeling range</text> config script and launch <text class="label">Label tables</text> again.
+            It uses <text class="label">Labeling range</text> argument, and won't label operands which don't fit into this range. For example with <text class="label">$8000</text> config range it will label <text class="address">$8000-$9FFF</text> range.
         </p>
         <img src="18.png">
+        <p>
+            If you want to label another range, toggle <text class="label">Labeling range</text> config and launch <text class="label">Label tables</text> again. You can test ranges that are not intended for your current bank in order to occur errors on purpose, to see if there are instructions that are reading bytes from another bank.
+        </p>
         <p>
             Some of the errors that can occur is when the operand doesn't point to the table directly. For example in this particular case the start <text class="label">Y</text> value is <text class="label">FC</text>, not 00, so the actual address is <text class="address">$88D2</text> + FC = <text class="address">$89CE</text>.
         </p>
@@ -241,6 +244,9 @@
         </p>
         <p>
             Taken together <text class="label">sub_</text>, <text class="label">loc_</text> and <text class="label">ofs_</text> labels, which are all highlighted with blue syntax, you can see how exactly code gets to these locations. Also, there can be a room for optimizations, like sometimes <text class="opcode">JMP</text> can jump directly to <text class="opcode">RTS</text> (look at the <text class="opcode">loc_8A90</text> label on the previous screenshot), meaning you can use another <text class="opcode">RTS</text> instead of that <text class="opcode">JMP</text>, saving 2 bytes of space and 3 cycles.
+        </p>
+        <p>
+            And just like with <text class="label">Label tables</text> script, you can test unintended ranges to search for jumps into another bank.
         </p>
         <h3>--- OTHER ---</h3>
         <h4>Clear console</h4>
