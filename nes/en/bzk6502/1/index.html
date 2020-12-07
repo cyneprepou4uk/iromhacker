@@ -37,13 +37,13 @@
             <a href="https://github.com/cyneprepou4uk/BZK-6502-Disassembler" target="_blank">BZK 6502 Disassembler</a> is a Lua script that is heavily and solely based on a <text class="label">.cdl</text> file. What the script does is separates code from data, it doesn't make any assumptions like some other disassemblers. The more complete CDL file you possess, the more information the disassembler will receive, making it easier for you to create a full disassembly of your game.
         </p>
         <p>
-            Creating a disassembly of a game doesn't always mean creating a perfectly compilable disassembly where you can edit and move any code you want. This takes time, and spending it on making such a disassembly is not rational if you're not going to edit much stuff in the game.
+            Creating a disassembly doesn't always mean creating a perfectly compilable disassembly where you can edit and move any code you want. This takes time, and spending it on making such a disassembly is not rational if you're not going to edit much stuff in the game.
         </p>
         <p>
-            No, sometimes you just need to have a global view at the game code in order to figure out the best way to edit it and to learn how your game actually works. <text class="label">Debugger</text> is a great tool for studying the code in real time, but looking at the text files has a lot of its own advantages.
+            No, sometimes you just need to have a global view at the game code in order to learn how your game actually works, and to figure out the best way to edit it. <text class="label">Debugger</text> is a great tool for studying the code in real time, but looking at the text files while using  powerful text editor has a lot of its own advantages.
         </p>
         <p>
-            Even if you don't have much romhacking skills, you can still create a disassembly of your game with little effort in a couple of hours, mostly by playing the game and launching some scripts. I've tried to make everything as simple as I could afford.
+            Even if you don't have much romhacking skills, you can still create a disassembly with little effort in a couple of hours, mostly by playing the game and launching some scripts. I've tried to make everything as simple as I could afford.
         </p>
         <p>
             Of course if you want to go further and create a perfect disassembly, then good news: output files are targeted on being compatible with a <text class="label">ca65</text> assembler. You still need to do a lot of manual work by yourself in order to label everything, but my Notepad++ scripts can save you a bunch of time and nerves doing that.
@@ -67,7 +67,7 @@
         </p>
         <li>Syntax highlighting</li>
         <li>Display matches counter of a selected text</li>
-		<h4>Preparation before ca65 compilation (will be completed soon)</h4>
+		<h4>Preparation before ca65 compilation (WIP)</h4>
         <p>
             The idea is to have your assembly files as is (like keeping flags and addresses in files), but still being compatible with an assembler by launching one more script each time before compilation.
         </p>
@@ -80,12 +80,12 @@
             Read next articles and perform this steps:
         </p>
         <li>Step 1 - download the source code from my <a href="https://github.com/cyneprepou4uk/BZK-6502-Disassembler" target="_blank">GitHub repository</a></li>
-        <li>Step 2 - make a CDL file</li>
+        <li>Step 2 - play the game to log a CDL file</li>
         <li>Step 3 - prepare input files and edit the config</li>
         <li>Step 4 - start the disassembler with a <text class="label">LAUNCHME.bat</text> file</li>
         <li>Step 5 - install <text class="label">LuaScript</text> plugin for Notepad++</li>
         <li>Step 6 - polish assembly files with Notepad++ scripts</li>
-        <li>Step 7 - prepare assembly files for <text class="label">ca65</text> assembler (for advanced users)</li>
+        <li>Step 7 - prepare assembly files for <text class="label">ca65</text> assembler</li>
 		<script src="https://iromhacker.ru/spoiler.js"></script>
 		<script src="https://iromhacker.ru/tab.js"></script>
 	</body>
