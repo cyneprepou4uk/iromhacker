@@ -115,6 +115,15 @@
         <p>
             Default name is <text class="label">"debug.txt"</text>, and it will appear in <text class="label">\output\debug.txt</text>. If don't want this file as an output, set the 2nd argument to <text class="label">false</text>.
         </p>
+        <h4>FORCE_byte_comments</h4>
+        <p>
+            If a text was not specified to this byte inside a table file, or if a table file was not added for this bank, it can still print <text class="label">";"</text> near this byte. Can be convenient later for manually adding comments to bytes from some tables. If set to <text class="label">true</text>:
+        </p>
+        <img src="1.png">
+        <p>
+            If set to <text class="label">false</text>:
+        </p>
+        <img src="2.png">
         <h4>ASM_config_table</h4>
         <p>
             This table contains 5 arguments for each ASM file. The disassembler doesn't calculate banks depending on the mapper, you need to specify arguments yourself. You can have as many banks as you want, and you don't need to disassembly the whole PRG ROM if you don't want to.
