@@ -117,7 +117,7 @@
         </p>
         <h4>FORCE_byte_comments</h4>
         <p>
-            If a text was not specified to this byte inside a table file, or if a table file was not added for this bank, it can still print <text class="label">";"</text> near this byte. Can be convenient later for manually adding comments to bytes from some tables. If set to <text class="label">true</text>:
+            If no text was specified to this byte inside a table file, or if a table file was not configured for this bank, it can still print <text class="label">";"</text> near this byte. Can be convenient later for manually adding comments to bytes from some tables. If set to <text class="label">true</text>:
         </p>
         <img src="1.png">
         <p>
@@ -128,7 +128,7 @@
         <p>
             This table contains 5 arguments for each ASM file. The disassembler doesn't calculate banks depending on the mapper, you need to specify arguments yourself. You can have as many banks as you want, and you don't need to disassembly the whole PRG ROM if you don't want to.
         </p>
-        <li>Name of the assembly file. If the name is <text class="label">"bank_00.asm"</text>, file will appear in <text class="label">\output\bank_00.asm</text>. If you specify the same name to some other ASM files, disassembly will be appended to this file, not overwritten.</li>
+        <li>Name of the assembly file. If the name is <text class="label">"bank_00.asm"</text>, file will appear in <text class="label">\output\bank_00.asm</text>. If you specify the same name to some other ASM files, disassembly will be appended to this file, not overwritten. However I don't recommend you doing that for banks with the same NES Memory addresses, because of my autolabeling Notepad++ scripts.</li>
         <li>Start ROM File address from your <text class="label">ROM_file</text>. If your ROM has a header, then the very first bank is located starting from <text class="label">0x000010</text>.</li>
         <li>Base NES Memory address for current bank. Usually you need to map code/data for a bank starting from <text class="label">0x8000</text>, <text class="label">0xA000</text>, <text class="label">0xC000</text> or <text class="label">0xE000</text>. In case you're not sure what base address you need, set it to <text class="label">0x8000</text> for now, and then read about <text class="label">Data Mapping flag</text> from the next article.</li></li>
         <li>Size of the bank. Usually size should be <text class="label">0x2000</text>, <text class="label">0x4000</text> or <text class="label">0x8000</text>. If base address is <text class="label">0x8000</text>, and size is <text class="label">0x2000</text>, code/data will be mapped at <text class="address">$8000-$9FFF</text> (the last address of this range must not exceed <text class="address">$FFFF</text>).</li>
