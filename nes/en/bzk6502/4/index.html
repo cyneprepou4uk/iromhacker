@@ -116,7 +116,7 @@
         </p>
         <img src="8.png">
         <p>
-            This flag can be used to make sure you have mapped banks properly in a config file. For example if you decided to map code at $8000-$9FFF, but you see <text class="label">"D 1"</text> all over the file, then think again.
+            This flag can be used to make sure you have mapped banks properly in a config file. For example if you decided to map code at <text class="address">$8000-$9FFF</text>, but you see <text class="label">"D 1"</text> all over the file, then think again.
         </p>
         <p>
             There is one more case with <text class="label">4</text> = <text class="address">$6000-$7FFF</text>. Some mappers allow to switch PRG banks in <text class="address">$6000-$7FFF</text> area. I haven't tested it yet, but in theory these bytes should be properly mapped with <text class="label">C</text> flag, and having <text class="label">"D 4"</text> for data bytes.
