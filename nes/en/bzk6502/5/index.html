@@ -79,33 +79,36 @@
             Note that scripts don't work well with macros, you will end up with garbage in your text file. You need to stop the marco first and then use the script.
         </p>
         <h3>--- CONFIG ---</h3>
-        <h4>Toggle counter mode</h4>
+        <h4>Toggle [counter] mode to Disable | HEX | DEC</h4>
         <p>
             A counter is a 8-bit HEX (00-FF) or DEC (0-255) value, which is used with <text class="label">.byte x2</text> and <text class="label">Paste counter and increase it</text> scripts. I'll explain it when we get to those.
         </p>
         <p>
             Default counter mode is <text class="label">Disabled</text>. You can set it to <text class="label">HEX</text> mode, then <text class="label">DEC</text> mode, then back to <text class="label">Disabled</text>.
         </p>
-        <h4>Set counter by selecting a 8-bit value</h4>
+        <h4>Set [counter] by selecting a 8-bit value</h4>
         <p>
             Default <text class="label">Counter</text> value is <text class="label">00</text> for HEX or <text class="label">0</text> for DEC. To change it, write somewhere in a text file a HEX or DEC value depending on current <text class="label">Counter mode</text>, select this text and launch that script to set a new <text class="label">Counter</text>.
         </p>
         <p>
             If you don't select any text and launch this script, the <text class="label">Counter</text> will be set to a default value. Since value <text class="label">00</text> will be used very often, it's a much faster approach.
         </p>
-        <h4>Toggle bytes conversion mode to .word | .dbyt</h4>
+        <h4>Toggle [conversion] to .word | .dbyt</h4>
         <p>
             It is used for <text class="label">.byte x2</text> script. You can convert 2 bytes into a <text class="label">.word</text> or a <text class="label">.dbyt</text> depending on this setting. Default is <text class="label">.word</text>.
         </p>
-        <h4>Toggle labeling mode to $ | ofs_ | off_</h4>
+        <h4>Toggle [label] to $ | ofs_ | off_ | set custom name</h4>
         <p>
             It is used for <text class="label">.byte x2</text> script. You can simply convert 2 bytes to a <text class="label">.word</text> or a <text class="label">.dbyt</text> if current mode is <text class="label">$</text> (default), or you can add a label to this 16-bit value instead. I personally use <text class="label">ofs_</text> labels (blue syntax) for code locations and <text class="label">off_</text> labels (normal black syntax) for data locations.
         </p>
-        <h4>Toggle offset value to 0 | 1</h4>
+        <p>
+            You can also set a custom name by selecting some text, for example <text class="label">_animation_</text>, which will be used instead of <text class="label">ofs_</text> or <text class="label">off_</text>. If you don't select any text, or select multiple lines at once, label will be set to a default <text class="label">$</text>.
+        </p>
+        <h4>Toggle [offset] to 0 | 1</h4>
         <p>
             It is used for <text class="label">.byte x2</text> script. Default mode is <text class="label">0</text>. <text class="label">Offset</text> corrects addresses for <text class="label">.word</text> or <text class="label">.dbyt</text> by 1 if set to <text class="label">1</text>. It will be explained below.
         </p>
-        <h4>Toggle labeling range $8000 | $A000 | $C000 | $E000 | $6000</h4>
+        <h4>Toggle [range] $8000 | $A000 | $C000 | $E000 | $6000</h4>
         <p>
             Used for <text class="label">Label tables</text> and <text class="label">Label JMP/JSR</text> scripts in order to specify 0x2000 range for autolabeling.
         </p>
@@ -141,6 +144,9 @@
         </p>
         <img src="8.png">
         <p>
+            If a label is pointing to a line that contains <text class="label">RTS</text> instruction, then <text class="label">_RTS</text> text will be automatically added to that label.
+        </p>
+        <p>
             You can test this script on bytes from tables, especially the ones with <text class="label">I</text> flag, to see if they are pointers, or they are simply data.
         </p>
         <p>
@@ -168,17 +174,6 @@
         <p>
             Note that <text class="label">Offset value</text> will be affecting <text class="label">$</text> labeling mode as well.
         </p>
-        <h4>.byte -> [counter] .byte</h4>
-        <p>
-            Sometimes you will want to have a nice table with several bytes in a single line, not just 1 byte in 1 line. This script uses <text class="label">Counter</text> value (<text class="label">HEX</text> or <text class="label">DEC</text>, doesn't matter).
-        </p>
-        <p>
-            First you need to set a <text class="label">Counter</text> to 2 or higher value. Then you select a number of lines that can be divided by this value. For example you have set <text class="label">Counter</text> to <text class="label">4</text>, which means you need to select 4, 8, 12, 16 (and so on) number of lines. Then launch the script. Here is a before -> after example with <text class="label">Counter</text> value = 4 and 24 .byte lines.
-        </p>
-        <img src="14.png">
-        <p>
-            Note that selected lines will be deleted, and list of bytes will be added without flags and addresses info.
-        </p>
         <h4>.byte $ -> .byte %</h4>
         <p>
             This script converts a byte to 8 bits.
@@ -198,6 +193,9 @@
         </p>
         <p>
             Scripts only work with instructions that have <text class="label">$xxxx</text> operand. If it can't detect <text class="label">$</text> symbol, it assumes that the label is already added for this instruction.
+        </p>
+        <p>
+            If a label is pointing to a line that contains <text class="label">RTS</text> instruction, then <text class="label">_RTS</text> text will be automatically added to that label.
         </p>
         <p>
             Make sure to check out the console and deal with possible errors if the script can't find some addresses. If an error occurs, label won't be added, you need to deal with this manually. But if you simply want to create a quick disassembly just to look at the code, don't bother too much with these errors.
@@ -239,7 +237,7 @@
             In my case error occurred because the script couldn't find <text class="address">$88D2</text>, but if it would find it, a label would be added as usual. So you need to double check all <text class="label">tbl_</text> labels and correct them if needed.
         </p>
         <p>
-            Note that some tables can be only 1 byte length, for example code can read byte 20 from <text class="address">$89AB</text> via <text class="opcode">LDA</text> $89AB instruction, not via <text class="opcode">LDA</text> #$20 instruction. If these addresses don't have labels, you're in a trouble when you start to edit and shift code. However, my script doesn't find these cases. You can do this manually by searching in Notepad++ with a specific regular expression - <text class="label">(LDA|LDX|LDY|STA|INC|DEC|CMP|ADC|SBC|ORA|AND|EOR|ASL|ROL|LSR|ROR).\$(6|7|8|9|A|B|C|D|E|F)....\n</text>
+            Note that some tables can be only 1 byte length, for example code can read byte 20 from <text class="address">$89AB</text> via <text class="opcode">LDA</text> $89AB instruction, not via <text class="opcode">LDA</text> #$20 instruction. If these addresses don't have labels, you're in a trouble when you start to edit and shift code. However, my script doesn't find these cases. You can do this manually by searching in Notepad++ with a specific regular expression - <text class="label">(LDA|LDX|LDY|INC|DEC|CMP|ADC|SBC|ORA|AND|EOR|ASL|ROL|LSR|ROR).\$(6|7|8|9|A|B|C|D|E|F)....\n</text>
         </p>
         <h4>Label JMP/JSR [range]</h4>
         <p>
